@@ -1,18 +1,18 @@
 {
     "menuHeader": [
-        { "title": "Про нас", "url": "/about.html", "id": "about" },
-        { "title": "Сервіси", "url": "/services.html", "id": "services" },
+        { "title": "Про нас", "url": "about.html", "id": "about" },
+        { "title": "Сервіси", "url": "services.html", "id": "services" },
         {
             "title": "Прайс",
             "id": "price",
-            "url": "/price.html",
+            "url": "price.html",
             "submenu": [
-                { "title": "Прайс Послуги", "url": "/price.html", "id": "price"},
-                { "title": "Прайс Запчастини", "url": "/price.html", "id": "price"}
+                { "title": "Прайс Послуги", "url": "price.html", "id": "price"},
+                { "title": "Прайс Запчастини", "url": "price.html", "id": "price"}
             ]
         },
-        { "title": "Бренди", "url": "/brands.html", "id": "brands" },
-        { "title": "Контакти", "url": "/contacts.html", "id": "contacts" }
+        { "title": "Бренди", "url": "brands.html", "id": "brands" },
+        { "title": "Контакти", "url": "contacts.html", "id": "contacts" }
     ],
     "menuFooter": [
         {"title": "Про нас", "url": "#!"},
