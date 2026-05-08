@@ -1,0 +1,71 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.innovation {
+    padding-block: rem(105px);
+    background: #e6e7ec;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: rem(24px);
+    }
+
+    .section-subheading {
+        margin-bottom: rem(24px);
+    }
+
+    &__title {
+        margin-bottom: rem(24px);
+        font: 700 #{rem(20px)} / 30px $ff;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: rem(16px);
+
+        li {
+            gap: rem(8px);
+            font: 400 #{rem(20px)} / 30px $ff;
+            display: inline-flex;
+            &::before {
+                content: '';
+                background: url('../images/icons/ico-check.svg') no-repeat center center;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: rem(40px);
+                height: rem(40px);
+            }
+        }
+    }
+
+    &__text {
+        p {
+            font: 400 #{rem(20px)} / 30px $ff;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: rem(16px);
+        max-width: rem(705px);
+        color: #072136;
+
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__pic {
+        max-width: rem(852px);
+    }
+
+    .cross-block {
+        --cross-size: #{rem(300px)};
+    }
+}

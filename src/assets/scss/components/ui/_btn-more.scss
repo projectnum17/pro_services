@@ -1,0 +1,32 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.btn-more {
+    font: 600 #{rem(15px)} / 140% $ff;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: rem(49px);
+    min-width: rem(334px);
+    color: #072136;
+    @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+
+    @include hover {
+        min-width: rem(346px);
+        span {
+            height: rem(45px);
+        }
+    }
+
+    span {
+        height: 100%;
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    }
+}

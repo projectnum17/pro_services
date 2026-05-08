@@ -1,0 +1,14 @@
+<div class="testimonials-slider">
+    <button type="button" class="testimonials-slider__btn js-testimonials-prev"></button>
+    <button type="button" class="testimonials-slider__btn js-testimonials-next"></button>
+    <div class="testimonials-slider__carousel js-testimonials-slider swiper">
+        <div class="testimonials-slider__wrapper swiper-wrapper">
+            {{#each testimonials.testimonials}}
+                <div class="testimonials-slider__slide swiper-slide">
+                    {{> _testimonialBox this}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="testimonials-slider__scroll js-testimonials-scrollbar"></div>
+</div>

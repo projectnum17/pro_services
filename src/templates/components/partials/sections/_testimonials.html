@@ -1,0 +1,20 @@
+<section class="testimonials">
+    <div class="container">
+        <div class="testimonials__head">
+            <div class="testimonials__info">
+                {{> _tag
+                    label = 'Відгуки'
+                }}
+                {{> _titleBuilder
+                    label = 'Довіра клієнтів — наша головна рекомендація'
+                    className = 'section-subtitle title-quote'
+                    tagWrapper = 'h2'
+                }}
+            </div>
+            {{> _linkRoutes
+                label = "Дивитись більше"
+            }}
+        </div>
+        {{> _tesitmonialSlider}}
+    </div>
+</section>

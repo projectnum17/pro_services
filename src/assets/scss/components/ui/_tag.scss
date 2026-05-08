@@ -1,0 +1,23 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.tag {
+    padding: rem(7px);
+    display: inline-flex;
+    align-items: center;
+    gap: rem(20px);
+    width: max-content;
+    border-radius: rem(40px);
+    font: 600 #{rem(13px)} / 120% $ff;
+    text-transform: uppercase;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $c_blue;
+    color: $c_blue;
+    opacity: .5;
+
+    svg {
+        margin-top: -1px;
+    }
+}

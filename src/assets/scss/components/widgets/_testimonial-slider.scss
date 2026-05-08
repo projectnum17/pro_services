@@ -1,0 +1,103 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.testimonials-slider {
+    position: relative;
+
+    @include hover {
+        .testimonials-slider__btn {
+            opacity: 1;
+            backdrop-filter: blur(44px);
+            -webkit-backdrop-filter: blur(44px);
+            &.swiper-button-disabled {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    &__carousel {
+        overflow: visible;
+        margin-bottom: rem(52px);
+    }
+
+    &__scroll {
+        max-width: rem(1028px);
+        margin: 0 auto;
+        height: rem(1px);
+        background: #00000033;
+        .swiper-scrollbar-drag {
+            height: rem(3px);
+            top: rem(-1px);
+            background: #000000;
+        }
+    }
+
+    &__slide {
+        height: auto;
+        width: auto;
+    }
+
+    &__btn {
+        position: absolute;
+        width: rem(80px);
+        height: rem(80px);
+        border-radius: 50%;
+        overflow: hidden;
+        z-index: 2;
+        opacity: 0;
+        background-color: rgba(255, 255, 255, 0.01);
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        transform: translateZ(0);
+        top: 50%;
+        backface-visibility: hidden;
+        &.swiper-button-disabled {
+            pointer-events: none;
+        }
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+        &:first-of-type {
+            transform: rotate(180deg) translateZ(0) translateY(100%);
+        }
+        &:last-of-type {
+            right: 0;
+            transform: translateZ(0) translateY(-100%);
+        }
+        @include hover {
+            width: rem(88px);
+            height: rem(88px);
+            &::before {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+
+            &::after {
+                opacity: 0;
+                transform: translate(100%, 100%);
+            }
+        }
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            display: inline-flex;
+            flex-shrink: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: rem(26px);
+            height: rem(26px);
+            background: url('../images/icons/ico-arrow-or.svg') no-repeat center
+                center / cover;
+            @include transitions(
+                0.3s,
+                cubic-bezier(0.768, 0.304, 0.496, 0.884)
+            );
+        }
+
+        &::before {
+            opacity: 0;
+            transform: translate(-100%, -100%);
+        }
+    }
+}

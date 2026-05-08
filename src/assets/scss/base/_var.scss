@@ -1,0 +1,39 @@
+@use 'media' as *;
+@use 'mixins' as *;
+
+$ff: 'IBM Plex Sans', sans-serif;
+$ff_accent: 'FF accent', sans-serif;
+$system-ff:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+
+$container_wdth: #{rem(1760px)};
+$container_pdd: #{rem(20px)};
+
+$c_primary: #de5126;
+$c_secondary: #181d27;
+$c_orange: #ffa126;
+$c_half: #535862;
+$c_white: #ffffff;
+$c_black: #000000;
+$c_blue: #072136;
+$c_sky: #e6e7ec;
+$c_grey: #537896;
+
+$bg_content: #fff;
+
+$primary_gradient: linear-gradient(90deg, #ffa126 0%, #de5126 100%);
+
+:root {
+    --header-h: #{rem(108px)};
+}
+
+@include media('tablet') {
+    :root {
+    }
+}
+
+@include media('mobile') {
+    :root {
+    }
+}

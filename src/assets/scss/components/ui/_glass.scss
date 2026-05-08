@@ -1,0 +1,12 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.glass {
+    backdrop-filter: blur(20px);
+
+    &--blue {
+        color: #fff;
+        background: #5378961a;
+    }
+}

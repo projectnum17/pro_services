@@ -1,0 +1,47 @@
+<section class="hero">
+    <div class="hero__windows">
+        <div class="container">
+            <div class="hero__wrapper">
+                <div class="hero__window cross-block cross-block--lot"></div>
+                <div class="hero__window cross-block cross-block--lot"></div>
+                <div class="hero__window cross-block cross-block--tl"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container container--c glass glass--blue cross-block cross-block--lot">
+        <div class="hero__heading">
+            {{> _tag label='сеРвісний центр'}}
+            {{> _titleBuilder
+                className = "section-heading"
+                tagWrapper = "h1"
+                label = "Сервіс професійного nail-обладнання."
+            }}
+        </div>
+        <div class="hero__info">
+            <p class="hero__text">
+                Спеціалізований сервіс з діагностики, ремонту та обслуговування професійного обладнання для
+                nail-індустрії з повним контролем процесу.
+            </p>
+            <div class="hero__controls">
+                {{> _linkAccent
+                    label = "Подати заявку"
+                    additClasses = "js-contact-trigger"
+                }}
+                {{> _linkSecondary
+                    label = "Зареєструвати пристрій"
+                }}
+            </div>
+        </div>
+    </div>
+    <div class="container container--th">
+        <div class="hero__chip">
+            <img src="./assets/images/chip.png" alt="">
+        </div>
+        <div class="hero__blur">
+            <img src="./assets/images/blur.png" alt="">
+        </div>
+        <div class="hero__thumb">
+            <img src="./assets/images/robot.png" alt="">
+        </div>
+    </div>
+</section>

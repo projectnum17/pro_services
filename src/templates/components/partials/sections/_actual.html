@@ -1,0 +1,18 @@
+<section class="actual">
+    <div class="container">
+        <div class="actual__head">
+            {{> _tag label = "Блог"}}
+            {{> _titleBuilder
+                label = titleText
+                className = 'section-title'
+                tagWrapper = 'h2'
+            }}
+        </div>
+        <div class="actual__cards">
+            {{#each (sliceCollect blog.blog 0 3)}}
+                {{> _blogBox this}}
+            {{/each}}
+            {{> _blogBoxAccent}}
+        </div>
+    </div>
+</section>

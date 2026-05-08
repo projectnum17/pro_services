@@ -1,0 +1,8 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.section-subheading {
+    font: 600#{rem(56px)} / 100% $ff;
+    letter-spacing: -2px;
+}

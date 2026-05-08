@@ -1,0 +1,43 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.corner-block {
+    --corner-size: #{rem(120px)};
+    position: relative;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: var(--corner-size);
+        height: var(--corner-size);
+        background: #fff;
+        mask: url('../images/icons/substract.svg') no-repeat center center /
+            cover;
+    }
+
+    &--br {
+        &::after {
+            top: 0;
+            left: 0;
+        }
+
+        &::before {
+            bottom: 0;
+            right: 0;
+            transform: rotate(180deg);
+        }
+    }
+
+    &--tl {
+        &::before {
+            top: 0;
+            left: 0;
+        }
+
+        &::after {
+            display: none;
+        }
+    }
+}

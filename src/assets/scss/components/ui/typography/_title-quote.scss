@@ -1,0 +1,38 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.title-quote {
+    display: flex;
+    align-items: center;
+    gap: rem(20px);
+    position: relative;
+
+    --block-w: #{rem(68px)};
+    --block-h: #{rem(48px)};
+
+    &::before {
+        content: '“';
+        background: $primary_gradient;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        position: absolute;
+        right: rem(24px);
+        top: 72%;
+        font: 400 #{rem(50px)} / 100% $ff;
+        letter-spacing: -2px;
+        transform: translateY(-50%);
+    }
+
+    &::after {
+        content: '';
+        width: var(--block-w);
+        height: var(--block-h);
+        border-radius: rem(32px);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: $c_secondary;
+    }
+}

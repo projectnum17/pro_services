@@ -1,0 +1,77 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.btn-anchor {
+    $border-width: #{rem(2px)};
+    $corner-size: #{rem(9px)};
+
+    font: 600 #{rem(15px)} / 140% $ff;
+    text-transform: uppercase;
+    border: $border-width solid #00000066;
+    padding: rem(16px) rem(15px);
+    position: relative;
+    z-index: 1;
+    color: rgba(0, 0, 0, 0.6);
+    @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+
+    &.is-active {
+        background: #000000;
+        color: #fff;
+
+        @include hover {
+            color: #fff;
+        }
+
+        &::after,
+        &::before {
+            background: #000000;
+        }
+
+        &::before {
+            width: 0;
+        }
+
+        &::after {
+            height: 0;
+        }
+    }
+
+    @include hover {
+        color: #000000;
+        border-color: #000000;
+
+        &::before {
+            width: 0;
+        }
+
+        &::after {
+            height: 0;
+        }
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        background: #fff;
+        z-index: -1;
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    }
+
+    &::before {
+        width: calc(100% - $corner-size);
+        height: calc(101% + ($border-width * 2));
+        top: -$border-width;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &::after {
+        height: calc(100% - $corner-size);
+        width: calc(101% + $border-width * 2);
+        left: -$border-width;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

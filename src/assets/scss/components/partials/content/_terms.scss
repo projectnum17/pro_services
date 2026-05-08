@@ -1,0 +1,140 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.terms {
+    padding-block: rem(80px);
+    background: $bg_content;
+
+    .container {
+        display: flex;
+        align-items: flex-start;
+        gap: rem(24px);
+        justify-content: space-between;
+    }
+
+    &__controls {
+        display: flex;
+        flex-direction: column;
+        gap: rem(24px);
+        max-width: rem(285px);
+        position: sticky;
+        top: var(--header-h);
+
+        .btn-anchor {
+            text-align: left;
+        }
+    }
+
+    &__content {
+        max-width: rem(852px);
+        margin-right: rem(145px);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: rem(100px);
+        color: $c_blue;
+
+        *:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font: 600 #{rem(40px)} / 130% $ff;
+            letter-spacing: -2px;
+            margin: 0 0 rem(80px) 0;
+        }
+
+        h3 {
+            font: 600 #{rem(28px)} / 100% $ff;
+            letter-spacing: -1px;
+            margin: 0 0 rem(40px) 0;
+        }
+
+        h4 {
+            font: 600 #{rem(24px)} / 100% $ff;
+            letter-spacing: -1px;
+            margin: 0 0 rem(30px) 0;
+        }
+
+        h5,
+        h6 {
+            font: 600 #{rem(22px)} / 100% $ff;
+            letter-spacing: -1px;
+            margin: 0 0 rem(20px) 0;
+        }
+
+        p {
+            font: 400 #{rem(20px)} / 30px $ff;
+
+            &:has(+ :not(p)) {
+                margin-bottom: 48px;
+            }
+        }
+
+        ol > li > ol {
+            margin-top: rem(18px);
+        }
+
+        ol,
+        ul {
+            counter-reset: counter;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            list-style-type: none;
+            gap: rem(16px);
+
+            li {
+                font: 400 #{rem(20px)} / 30px $ff;
+                counter-increment: counter;
+                padding-left: rem(48px);
+                position: relative;
+                &::before {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    content: counters(counter, '.') ' ';
+                    flex-shrink: 0;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    font: 600 #{rem(15px)} / 140% $ff;
+                    text-transform: uppercase;
+                    width: rem(40px);
+                    height: rem(30px);
+                }
+            }
+
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        blockquote {
+            margin: 0 0 rem(48px) 0;
+            padding-left: rem(40px);
+            border-left: 3px solid $c_blue;
+            p {
+                font-size: rem(22px);
+                font-weight: 600;
+            }
+            * {
+                &:first-child {
+                    padding-top: rem(32px);
+                }
+                &:last-child {
+                    padding-bottom: rem(32px);
+                }
+            }
+        }
+    }
+
+    &__chapter {
+        &:not(:first-child) {
+            padding-top: rem(80px);
+            border-top: 1px solid #b0bec9;
+        }
+    }
+}

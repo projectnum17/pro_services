@@ -1,0 +1,57 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.services {
+    padding-bottom: rem(100px);
+    background: $bg_content;
+
+    .section-info {
+        text-align: right;
+    }
+
+    &__content {
+        border-radius: rem(24px);
+        padding: rem(48px) rem(80px);
+        background: $c_sky;
+    }
+
+    &__head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: rem(24px);
+        margin-bottom: rem(104px);
+    }
+
+    &__heading,
+    &__info {
+        width: 50%;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: rem(24px);
+    }
+
+    &__heading {
+        display: flex;
+        flex-direction: column;
+        gap: rem(8px);
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: rem(8px);
+    }
+
+    .service-box {
+        max-width: 100%;
+    }
+
+    .route {
+        align-self: flex-end;
+    }
+}

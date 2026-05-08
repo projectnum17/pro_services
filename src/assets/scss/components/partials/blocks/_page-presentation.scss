@@ -1,0 +1,30 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.page-presentation {
+    position: relative;
+    min-height: rem(323px);
+    display: grid;
+    overflow: hidden;
+
+    &__deco {
+        position: absolute;
+        left: rem(504px);
+        height: 100%;
+        color: #16181d;
+    }
+
+    &__logo {
+        right: rem(200px);
+        position: absolute;
+        max-width: rem(674px);
+        bottom: rem(70px);
+        transform: translateY(50%);
+
+        svg {
+            width: 100%;
+            color: #fff;
+        }
+    }
+}

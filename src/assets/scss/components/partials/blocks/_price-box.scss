@@ -1,0 +1,122 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.price-box {
+    padding: rem(16px);
+    border-radius: rem(24px);
+    display: flex;
+    flex-direction: column;
+    background: #e6e7ec80;
+    @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    @include hover {
+        background: #e6e7ec;
+        .price-box__pic img {
+            transform: scale(1.15);
+        }
+        .price-box__descr {
+            opacity: 1;
+            visibility: visible;
+        }
+        .price-box__cta span {
+            height: rem(58px);
+        }
+    }
+
+    &:not(:has(.price-box__cta)) {
+        .price-box__price {
+            padding-block: rem(18px);
+            display: flex;
+            align-items: center;
+            gap: rem(8px);
+        }
+    }
+
+    &__pic {
+        border-radius: rem(12px);
+        aspect-ratio: 386 / 244;
+        max-height: rem(244px);
+        overflow: hidden;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            @include transitions(
+                0.5s,
+                cubic-bezier(0.768, 0.304, 0.496, 0.884)
+            );
+        }
+    }
+
+    &__title {
+        font: 600 #{rem(28px)} / 100% $ff;
+        letter-spacing: -1px;
+        margin-bottom: rem(15px);
+        color: #072136;
+    }
+
+    &__subtitle {
+        font: 600 #{rem(16px)} / 150% $ff;
+        margin-bottom: rem(15px);
+        color: #535862;
+    }
+
+    &__descr {
+        font: 400 #{rem(16px)} / 180% $ff;
+        opacity: 0;
+        visibility: hidden;
+        color: #537896;
+        @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    }
+
+    &__foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: rem(5px);
+        padding-top: rem(16px);
+        margin-top: auto;
+        margin-inline: rem(16px);
+        border-top: 1px solid #b0bec9;
+    }
+
+    &__details {
+        padding: rem(24px) rem(16px) rem(23px) rem(16px);
+    }
+
+    &__price {
+        font: 600 #{rem(22px)} / 28px $ff;
+    }
+
+    &__reminder {
+        font: 400 #{rem(12px)} / 150% $ff;
+        max-width: rem(215px);
+        color: #072136;
+    }
+
+    &__cta {
+        font: 600 #{rem(15px)} / 140% $ff;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        height: rem(64px);
+        justify-content: center;
+        border-radius: 999px;
+        color: $c_white;
+        @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+        span {
+            height: 100%;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: rem(10px) rem(16px);
+            background: $primary_gradient;
+            @include transitions(
+                0.5s,
+                cubic-bezier(0.768, 0.304, 0.496, 0.884)
+            );
+        }
+    }
+}

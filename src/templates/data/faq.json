@@ -1,0 +1,56 @@
+{
+    "faq": [
+        {
+            "question": "Як передати лампу в сервісний центр ONAIL на діагностику чи ремонт?",
+            "answer": "<p>Ви можете зробити це будь-яким зручним способом:</p><ul><li>особисто принести лампу в сервісний центр;</li><li>надіслати Новою Поштою або Укрпоштою;</li><li>замовити кур’єрський забір (для салонів та майстрів).</li></ul><p>Після оформлення заявки на сайті ви отримаєте інструкції та адресні дані.</p>"
+        },
+        {
+            "question": "Скільки часу займає ремонт?",
+            "answer": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum suscipit atque nostrum eos. Non necessitatibus, eum excepturi saepe accusantium et? Placeat provident officiis ad? Iste eos earum a saepe."
+        },
+        {
+            "question": "Хто сплачує за доставку?",
+            "answer": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum suscipit atque nostrum eos. Non necessitatibus, eum excepturi saepe accusantium et? Placeat provident officiis ad? Iste eos earum a saepe."
+        },
+        {
+            "question": "Що потрібно відправити разом із технікою?",
+            "answer": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum suscipit atque nostrum eos. Non necessitatibus, eum excepturi saepe accusantium et? Placeat provident officiis ad? Iste eos earum a saepe."
+        },
+        {
+            "question": "Я загубила гарантійний талон, що робити?",
+            "answer": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum suscipit atque nostrum eos. Non necessitatibus, eum excepturi saepe accusantium et? Placeat provident officiis ad? Iste eos earum a saepe."
+        },
+        {
+            "question": "Чи продовжується гарантія після ремонту?",
+            "answer": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum suscipit atque nostrum eos. Non necessitatibus, eum excepturi saepe accusantium et? Placeat provident officiis ad? Iste eos earum a saepe."
+        },
+        {
+            "question": "Чи виконуєте ви платний ремонт після закінчення гарантії?",
+            "answer": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum suscipit atque nostrum eos. Non necessitatibus, eum excepturi saepe accusantium et? Placeat provident officiis ad? Iste eos earum a saepe."
+        },
+        {
+            "question": "Скільки коштує ремонт?",
+            "answer": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum suscipit atque nostrum eos. Non necessitatibus, eum excepturi saepe accusantium et? Placeat provident officiis ad? Iste eos earum a saepe."
+        },
+        {
+            "question": "Чому заміна підшипників і щіток платна, якщо діє гарантія?",
+            "answer": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum suscipit atque nostrum eos. Non necessitatibus, eum excepturi saepe accusantium et? Placeat provident officiis ad? Iste eos earum a saepe."
+        },
+        {
+            "question": "У мене не сушить лампа?",
+            "answer": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum suscipit atque nostrum eos. Non necessitatibus, eum excepturi saepe accusantium et? Placeat provident officiis ad? Iste eos earum a saepe."
+        },
+        {
+            "question": "У мене зламався фрезер (витяжка, лампа)",
+            "answer": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum suscipit atque nostrum eos. Non necessitatibus, eum excepturi saepe accusantium et? Placeat provident officiis ad? Iste eos earum a saepe."
+        },
+        {
+            "question": "Чи можна відправити лише ручку від фрезера, без блоку?",
+            "answer": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum suscipit atque nostrum eos. Non necessitatibus, eum excepturi saepe accusantium et? Placeat provident officiis ad? Iste eos earum a saepe."
+        },
+        {
+            "question": "Куди відправляти?",
+            "answer": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum suscipit atque nostrum eos. Non necessitatibus, eum excepturi saepe accusantium et? Placeat provident officiis ad? Iste eos earum a saepe."
+        }
+    ]
+}

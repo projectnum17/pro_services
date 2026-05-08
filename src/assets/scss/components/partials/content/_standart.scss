@@ -1,0 +1,27 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.standart {
+    padding-block: rem(63px);
+
+    &__content {
+        padding-block: rem(67px);
+    }
+
+    &__info {
+        max-width: rem(851px);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: rem(40px);
+    }
+
+    &__desc {
+        p {
+            font: 400 #{rem(20px)} / 30px $ff;
+        }
+    }
+}

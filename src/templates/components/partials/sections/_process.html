@@ -1,0 +1,43 @@
+<section class="process">
+    <div class="container">
+        <div class="process__content glass glass--blue cross-block cross-block--lot">
+            <div class="process__info">
+                {{> _tag label = "Як це працює"}}
+                {{> _titleBuilder
+                    className = "section-subtitle"
+                    label = "Процес сервісного обслуговування"
+                    tagWrapper = "h2"
+                }}
+                <img loading="lazy" decoding="async" src="./assets/images/icons/logo-mini.svg" alt="Logo"
+                    class="process__logo">
+            </div>
+            <div class="process__show js-process-wrapper">
+                <div class="process__paginations js-process-pag"></div>
+                <div class="process__details">
+                    <div class="process__slider js-process-content">
+                        {{#each servicesStep.servicesStep}}
+                            <div class="process__slider-slide js-process-slide">
+                                <h3 class="process__title">
+                                    {{ this.title }}
+                                </h3>
+                                <p class="process__descr">
+                                    {{ this.description }}
+                                </p>
+                            </div>
+                        {{/each}}
+                    </div>
+                    <div class="process__controls">
+                        {{> _linkAccent
+                            label = "Зареєструватися"
+                            additClasses = "js-contact-trigger"
+                        }}
+                        {{> _linkSecondary
+                            additClass = "js-contact-trigger"
+                            label = "Умови сервісу"
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

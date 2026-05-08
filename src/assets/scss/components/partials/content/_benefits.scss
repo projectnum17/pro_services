@@ -1,0 +1,14 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.benefits {
+    padding-block: rem(80px);
+    background: $c_white;
+
+    &__boxes {
+        display: flex;
+        flex-direction: column;
+        gap: rem(80px);
+    }
+}

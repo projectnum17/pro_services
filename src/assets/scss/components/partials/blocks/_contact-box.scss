@@ -1,0 +1,52 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.contact-box {
+    max-width: rem(852px);
+    width: 100%;
+    border-radius: rem(24px);
+    padding: rem(72px);
+    background: #e6e7ec;
+
+    .section-title {
+        margin-bottom: rem(24px);
+        color: $c_blue;
+    }
+
+    .link-accent {
+        span {
+            padding: rem(20px) rem(58px);
+        }
+    }
+
+    &__foot {
+        padding-top: rem(56px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: rem(12px);
+    }
+
+    &__tcpa {
+        font: 400 #{rem(16px)} / 180% $ff;
+        max-width: rem(456px);
+        color: #535862;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    &__fields {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: rem(32px);
+
+        .form-field {
+            &:nth-child(n + 3) {
+                grid-column: span 2;
+            }
+        }
+    }
+}

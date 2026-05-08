@@ -1,0 +1,22 @@
+<section class="blog">
+    <div class="blog__bg">
+        <img src="./assets/images/blog-bg.jpg" alt="">
+    </div>
+    <div class="container js-blog-collect">
+        <div class="blog__info">
+            {{> _breadcrumbsBuilder}}
+            {{> _tag label = "Блог" }}
+            {{> _titleBuilder
+                className = "section-heading"
+                tagWrapper = "h1"
+                label = "Актуальне та корисне"
+            }}
+        </div>
+        <div class="blog__collect">
+            {{#each blog.blog}}
+                {{> _blogBox this}}
+            {{/each}}
+        </div>
+        {{> _btnMore additClasses = "js-blog-more"}}
+    </div>
+</section>

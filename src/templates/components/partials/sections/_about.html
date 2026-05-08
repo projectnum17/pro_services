@@ -1,0 +1,33 @@
+<section class="about">
+    <div class="container">
+        {{> _breadcrumbsBuilder}}
+        <div class="about__description">
+            <div class="about__heading">
+                {{> _tag label = "Про нас" }}
+                {{> _titleBuilder
+                    className = "section-heading"
+                    tagWrapper = "h1"
+                    label = "Якість сервісу та експертний підхід"
+                }}
+            </div>
+            <div class="about__info">
+                {{> _titleBuilder
+                    className = "section-title"
+                    tagWrapper = "h2"
+                    label = "Спеціалізований сервіс з діагностики, ремонту та обслуговування професійного обладнання для nail-індустрії з повним контролем процесу."
+                }}
+                <div class="about__text">
+                    <p>
+                        Наш досвід дозволяє працювати з різними типами техніки — від фрезерів до ламп і витяжок та
+                        іншого beauty-обладнання — забезпечуючи точну діагностику та якісний ремонт.
+                    </p>
+                    <p>
+                        Щодня ми допомагаємо майстрам повернути до роботи їхній інструмент — швидко, якісно та з
+                        гарантією результату.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{> _pagePresentation}}

@@ -1,0 +1,20 @@
+<div class="benefit-box">
+    <div class="benefit-box__info cross-block cross-block--lot">
+        {{> _titleBuilder
+            className = "section-subheading"
+            tagWrapper = "h2"
+            label = title
+        }}
+        <p class="benefit-box__desc">
+            Надаємо гарантійний і післягарантійний ремонт та сервісну підтримку техніки цих брендів.
+        </p>
+        {{> _linkAccent
+            label = linkText
+            additClasses = "js-contact-trigger"
+        }}
+    </div>
+    <div class="benefit-box__pic cross-block cross-block--lot">
+        <img src="{{picture}}" alt="{{title}}">
+        <span class="benefit-box__tag">{{tag}}</span>
+    </div>
+</div>

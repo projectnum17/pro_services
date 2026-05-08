@@ -1,0 +1,28 @@
+{
+    "menuHeader": [
+        { "title": "Про нас", "url": "/about.html", "id": "about" },
+        { "title": "Сервіси", "url": "/services.html", "id": "services" },
+        {
+            "title": "Прайс",
+            "id": "price",
+            "url": "/price.html",
+            "submenu": [
+                { "title": "Прайс Послуги", "url": "/price.html", "id": "price"},
+                { "title": "Прайс Запчастини", "url": "/price.html", "id": "price"}
+            ]
+        },
+        { "title": "Бренди", "url": "/brands.html", "id": "brands" },
+        { "title": "Контакти", "url": "/contacts.html", "id": "contacts" }
+    ],
+    "menuFooter": [
+        {"title": "Про нас", "url": "#!"},
+        {"title": "Сервіси", "url": "#!"},
+        {"title": "Прайс", "url": "#!"},
+        {"title": "Блог", "url": "#!"},
+        {"title": "Відгуки", "url": "#!"},
+        {"title": "Бренди", "url": "#!"},
+        {"title": "FAQ", "url": "#!"},
+        {"title": "Контакти", "url": "#!"},
+        {"title": "Умови сервісу", "url": "#!"}
+    ]
+}

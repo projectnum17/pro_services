@@ -1,0 +1,10 @@
+{
+    "brands": [
+        { "pic": "./assets/images/logo_1.png" },
+        { "pic": "./assets/images/logo_2.png" },
+        { "pic": "./assets/images/logo_3.png" },
+        { "pic": "./assets/images/logo_4.png" },
+        { "pic": "./assets/images/logo_5.png" },
+        { "pic": "./assets/images/logo_6.png" }
+    ]
+}

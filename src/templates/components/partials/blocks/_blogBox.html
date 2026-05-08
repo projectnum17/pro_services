@@ -1,0 +1,35 @@
+<a href="javascript: void(0)" class="blog-box js-blog-box">
+    <div class="blog-box__head">
+        <span class="blog-tag blog-tag--{{ tagModifier }}">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M5.4987 1.83301V9.16634M8.2487 2.74967L2.7487 8.24967M9.16536 5.49967H1.83203M8.2487 8.24967L2.7487 2.74967"
+                    stroke="#203805" stroke-linejoin="round" />
+            </svg>
+            {{ tag }}
+        </span>
+        <h3 class="blog-box__title">
+            {{ title }}
+        </h3>
+        <p class="blog-box__description">
+            {{ description }}
+        </p>
+    </div>
+    <div class="blog-box__foot">
+        <div class="blog-box__pic cross-block cross-block--br">
+            <img loading="lazy" decoding="async" src="{{ picture }}" alt="{{ title }}">
+        </div>
+        <div class="blog-box__details">
+            <div class="blog-box__dates">
+                <span>{{ day }}</span>
+                <span>{{ month }}</span>
+                <span>{{ year }}</span>
+            </div>
+            <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M43.001 34.2451L34.2422 43.0039H0V37.0039H27C29.0944 36.8047 30.0108 34.2569 28.5232 32.7693L7.87891 12.125L12.1211 7.88281L32.7659 28.5276C34.2518 30.0135 36.7966 29.0961 36.9926 27.0039L36.9619 0.0078125L42.9619 0L43.001 34.2451Z"
+                    fill="#072136" />
+            </svg>
+        </div>
+    </div>
+</a>

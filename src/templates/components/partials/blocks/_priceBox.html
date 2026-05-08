@@ -1,0 +1,29 @@
+<a href="javascript: void(0)" class="price-box js-price-box">
+    <div class="price-box__info">
+        <div class="price-box__pic cross-block cross-block--br">
+            <img src="{{picture}}" alt="{{title}}">
+        </div>
+        <div class="price-box__details">
+            <p class="price-box__title">{{title}}</p>
+            <p class="price-box__subtitle">{{subtitle}}</p>
+            <p class="price-box__descr">{{description}}</p>
+        </div>
+    </div>
+    <div class="price-box__foot">
+        <span class="price-box__price">
+            {{#if spareBox}}
+            <span>від</span>
+            {{/if}}
+            <span>{{price}}</span>
+            <span class="currency">₴</span>
+        </span>
+        {{#if spareBox}}
+        <div class="price-box__cta">
+            <span>Придбати</span>
+        </div>
+        {{/if}}
+        {{#if reminder}}
+        <p class="price-box__reminder">{{reminder}}</p>
+        {{/if}}
+    </div>
+</a>

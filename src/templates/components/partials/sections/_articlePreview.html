@@ -1,0 +1,20 @@
+<div class="article-preview">
+    <img src="./assets/images/blog-bg.jpg" alt="" class="article-preview__bg">
+    <div class="container">
+        {{> _breadcrumbsBuilder}}
+        <span class="blog-tag blog-tag--news">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M5.4987 1.83301V9.16634M8.2487 2.74967L2.7487 8.24967M9.16536 5.49967H1.83203M8.2487 8.24967L2.7487 2.74967"
+                    stroke="#203805" stroke-linejoin="round" />
+            </svg>
+            новини
+        </span>
+        {{> _titleBuilder
+            className = "section-title"
+            tagWrapper = "h1"
+            label = "Запуск офіційного сервісу ONAIL — новий рівень обслуговування"
+        }}
+        <span class="article-preview__date">12 04 2026</span>
+    </div>
+</div>

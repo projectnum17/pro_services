@@ -1,0 +1,28 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.testimonials {
+    overflow: hidden;
+    padding-block: rem(52px) rem(100px);
+    background: $bg_content;
+
+    &__head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: rem(12px);
+        max-width: rem(1028px);
+        margin: 0 auto rem(42px);
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: rem(16px);
+    }
+
+    .testimonial-box {
+        height: 100%;
+    }
+}

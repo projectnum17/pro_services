@@ -1,0 +1,9 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.section-title {
+    font: 600 #{rem(40px)} / 130% $ff;
+    letter-spacing: -2px;
+    color: $c_secondary;
+}

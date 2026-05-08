@@ -1,0 +1,33 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.intro {
+    overflow: hidden;
+    padding-block: var(--header-h) rem(48px);
+    .container {
+        position: relative;
+    }
+    .section-heading {
+        color: #e6e7ec;
+    }
+
+    .tag {
+        margin-bottom: rem(16px);
+        border-color: #e6e7ec;
+        color: #e6e7ec;
+    }
+
+    &__logo {
+        right: rem(100px);
+        top: 100%;
+        transform: translateY(-40%);
+        position: absolute;
+        z-index: -1;
+        max-width: rem(674px);
+        svg {
+            width: 100%;
+            color: #fff;
+        }
+    }
+}

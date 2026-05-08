@@ -1,0 +1,36 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.blog-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(10px);
+    padding: rem(11px) rem(20px);
+    border-radius: 999px;
+    font: 600 #{rem(13px)} / 120% $ff;
+    text-transform: uppercase;
+    margin-bottom: rem(23px);
+
+    svg {
+        width: rem(11px);
+        height: rem(11px);
+        margin-top: -1px;
+        color: inherit;
+    }
+
+    &--news {
+        background: linear-gradient(90deg, #ddf9bd 0%, #b1ffe0 100%);
+        color: #203805;
+    }
+
+    &--promo {
+        background: linear-gradient(90deg, #f6bb8b 0%, #fdefc4 100%);
+        color: #000000;
+    }
+
+    &--article {
+        background: linear-gradient(90deg, #cab4ff 0%, #f1eefc 100%);
+        color: #000000;
+    }
+}

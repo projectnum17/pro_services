@@ -1,0 +1,177 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.article {
+    padding-block: rem(80px);
+    background: $bg_content;
+
+    .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: rem(24px);
+    }
+
+    &__socials {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10px);
+        position: sticky;
+        top: var(--header-h);
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: rem(48px);
+            height: rem(48px);
+            border-radius: 50%;
+            border: 1px solid $c_blue;
+            color: $c_blue;
+            @include transitions(
+                0.3s,
+                cubic-bezier(0.768, 0.304, 0.496, 0.884)
+            );
+            @include hover {
+                background: $c_blue;
+                color: $c_white;
+            }
+
+            svg {
+                width: rem(16px);
+                height: rem(16px);
+                @include transitions(
+                    0.3s,
+                    cubic-bezier(0.768, 0.304, 0.496, 0.884)
+                );
+            }
+        }
+    }
+
+    &__details {
+        width: 100%;
+    }
+
+    &__info {
+        max-width: rem(852px);
+        margin: 0 auto;
+        color: $c_blue;
+
+        *:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font: 600 #{rem(28px)} / 100% $ff;
+            letter-spacing: -1px;
+            margin: 0 0 rem(40px) 0;
+        }
+
+        h3 {
+            font: 600 #{rem(26px)} / 100% $ff;
+            letter-spacing: -1px;
+            margin: 0 0 rem(30px) 0;
+        }
+
+        h4 {
+            font: 600 #{rem(24px)} / 100% $ff;
+            letter-spacing: -1px;
+            margin: 0 0 rem(24px) 0;
+        }
+
+        h5,
+        h6 {
+            font: 600 #{rem(22px)} / 100% $ff;
+            letter-spacing: -1px;
+            margin: 0 0 rem(24px) 0;
+        }
+
+        p {
+            font: 400 #{rem(20px)} / 30px $ff;
+
+            &:has(+ :not(p)) {
+                margin-bottom: rem(80px);
+            }
+
+            &:has(+ ul),
+            &:has(+ ol) {
+                margin-bottom: rem(16px);
+            }
+        }
+
+        ol,
+        ul {
+            padding: 0;
+            margin: 0 0 rem(40px);
+            display: flex;
+            flex-direction: column;
+            list-style-type: none;
+            gap: rem(16px);
+
+            li {
+                gap: rem(8px);
+                display: inline-flex;
+                font: 400 #{rem(20px)} / 30px $ff;
+
+                &::before {
+                    flex-shrink: 0;
+                }
+            }
+        }
+
+        ul {
+            li {
+                align-items: center;
+                &::before {
+                    content: '';
+                    width: rem(40px);
+                    height: rem(40px);
+                    mask: url('../images/icons/ico-check.svg') no-repeat center
+                        center;
+                    background: $c_blue;
+                }
+            }
+        }
+
+        ol {
+            counter-reset: counter;
+
+            li {
+                counter-increment: counter;
+                &::before {
+                    content: counter(counter);
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    font: 600 #{rem(15px)} / 140% $ff;
+                    text-transform: uppercase;
+                    width: rem(40px);
+                    height: rem(30px);
+                }
+            }
+        }
+
+        blockquote {
+            font: 600 #{rem(22px)} / 28px $ff;
+            margin: 0 0 rem(80px) 0;
+            padding-left: rem(40px);
+            border-left: 3px solid $c_blue;
+            * {
+                font: inherit;
+                &:first-child,
+                &:last-child {
+                    padding-block: rem(32px);
+                }
+            }
+        }
+
+        img {
+            width: 100%;
+            margin-bottom: rem(80px);
+            border-radius: rem(24px);
+            aspect-ratio: 852 / 500;
+            object-fit: cover;
+        }
+    }
+}

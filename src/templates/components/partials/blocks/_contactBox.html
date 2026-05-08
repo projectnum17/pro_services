@@ -1,0 +1,44 @@
+<div class="contact-box">
+    {{> _titleBuilder
+        className = 'section-title'
+        tagWrapper = 'h2'
+        label = 'Напишіть нам'
+    }}
+    <form>
+        <div class="contact-box__fields">
+            {{> _fieldInput
+                labelTarget = "contactBoxName"
+                labelText = "Ваше Імʼя *"
+                fieldType = "text"
+                fieldName = "contactBoxName"
+                fieldId = "contactBoxName"
+            }}
+            {{> _fieldInput
+                labelTarget = "contactBoxPhone"
+                labelText = "Номер телефону *"
+                fieldType = "text"
+                fieldName = "contactBoxPhone"
+                fieldId = "contactBoxPhone"
+            }}
+            {{> _fieldInput
+                labelTarget = "contactBoxEmail"
+                labelText = "Електрона пошта *"
+                fieldType = "email"
+                fieldName = "contactBoxEmail"
+                fieldId = "contactBoxEmail"
+            }}
+            {{> _fieldTextArea
+                labelTarget = "contactBoxMessage"
+                labelText = "Ваше повідомлення *"
+                fieldName = "contactBoxMessage"
+                fieldId = "contactBoxMessage"
+            }}
+        </div>
+        <div class="contact-box__foot">
+            <p class="contact-box__tcpa">
+                Натискаючт кнопку ви погоджуєтесь з нашою <a target="_blank" href="javascript: void(0)">Політикою конфеденційності</a> та <a target="_blank" href="javascript: void(0)">Обробкою персональных данных</a>
+            </p>
+            <button type="submit" class="link-accent"><span>Надіслати</span></button>
+        </div>
+    </form>
+</div>

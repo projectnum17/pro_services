@@ -1,0 +1,25 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.brands-box {
+    max-width: rem(860px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    &__item {
+        min-height: rem(240px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #00000033;
+        border-bottom: 1px solid #00000033;
+
+        &:nth-child(3n) {
+            border-right: none;
+        }
+
+        &.no-border-bottom {
+            border-bottom: none;
+        }
+    }
+}

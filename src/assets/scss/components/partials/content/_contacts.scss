@@ -1,0 +1,87 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.contacts {
+    padding-block: rem(100px) rem(160px);
+    background: $bg_content;
+
+    .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: rem(24px);
+    }
+
+    &__title {
+        font: 400 #{rem(16px)} / 180% $ff;
+        margin-bottom: rem(16px);
+        opacity: 0.4;
+        color: #16181d;
+    }
+
+    &__details {
+        font: 600 #{rem(22px)} / 140% $ff;
+        text-transform: uppercase;
+    }
+
+    &__connect {
+        display: flex;
+        flex-direction: column;
+        gap: rem(48px);
+    }
+
+    &__info {
+        &:has(.contacts__support) {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: rem(12px);
+        }
+    }
+
+    &__phones {
+        display: flex;
+        flex-direction: column;
+        gap: rem(18px);
+    }
+
+    &__soc {
+        display: flex;
+        align-items: center;
+        gap: rem(16px);
+
+        a {
+            display: inline-flex;
+            width: rem(56px);
+            height: rem(56px);
+            align-items: center;
+            justify-content: center;
+            color: #16181d;
+            @include hover {
+                color: #de5126;
+            }
+
+            svg {
+                @include transitions(
+                    0.3s,
+                    cubic-bezier(0.768, 0.304, 0.496, 0.884)
+                );
+            }
+        }
+    }
+
+    a.contacts__details {
+        position: relative;
+        &::after {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 1px;
+            opacity: 0.4;
+            left: 0;
+            bottom: 0;
+            background: #16181d;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    {{> _head}}
+</head>
+
+<body>
+    <!-- added header -->
+    {{> _header}}
+    <main class="main">
+        {{> _videoAttachement}}
+        {{> body}}
+    </main>
+
+    <!-- added footer -->
+    {{> _footer}}
+    {{> _modalRequestCall}}
+    {{#if modalQuestions}} {{> _modalQuestions}} {{/if}}
+    {{#if modalReview}} {{> _modalReview}} {{/if}}
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<section class="prices">
+    <div class="container">
+        <div class="prices__panel">
+            <div class="prices__controls">
+                {{> _btnAnchor
+                    label = "Послуги"
+                    additClass = "js-prices-tab"
+                }}
+                {{> _btnAnchor
+                    label = "Запчастини"
+                    additClass = "js-prices-tab"
+                }}
+            </div>
+            <div class="prices__reminder">
+                <span>*</span>
+                <p>
+                    <span>Вартість послуг орієнтовна.</span> Повна вартість послуги встановлюється майстром тільки після повної діагностики обладнання
+                </p>
+            </div>
+        </div>
+        <div class="prices__content js-prices-content">
+            <div class="prices__cards js-prices-cards">
+                {{#each prices.pricesServices}}
+                    {{> _priceBox this}}
+                {{/each}}
+            </div>
+            {{> _btnMore additClasses = "js-prices-more"}}
+        </div>
+        <div class="prices__content js-prices-content">
+            <div class="prices__cards js-prices-cards">
+                {{#each prices.pricesSpare}}
+                    {{> _priceBox this
+                        spareBox = 1
+                    }}
+                {{/each}}
+            </div>
+            <button type="button" class="btn-more js-prices-more">
+                <span class="border-gradient">Показати ще</span>
+            </button>
+        </div>
+    </div>
+</section>

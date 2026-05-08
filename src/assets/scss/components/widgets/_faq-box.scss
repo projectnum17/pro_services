@@ -1,0 +1,75 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.faq-box {
+    padding-bottom: rem(20px);
+    cursor: pointer;
+    counter-increment: faq;
+    display: flex;
+    align-items: flex-start;
+    gap: rem(30px);
+
+    &.is-open {
+        .faq-box__wrapper {
+            grid-template-rows: 1fr;
+        }
+        .faq-box__answer {
+            margin-top: rem(16px);
+        }
+
+        &::after {
+            transform: rotate(180deg);
+        }
+    }
+
+    &::before {
+        content: counter(faq, decimal-leading-zero);
+        font: 400 #{rem(14px)} / 140% $ff_accent;
+        text-transform: uppercase;
+        color: #b0bec9;
+    }
+
+    &::after {
+        margin-left: auto;
+        content: '';
+        width: rem(24px);
+        height: rem(24px);
+        flex-shrink: 0;
+        background: url('../images/icons/ico-faq.svg') no-repeat center center /
+            cover;
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    }
+
+    &__question {
+        font: 600 #{rem(22px)} / 120% $ff;
+        color: $c_blue;
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-rows: 0fr;
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    }
+
+    &__answer {
+        overflow: hidden;
+        font: 400 #{rem(16px)} / 180% $ff;
+        color: #535862;
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+
+        p {
+            margin: 0;
+        }
+
+        ul {
+            padding: 0 0 0 rem(24px);
+            list-style-type: disc;
+            margin: 0;
+        }
+        ol {
+            padding: 0 0 0 rem(24px);
+            margin: 0;
+        }
+    }
+}

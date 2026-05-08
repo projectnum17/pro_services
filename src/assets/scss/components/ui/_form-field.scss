@@ -1,0 +1,128 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.rating-group {
+    display: flex;
+    flex-direction: column;
+    gap: rem(15px);
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: rem(8px);
+
+    &__input {
+        display: none;
+    }
+
+    &__label {
+        width: rem(50px);
+        height: rem(50px);
+        cursor: pointer;
+        color: #fff;
+        transition:
+            color 0.2s ease-in-out,
+            transform 0.2s ease;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+
+            path {
+                fill: currentColor;
+                stroke: #ff6122;
+                transition: stroke 0.2s ease;
+            }
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &__label:hover,
+    &__label:hover ~ &__label,
+    &__input:checked ~ &__label {
+        color: #ff6122;
+    }
+
+    &__label:hover ~ &__input:checked ~ &__label {
+        color: #ff6122;
+    }
+}
+
+.form-field {
+    position: relative;
+
+    &:has(textarea) {
+        .form-field__title {
+            top: rem(32px);
+        }
+    }
+
+    &:has(.form-field__data:focus),
+    &:has(.form-field__data:not(:placeholder-shown)) {
+        .form-field__title {
+            top: 0;
+            font-size: rem(14px);
+            background: #ffffff;
+            color: #537896;
+        }
+    }
+
+    &__data {
+        width: 100%;
+        border-radius: rem(16px);
+        font: 400 #{rem(20px)} / 30px $ff;
+        border: none;
+        padding: 0;
+        outline: none;
+        padding: rem(15px) rem(16px);
+        background: #f6f6f6;
+        border: 1px solid #e6e7ec;
+        caret-color: #ff6122;
+        color: $c_blue;
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+        @include hover {
+            border-color: #ff6122;
+        }
+        &:not(:placeholder-shown) {
+            border-color: #537896;
+            caret-color: #537896;
+        }
+        &:focus,
+        &:active {
+            border-color: #537896;
+
+            &::placeholder {
+                opacity: 1;
+            }
+        }
+        &::placeholder {
+            color: inherit;
+            opacity: 0;
+        }
+    }
+
+    &__title {
+        pointer-events: none;
+        z-index: 1;
+        padding-inline: rem(4px);
+        border-radius: rem(8px);
+        position: absolute;
+        left: rem(11px);
+        top: 50%;
+        transform: translateY(-50%);
+        font: 400 #{rem(20px)} / 170% $ff;
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    }
+
+    textarea {
+        resize: none;
+        height: rem(160px);
+    }
+}

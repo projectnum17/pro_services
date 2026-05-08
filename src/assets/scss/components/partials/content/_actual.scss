@@ -1,0 +1,31 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.actual {
+    padding-block: rem(72px) rem(80px);
+    background: #16181d;
+    backdrop-filter: blur(44px);
+
+    .tag {
+        border-color: #ebebeb;
+        color: #ebebeb;
+    }
+
+    .section-title {
+        color: #ebebeb;
+    }
+
+    &__head {
+        margin-bottom: rem(56px);
+        display: flex;
+        flex-direction: column;
+        gap: rem(16px);
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: rem(16px);
+    }
+}

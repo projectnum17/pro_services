@@ -1,0 +1,15 @@
+<div class="testimonial-box js-testimonial-box">
+    <div class="testimonial-box__rate">
+        {{#count rate}}
+            <img loading="lazy" decoding="async" width="20" height="20" src="./assets/images/icons/ico-star.svg" alt="Star">
+        {{/count}}
+    </div>
+    <p class="testimonial-box__text">{{ text }}</p>
+    <div class="testimonial-box__author">
+        <div class="testimonial-box__acr"><p>{{ acronym }}</p></div>
+        <div class="testimonial-box__details">
+            <p class="testimonial-box__name">{{ name }}</p>
+            <span class="testimonial-box__date">{{ date }}</span>
+        </div>
+    </div>
+</div>

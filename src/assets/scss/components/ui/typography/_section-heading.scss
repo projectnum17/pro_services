@@ -1,0 +1,9 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.section-heading {
+    font: 500 #{rem(64px)} / 120% $ff;
+    letter-spacing: -3px;
+    color: $c_white;
+}

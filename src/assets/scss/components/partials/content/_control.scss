@@ -1,0 +1,74 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.control {
+    padding-block: rem(105px);
+    background: $c_white;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: rem(24px);
+    }
+
+    .section-subheading {
+        margin-bottom: rem(24px);
+    }
+
+    &__title {
+        margin-bottom: rem(24px);
+        font: 700 #{rem(20px)} / 30px $ff;
+    }
+
+    &__list {
+        counter-reset: item;
+        display: flex;
+        flex-direction: column;
+        gap: rem(16px);
+
+        li {
+            counter-increment: item;
+            gap: rem(8px);
+            font: 400 #{rem(20px)} / 30px $ff;
+            display: inline-flex;
+            &::before {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                content: counter(item);
+                font: 600 #{rem(15px)} / 140% $ff;
+                text-transform: uppercase;
+                width: rem(40px);
+                height: rem(30px);
+            }
+        }
+    }
+
+    &__text {
+        p {
+            font: 400 #{rem(20px)} / 30px $ff;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: rem(16px);
+        max-width: rem(705px);
+        color: #072136;
+
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__pic {
+        max-width: rem(852px);
+    }
+
+    .cross-block {
+        --cross-size: #{rem(300px)};
+    }
+}

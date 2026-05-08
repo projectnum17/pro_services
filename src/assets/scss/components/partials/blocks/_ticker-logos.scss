@@ -1,0 +1,46 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+:root {
+    --gap: #{rem(20px)};
+}
+
+.ticker-logos {
+    margin-bottom: rem(40px);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    &__marquee {
+        display: flex;
+        user-select: none;
+        gap: var(--gap);
+
+        @include hover {
+            .ticker-logos__track {
+                animation-play-state: paused;
+            }
+        }
+    }
+
+    &__track {
+        flex-shrink: 0;
+        min-width: 100%;
+        justify-content: space-around;
+        animation: scroll-left 60s linear infinite;
+        @include flexCenter(var(--gap));
+        img {
+            max-width: rem(250px);
+        }
+    }
+
+    @keyframes scroll-left {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(calc(-100% - var(--gap)));
+        }
+    }
+}

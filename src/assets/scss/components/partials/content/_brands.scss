@@ -1,0 +1,21 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.brands {
+    padding-block: rem(40px);
+    background: $bg_content;
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: rem(24px);
+        margin-bottom: rem(16px);
+    }
+
+    &__title {
+        font: 600 #{rem(15px)} / 140% $ff;
+        text-transform: uppercase;
+    }
+}

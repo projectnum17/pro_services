@@ -1,0 +1,28 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.link-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font: 600 #{rem(15px)} / 140% $ff;
+    height: rem(64px);
+    text-transform: uppercase;
+    color: $c_white;
+    @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    span {
+        height: 100%;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: rem(15px);
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    }
+    @include hover {
+        span {
+            height: rem(58px);
+        }
+    }
+}

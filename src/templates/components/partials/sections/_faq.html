@@ -1,0 +1,26 @@
+<section class="faq">
+    <div class="container">
+        <div class="faq__info">
+            {{> _tag label = "FAQ" }}
+            {{> _titleBuilder
+                label = 'Часті запитання'
+                className = 'section-title'
+                tagWrapper = 'h2'
+            }}
+            <p class="section-info">
+                Маєте ще запитання? Перейдіть до розділу FAQ або <a href="javascript: void(0)">зв’яжіться з нами.</a>
+            </p>
+            {{> _linkRoutes
+                label = "Дивитись більше"
+            }}
+            <div class="faq__video">
+                <video muted autoplay loop playsinline class="js-video-bg"
+                    poster="./assets/video/poster.png">
+                    <source data-src="./assets/video/getty.mp4" type="video/mp4">
+                    <p>Your browser does not support the video tag.</p>
+                </video>
+            </div>
+        </div>
+        {{> _faqList}}
+    </div>
+</section>

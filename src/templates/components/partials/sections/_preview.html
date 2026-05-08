@@ -1,0 +1,59 @@
+<section class="preview">
+    <div class="container">
+        <div class="preview__descr">
+            {{#if sectionSubtitle}}
+                {{> _titleBuilder
+                    className = "section-subtitle"
+                    label = subtitleText
+                    tagWrapper = "h2"
+                }}
+            {{/if}}
+            {{#if sectionTitle}}
+                {{> _titleBuilder
+                    label = titleText
+                    className = 'section-title'
+                    tagWrapper = 'h2'
+                }}
+            {{/if}}
+
+
+            <div class="preview__txts">
+                {{{ info }}}
+            </div>
+
+            {{#if linkFeedback}}
+                {{> _linkFeedback
+                    additClasses = "js-questions-btn"
+                }}
+            {{/if}}
+
+            {{#if linkAccent}}
+                {{> _linkAccent
+                    label = linkText
+                    additClasses = "js-review-btn"
+                }}
+            {{/if}}
+
+            {{#if linkRoute}}
+                {{> _linkRoutes
+                    label = linkText
+                }}
+            {{/if}}
+        </div>
+
+        {{#if showBrandsBox}} {{> _brandsBox}} {{/if}}
+
+        {{#if showFAQBox}} {{> _faqList}} {{/if}}
+
+        {{#if tesitmonialCollect}}
+            <div class="testimonial-collect js-testimonial-collect">
+                <div class="testimonial-collect__wrapper">
+                    {{#each testimonials.testimonials}}
+                        {{> _testimonialBox this}}
+                    {{/each}}
+                </div>
+                {{> _btnMore additClasses = "js-testimonial-more"}}
+            </div>
+        {{/if}}
+    </div>
+</section>
