@@ -71,6 +71,9 @@
             font-size: rem(14px);
             background: #ffffff;
             color: #537896;
+            @include media('mobile') {
+                font-size: rem(12px);
+            }
         }
     }
 
@@ -90,6 +93,13 @@
         @include hover {
             border-color: #ff6122;
         }
+
+        @include media('mobile') {
+            font-size: rem(16px);
+            padding: rem(8px) rem(12px);
+            border-radius: rem(8px);
+        }
+
         &:not(:placeholder-shown) {
             border-color: #537896;
             caret-color: #537896;
@@ -119,6 +129,9 @@
         transform: translateY(-50%);
         font: 400 #{rem(20px)} / 170% $ff;
         @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+        @include media('mobile') {
+            font-size: rem(16px);
+        }
     }
 
     textarea {

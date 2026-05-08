@@ -5,9 +5,33 @@
 .footer {
     padding-block: rem(135px) rem(32px);
 
+    .cross-block {
+        @include media('mobile') {
+            --cross-size: #{rem(40px)};
+        }
+    }
+
+    @include media('tablet') {
+        padding-block: rem(80px);
+    }
+    @include media('mobile') {
+        padding-block: rem(56px);
+    }
+
     &__logo {
         margin-bottom: rem(97px);
         max-width: rem(997px);
+
+        @include media('tablet') {
+            margin-bottom: rem(56px);
+            max-width: rem(450px);
+        }
+
+        @include media('mobile') {
+            max-width: rem(360px);
+            margin-bottom: rem(24px);
+        }
+
         img {
             width: 100%;
         }
@@ -15,6 +39,9 @@
 
     &__details {
         padding: rem(60px) rem(60px) rem(28px) rem(60px);
+        @include media('mobile') {
+            padding: rem(40px) rem(20px) rem(20px);
+        }
     }
 
     &__menu {
@@ -23,15 +50,33 @@
         gap: rem(20px);
         justify-content: space-between;
         padding: rem(60px) rem(60px) rem(28px) rem(130px);
+        @include media('desktop') {
+            padding: rem(60px) rem(60px) rem(28px) rem(60px);
+        }
+        @include media('mobile') {
+            padding: rem(40px) rem(20px) rem(20px);
+        }
     }
 
     &__routes {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: rem(8px) rem(50px);
+        @include media('tablet') {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        @include media('mobile') {
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            gap: rem(8px);
+        }
 
         li {
             font: 400 #{rem(18px)} / 180% $ff;
+            @include media('mobile') {
+                font-size: rem(14px);
+            }
 
             a {
                 font: inherit;
@@ -54,6 +99,10 @@
         justify-content: flex-end;
         gap: rem(16px);
         color: $c_white;
+        @include media('mobile') {
+            font-size: rem(14px);
+            gap: rem(8px);
+        }
 
         img {
             margin-top: rem(3px);
@@ -64,11 +113,19 @@
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap: rem(8px);
+        @include media('tablet') {
+            display: flex;
+            flex-direction: column;
+        }
     }
 
     &__title {
         font: 400 #{rem(14px)} / 170% $ff;
         max-width: rem(211px);
+        @include media('mobile') {
+            font-size: rem(12px);
+            max-width: 90%;
+        }
     }
 
     &__banking {
@@ -84,28 +141,42 @@
             &:first-child {
                 font: 400 #{rem(14px)} / 170% $ff;
                 opacity: 0.4;
+                @include media('mobile') {
+                    font-size: rem(12px);
+                }
             }
 
             &:last-child {
                 font: 600 #{rem(22px)} / 140% $ff;
                 text-transform: uppercase;
+                @include media('mobile') {
+                    font-size: rem(16px);
+                }
             }
         }
     }
 
     &__connect {
+        flex-wrap: wrap;
         display: flex;
         align-items: flex-start;
         gap: rem(18px);
+
         .col {
             display: flex;
             flex-direction: column;
             gap: rem(24px);
+            @include media('mobile') {
+                gap: rem(12px);
+            }
 
             a {
                 display: flex;
                 align-items: center;
                 gap: rem(15px);
+                @include media('mobile') {
+                    gap: rem(8px);
+                }
 
                 span {
                     &:first-child {
@@ -113,6 +184,9 @@
                         text-transform: uppercase;
                         opacity: 0.4;
                         color: #e6e7ec;
+                        @include media('mobile') {
+                            font-size: rem(13px);
+                        }
                     }
 
                     &:last-child {
@@ -121,6 +195,9 @@
                         display: inline-flex;
                         position: relative;
                         color: #e6e7ec;
+                        @include media('mobile') {
+                            font-size: rem(16px);
+                        }
                         &::after {
                             content: '';
                             position: absolute;
@@ -170,11 +247,18 @@
         display: flex;
         align-items: center;
         gap: rem(32px);
+        flex-wrap: wrap;
+        @include media('mobile') {
+            gap: rem(12px);
+        }
     }
 
     &__copy {
         // margin-top: auto;
         font: 400 #{rem(16px)} / 180% $ff;
+        @include media('mobile') {
+            font-size: rem(14px);
+        }
     }
 
     &__legals {
@@ -190,6 +274,10 @@
 
             @include hover {
                 opacity: 1;
+            }
+
+            @include media('mobile') {
+                font-size: rem(14px);
             }
 
             &::after {
@@ -209,6 +297,9 @@
         display: flex;
         justify-content: space-between;
         gap: rem(24px);
+        @include media('desktop') {
+            flex-direction: column-reverse;
+        }
     }
 
     &__summary {
@@ -222,5 +313,8 @@
         display: flex;
         flex-direction: column;
         gap: rem(32px);
+        @include media('mobile') {
+            gap: rem(24px);
+        }
     }
 }

@@ -8,7 +8,6 @@ $system-ff:
     Arial, sans-serif;
 
 $container_wdth: #{rem(1760px)};
-$container_pdd: #{rem(20px)};
 
 $c_primary: #de5126;
 $c_secondary: #181d27;
@@ -26,14 +25,17 @@ $primary_gradient: linear-gradient(90deg, #ffa126 0%, #de5126 100%);
 
 :root {
     --header-h: #{rem(108px)};
+    --container_pdd: #{rem(20px)};
 }
 
 @include media('tablet') {
     :root {
+        --container_pdd: #{rem(15px)};
     }
 }
 
 @include media('mobile') {
     :root {
+        --container_pdd: #{rem(12px)};
     }
 }

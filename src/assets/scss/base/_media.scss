@@ -19,5 +19,9 @@
         @media (max-width: 1199px) {
             @content;
         }
+    } @else if $size == 'desktop-lg' {
+        @media (max-width: 1440px) {
+            @content;
+        }
     }
 }

@@ -12,6 +12,10 @@
     border-radius: 999px;
     color: $c_white;
     @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    @include media('mobile') {
+        font-size: rem(14px);
+        height: rem(42px);
+    }
     span {
         height: 100%;
         border-radius: 999px;
@@ -25,6 +29,9 @@
     @include hover {
         span {
             height: rem(58px);
+            @include media('mobile') {
+                height: rem(38px);
+            }
         }
     }
 }
