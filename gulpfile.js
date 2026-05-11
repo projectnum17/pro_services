@@ -98,6 +98,7 @@ function html() {
             panini({
                 root: srcPath,
                 layouts: srcPath + 'templates/layouts/',
+                defaultLayout: false,
                 partials: [
                     srcPath + 'templates/partials/',
                     srcPath + 'templates/components/',
