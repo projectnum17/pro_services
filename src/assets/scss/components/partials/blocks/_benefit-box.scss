@@ -6,19 +6,47 @@
     display: flex;
     gap: rem(8px);
     border-radius: rem(24px);
+    @include media('tablet') {
+        flex-direction: column-reverse;
+    }
 
     .section-subheading {
         margin-bottom: rem(32px);
+        @include media('mobile') {
+            margin-bottom: rem(12px);
+        }
     }
 
     &__info {
         max-width: rem(989px);
         padding: rem(70px) rem(100px);
         background-color: #072136;
+
+        @include media('desktop-lg') {
+            max-width: 100%;
+            width: 50%;
+        }
+
+        @include media('laptop') {
+            padding: rem(90px) rem(20px);
+        }
+
+        @include media('tablet') {
+            width: 100%;
+        }
+
+        @include media('mobile') {
+            padding: rem(50px) rem(20px);
+        }
+
         &.cross-block {
             --border-width: 2px;
             --inner-bg: #{$c_white};
             position: relative;
+
+            @include media('mobile') {
+                --cross-size: #{rem(45px)};
+            }
 
             &::before {
                 content: '';
@@ -50,6 +78,10 @@
     &__desc {
         font: 400 #{rem(20px)} / 30px $ff;
         margin-bottom: rem(56px);
+        @include media('mobile') {
+            font-size: rem(16px);
+            margin-bottom: rem(24px);
+        }
     }
 
     &__tag {
@@ -61,15 +93,34 @@
         bottom: rem(35px);
         opacity: 0.6;
         color: $c_white;
+        @include media('mobile') {
+            font-size: rem(42px);
+            left: rem(20px);
+            bottom: rem(20px);
+        }
     }
 
     &__pic {
         position: relative;
         max-width: rem(737px);
         width: 100%;
+        @include media('desktop-lg') {
+            max-width: 100%;
+            width: 50%;
+        }
+        @include media('tablet') {
+            width: 100%;
+        }
 
         &.cross-block {
             --cross-size: #{rem(200px)};
+
+            @include media('laptop') {
+                --cross-size: #{rem(100px)};
+            }
+            @include media('mobile') {
+                --cross-size: #{rem(45px)};
+            }
         }
 
         img {

@@ -120,5 +120,11 @@
         @include media('desktop') {
             --cross-size: #{rem(200px)};
         }
+        @include media('laptop') {
+            --cross-size: #{rem(100px)};
+        }
+        @include media('mobile') {
+            --cross-size: #{rem(75px)};
+        }
     }
 }

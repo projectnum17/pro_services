@@ -25,6 +25,11 @@
         position: absolute;
         z-index: -1;
         max-width: rem(674px);
+        @include media('mobile') {
+            top: 35%;
+            right: -10%;
+            max-width: 300px;
+        }
         svg {
             width: 100%;
             color: #fff;

@@ -5,10 +5,16 @@
 .benefits {
     padding-block: rem(80px);
     background: $c_white;
+    @include media('mobile') {
+        padding-block: rem(56px);
+    }
 
     &__boxes {
         display: flex;
         flex-direction: column;
         gap: rem(80px);
+        @include media('mobile') {
+            gap: rem(40px);
+        }
     }
 }
