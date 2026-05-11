@@ -20,6 +20,19 @@
             }
         }
     }
+    @include media('desktop') {
+        &:has(.testimonial-collect) {
+            .container {
+                flex-direction: column;
+            }
+
+            .preview__descr {
+                top: auto;
+                max-width: 100%;
+                position: static;
+            }
+        }
+    }
 
     &:has(.testimonial-collect) {
         padding-block: rem(80px) rem(80px);
