@@ -5,12 +5,18 @@
 .terms {
     padding-block: rem(80px);
     background: $bg_content;
+    @include media('mobile') {
+        padding-block: rem(56px);
+    }
 
     .container {
         display: flex;
         align-items: flex-start;
         gap: rem(24px);
         justify-content: space-between;
+        @include media('mobile') {
+            flex-direction: column;
+        }
     }
 
     &__controls {
@@ -20,6 +26,12 @@
         max-width: rem(285px);
         position: sticky;
         top: var(--header-h);
+        @include media('mobile') {
+            max-width: 100%;
+            flex-direction: row;
+            z-index: 2;
+            background: $bg_content;
+        }
 
         .btn-anchor {
             text-align: left;
@@ -34,6 +46,14 @@
         flex-direction: column;
         gap: rem(100px);
         color: $c_blue;
+        @include media('laptop') {
+            max-width: 100%;
+            width: 100%;
+            margin-right: 0;
+        }
+        @include media('mobile') {
+            gap: rem(56px);
+        }
 
         *:last-child {
             margin-bottom: 0;
@@ -43,18 +63,37 @@
             font: 600 #{rem(40px)} / 130% $ff;
             letter-spacing: -2px;
             margin: 0 0 rem(80px) 0;
+            @include media('tablet') {
+                font-size: rem(32px);
+                margin: 0 0 rem(40px) 0;
+            }
+            @include media('mobile') {
+                font-size: rem(24px);
+                margin: 0 0 rem(24px) 0;
+            }
         }
 
         h3 {
             font: 600 #{rem(28px)} / 100% $ff;
             letter-spacing: -1px;
             margin: 0 0 rem(40px) 0;
+            @include media('tablet') {
+                font-size: rem(24px);
+            }
+            @include media('mobile') {
+                font-size: rem(20px);
+                margin: 0 0 rem(24px) 0;
+            }
         }
 
         h4 {
             font: 600 #{rem(24px)} / 100% $ff;
             letter-spacing: -1px;
             margin: 0 0 rem(30px) 0;
+            @include media('mobile') {
+                font-size: rem(18px);
+                margin: 0 0 rem(24px) 0;
+            }
         }
 
         h5,
@@ -62,13 +101,30 @@
             font: 600 #{rem(22px)} / 100% $ff;
             letter-spacing: -1px;
             margin: 0 0 rem(20px) 0;
+            @include media('mobile') {
+                font-size: rem(18px);
+                margin: 0 0 rem(24px) 0;
+            }
         }
 
         p {
             font: 400 #{rem(20px)} / 30px $ff;
+            @include media('tablet') {
+                font-size: rem(18px);
+            }
+            @include media('mobile') {
+                font-size: rem(16px);
+                line-height: 120%;
+                &:where(:not([class]):not(:last-child)) {
+                    margin-bottom: rem(12px);
+                }
+            }
 
             &:has(+ :not(p)) {
                 margin-bottom: 48px;
+                @include media('mobile') {
+                    margin-bottom: rem(24px);
+                }
             }
         }
 
@@ -85,12 +141,22 @@
             flex-direction: column;
             list-style-type: none;
             gap: rem(16px);
+            @include media('mobile') {
+                gap: rem(12px);
+            }
 
             li {
                 font: 400 #{rem(20px)} / 30px $ff;
                 counter-increment: counter;
                 padding-left: rem(48px);
                 position: relative;
+                @include media('tablet') {
+                    font-size: rem(18px);
+                }
+                @include media('mobile') {
+                    font-size: rem(16px);
+                    line-height: 120%;
+                }
                 &::before {
                     position: absolute;
                     left: 0;
@@ -116,9 +182,16 @@
             margin: 0 0 rem(48px) 0;
             padding-left: rem(40px);
             border-left: 3px solid $c_blue;
+            @include media('mobile') {
+                margin: 0 0 rem(24px) 0;
+                padding-left: rem(18px);
+            }
             p {
                 font-size: rem(22px);
                 font-weight: 600;
+                @include media('mobile') {
+                    font-size: rem(16px);
+                }
             }
             * {
                 &:first-child {
@@ -135,6 +208,9 @@
         &:not(:first-child) {
             padding-top: rem(80px);
             border-top: 1px solid #b0bec9;
+            @include media('mobile') {
+                padding-top: rem(56px);
+            }
         }
     }
 }

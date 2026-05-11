@@ -5,6 +5,9 @@
 html {
     scroll-padding-top: var(--header-h);
     font-size: 16px;
+    @include media('mobile') {
+        scroll-padding-top: calc(var(--header-h) + #{rem(130px)});
+    }
 }
 
 body {
