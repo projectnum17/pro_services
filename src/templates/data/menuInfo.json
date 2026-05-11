@@ -5,7 +5,7 @@
         {
             "title": "Прайс",
             "id": "price",
-            "url": "price.html",
+            "url": "#!",
             "submenu": [
                 { "title": "Прайс Послуги", "url": "price.html", "id": "price"},
                 { "title": "Прайс Запчастини", "url": "price.html", "id": "price"}

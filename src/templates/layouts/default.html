@@ -7,7 +7,7 @@
 
 <body>
     <!-- added header -->
-    <!-- {{> _header}} -->
+    {{> _header}}
     <main class="main">
         {{> _videoAttachement}}
         {{> body}}
@@ -15,6 +15,7 @@
 
     <!-- added footer -->
     {{> _footer}}
+    {{> _mobileMenu}}
     {{> _modalRequestCall}}
     {{#if modalQuestions}} {{> _modalQuestions}} {{/if}}
     {{#if modalReview}} {{> _modalReview}} {{/if}}

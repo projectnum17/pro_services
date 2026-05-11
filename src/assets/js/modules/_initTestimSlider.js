@@ -6,6 +6,8 @@ export const initTestimSlider = () => {
     const sliderBlock = document.querySelector('.js-testimonials-slider');
     if (!sliderBlock) return;
 
+    const isMob = window.innerWidth <= 767;
+
     new Swiper(sliderBlock, {
         modules: [Navigation, Scrollbar],
         slidesPerView: 'auto',
@@ -19,7 +21,7 @@ export const initTestimSlider = () => {
         scrollbar: {
             el: '.js-testimonials-scrollbar',
             draggable: true,
-            dragSize: 514,
+            dragSize: isMob ? 120 : 514,
         },
     });
 };

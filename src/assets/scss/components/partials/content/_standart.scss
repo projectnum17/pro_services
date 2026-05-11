@@ -4,9 +4,20 @@
 
 .standart {
     padding-block: rem(63px);
+    @include media('mobile') {
+        padding-block: rem(56px);
+    }
 
     &__content {
         padding-block: rem(67px);
+        padding-inline: var(--container_pdd);
+        @include media('mobile') {
+            padding-block: rem(56px);
+
+            &.cross-block {
+                --cross-size: #{rem(45px)};
+            }
+        }
     }
 
     &__info {
@@ -17,11 +28,27 @@
         align-items: center;
         text-align: center;
         gap: rem(40px);
+        @include media('mobile') {
+            gap: rem(24px);
+        }
     }
 
     &__desc {
         p {
             font: 400 #{rem(20px)} / 30px $ff;
+            @include media('mobile') {
+                font-size: rem(16px);
+                line-height: 120%;
+            }
+        }
+    }
+
+    .link-accent {
+        @include media('mobile') {
+            width: 100%;
+            span {
+                width: 100%;
+            }
         }
     }
 }

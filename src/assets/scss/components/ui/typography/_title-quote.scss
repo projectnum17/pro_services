@@ -11,6 +11,11 @@
     --block-w: #{rem(68px)};
     --block-h: #{rem(48px)};
 
+    @include media('mobile') {
+        --block-w: #{rem(48px)};
+        --block-h: #{rem(38px)};
+    }
+
     &::before {
         content: '“';
         background: $primary_gradient;
@@ -20,12 +25,17 @@
         position: absolute;
         right: rem(24px);
         top: 72%;
-        font: 400 #{rem(50px)} / 100% $ff;
+        font: 400 #{rem(50px)} / 1 $ff;
         letter-spacing: -2px;
         transform: translateY(-50%);
+        @include media('mobile') {
+            font-size: rem(42px);
+            right: rem(17px);
+        }
     }
 
     &::after {
+        flex-shrink: 0;
         content: '';
         width: var(--block-w);
         height: var(--block-h);

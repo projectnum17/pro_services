@@ -6,6 +6,9 @@
     overflow: hidden;
     padding-block: rem(52px) rem(100px);
     background: $bg_content;
+    @include media('mobile') {
+        padding-block: rem(56px);
+    }
 
     &__head {
         display: flex;
@@ -14,12 +17,20 @@
         gap: rem(12px);
         max-width: rem(1028px);
         margin: 0 auto rem(42px);
+        flex-wrap: wrap;
+        @include media('mobile') {
+            margin-bottom: rem(24px);
+            max-width: 100%;
+        }
     }
 
     &__info {
         display: flex;
         flex-direction: column;
         gap: rem(16px);
+        @include media('mobile') {
+            gap: rem(12px);
+        }
     }
 
     .testimonial-box {

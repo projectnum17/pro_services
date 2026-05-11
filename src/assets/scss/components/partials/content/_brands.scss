@@ -5,6 +5,9 @@
 .brands {
     padding-block: rem(40px);
     background: $bg_content;
+    @include media('mobile') {
+        padding-block: rem(24px);
+    }
 
     &__head {
         display: flex;
@@ -12,6 +15,12 @@
         justify-content: center;
         gap: rem(24px);
         margin-bottom: rem(16px);
+        @include media('mobile') {
+            flex-direction: column;
+            gap: rem(12px);
+            margin-bottom: rem(24px);
+            align-items: flex-start;
+        }
     }
 
     &__title {

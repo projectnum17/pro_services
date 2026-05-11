@@ -6,4 +6,10 @@
     font: 600 #{rem(28px)} / 100% $ff;
     letter-spacing: -1px;
     color: $c_secondary;
+    @include media('tablet') {
+        font-size: rem(24px);
+    }
+    @include media('mobile') {
+        font-size: rem(18px);
+    }
 }

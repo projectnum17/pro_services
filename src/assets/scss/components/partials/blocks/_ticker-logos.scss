@@ -6,8 +6,13 @@
     --gap: #{rem(20px)};
 }
 
+@include media('mobile') {
+    :root {
+        --gap: #{rem(12px)};
+    }
+}
+
 .ticker-logos {
-    margin-bottom: rem(40px);
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -32,6 +37,9 @@
         @include flexCenter(var(--gap));
         img {
             max-width: rem(250px);
+            @include media('mobile') {
+                max-width: rem(120px);
+            }
         }
     }
 

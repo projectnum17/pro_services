@@ -6,6 +6,10 @@
     padding-top: rem(24px);
     margin-bottom: rem(56px);
     color: #b0bec9;
+    @include media('mobile') {
+        padding-top: rem(20px);
+        margin-bottom: rem(32px);
+    }
     ul {
         display: flex;
         align-items: center;
@@ -16,6 +20,9 @@
 
         li {
             font: 400 #{rem(14px)} / 140% $ff;
+            @include media('mobile') {
+                font-size: rem(13px);
+            }
 
             &:has(> a) {
                 display: flex;

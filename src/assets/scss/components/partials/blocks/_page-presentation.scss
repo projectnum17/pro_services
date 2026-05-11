@@ -8,19 +8,32 @@
     display: grid;
     overflow: hidden;
 
+    @include media('mobile') {
+        min-height: rem(170px);
+    }
+
     &__deco {
         position: absolute;
         left: rem(504px);
         height: 100%;
         color: #16181d;
+        @include media('mobile') {
+            left: 0;
+        }
     }
 
     &__logo {
+        width: 100%;
         right: rem(200px);
         position: absolute;
         max-width: rem(674px);
         bottom: rem(70px);
         transform: translateY(50%);
+        @include media('mobile') {
+            max-width: rem(200px);
+            right: 0;
+            bottom: rem(24px);
+        }
 
         svg {
             width: 100%;

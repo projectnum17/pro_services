@@ -1,0 +1,200 @@
+@use '../../../base/var' as *;
+@use '../../../base/mixins' as *;
+@use '../../../base/media' as *;
+
+.nav-panel {
+    @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        li {
+            &:has(ul) {
+                position: relative;
+                display: inline-flex;
+                flex-direction: row;
+                align-items: center;
+                gap: rem(2px);
+                @include hover {
+                    &::after {
+                        transform: rotate(180deg);
+                    }
+                    ul {
+                        transform: translate(0);
+                        opacity: 1;
+                        pointer-events: all;
+                    }
+                }
+
+                &.is-active {
+                    ul {
+                        transform: translate(0);
+                        opacity: 1;
+                        pointer-events: all;
+                    }
+                }
+
+                &::after {
+                    content: '';
+                    display: inline-flex;
+                    flex-shrink: 0;
+                    width: rem(20px);
+                    height: rem(20px);
+                    background: url('../images/icons/ico-drop.svg') no-repeat
+                        center center / cover;
+                    @include transitions(
+                        0.3s,
+                        cubic-bezier(0.768, 0.304, 0.496, 0.884)
+                    );
+                }
+
+                ul {
+                    width: max-content;
+                    z-index: 2;
+                    position: absolute;
+                    top: 100%;
+                    padding-block: rem(8px);
+                    border-radius: rem(8px);
+                    opacity: 0;
+                    transform: translateY(-5px);
+                    pointer-events: none;
+                    background: #ffffff66;
+                    backdrop-filter: blur(48px);
+                    @include transitions(
+                        0.3s,
+                        cubic-bezier(0.768, 0.304, 0.496, 0.884)
+                    );
+                    @include media('desktop-lg') {
+                        backdrop-filter: blur(6px);
+                        background: rgba(255, 255, 255, 0.9);
+                    }
+
+                    li {
+                        a {
+                            width: 100%;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            gap: rem(37px);
+                            padding: rem(8px) rem(16px) rem(8px) rem(12px);
+                            @include hover {
+                                background: #07213633;
+                                color: $c_white;
+
+                                span {
+                                    &::before {
+                                        opacity: 1;
+                                        transform: translate(0);
+                                    }
+                                    &::after {
+                                        opacity: 0;
+                                        transform: translate(50%, 50%);
+                                    }
+                                }
+                            }
+
+                            span {
+                                display: inline-flex;
+                                flex-shrink: 0;
+                                width: rem(24px);
+                                height: rem(24px);
+                                position: relative;
+                                overflow: hidden;
+
+                                &::after,
+                                &::before {
+                                    content: '';
+                                    position: absolute;
+                                    display: inline-flex;
+                                    flex-shrink: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    @include transitions(
+                                        0.3s,
+                                        cubic-bezier(0.768, 0.304, 0.496, 0.884)
+                                    );
+                                }
+
+                                &::after {
+                                    background: url('../images/icons/ico-arrow-bl.svg')
+                                        no-repeat center center / cover;
+                                }
+                                &::before {
+                                    opacity: 0;
+                                    transform: translate(-50%, -50%);
+                                    background: url('../images/icons/ico-arrow-wht.svg')
+                                        no-repeat center center / cover;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    li {
+        font: 400 #{rem(18px)} / 180% $ff;
+    }
+
+    a {
+        font: inherit;
+        color: $c_blue;
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    }
+
+    > ul {
+        display: flex;
+        align-items: center;
+        gap: rem(24px);
+
+        @include media('desktop-lg') {
+            gap: rem(12px);
+        }
+
+        > li {
+            > a {
+                overflow: hidden;
+                width: 100%;
+                display: inline-flex;
+                flex-direction: column;
+                position: relative;
+                font: inherit;
+                &.is-active {
+                    opacity: 0.5;
+                }
+                @include transitions(
+                    0.3s,
+                    cubic-bezier(0.768, 0.304, 0.496, 0.884)
+                );
+                @include hover {
+                    span {
+                        &:first-child {
+                            transform: translateY(-100%);
+                        }
+                        &:last-child {
+                            transform: translateY(0);
+                        }
+                    }
+                }
+
+                span {
+                    display: inline-flex;
+                    width: 100%;
+                    font: inherit;
+                    @include transitions(
+                        0.3s,
+                        cubic-bezier(0.768, 0.304, 0.496, 0.884)
+                    );
+
+                    &:last-child {
+                        position: absolute;
+                        top: 0;
+                        transform: translateY(100%);
+                    }
+                }
+            }
+        }
+    }
+}

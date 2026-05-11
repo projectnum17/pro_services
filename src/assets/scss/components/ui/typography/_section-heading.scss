@@ -6,4 +6,13 @@
     font: 500 #{rem(64px)} / 120% $ff;
     letter-spacing: -3px;
     color: $c_white;
+    @include media('laptop') {
+        font-size: rem(52px);
+    }
+    @include media('tablet') {
+        font-size: rem(44px);
+    }
+    @include media('mobile') {
+        font-size: rem(32px);
+    }
 }

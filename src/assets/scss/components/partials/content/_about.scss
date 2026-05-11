@@ -3,7 +3,7 @@
 @use '../../../base/media' as *;
 
 .about {
-    padding-top: rem(108px);
+    padding-top: var(--header-h);
     position: relative;
     background: #16181d;
 
@@ -16,6 +16,9 @@
     .section-title {
         color: $c_white;
         margin-bottom: rem(28px);
+        @include media('mobile') {
+            margin-bottom: rem(12px);
+        }
     }
 
     &__description {
@@ -23,14 +26,27 @@
         justify-content: space-between;
         gap: rem(24px);
         padding-block: 0 rem(88px);
+        @include media('laptop') {
+            flex-direction: column;
+        }
+        @include media('mobile') {
+            padding-block: rem(0px) rem(56px);
+            gap: rem(12px);
+        }
     }
 
     &__info {
         max-width: rem(852px);
+        @include media('laptop') {
+            max-width: 100%;
+        }
     }
 
     &__heading {
         max-width: rem(592px);
+        @include media('laptop') {
+            max-width: 100%;
+        }
     }
 
     &__text {
@@ -38,6 +54,16 @@
             font: 400 #{rem(24px)} / 130% $ff;
             letter-spacing: -1px;
             color: #b0bec9;
+
+            @include media('mobile') {
+                font-size: rem(18px);
+            }
+        }
+    }
+
+    p:where(:not([class]):not(:last-child)) {
+        @include media('mobile') {
+            margin-bottom: rem(12px);
         }
     }
 }

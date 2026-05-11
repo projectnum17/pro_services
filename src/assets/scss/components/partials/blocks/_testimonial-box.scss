@@ -9,15 +9,27 @@
     padding: rem(32px);
     border-radius: rem(12px);
     background: #e6e7ec;
+    @include media('mobile') {
+        padding: rem(16px);
+        max-width: rem(290px);
+    }
 
     &__rate {
         display: flex;
         align-items: center;
         gap: rem(4px);
         margin-bottom: rem(16px);
+        @include media('mobile') {
+            gap: rem(2px);
+            margin-bottom: rem(12px);
+        }
         img {
             width: rem(20px);
             height: rem(20px);
+            @include media('mobile') {
+                width: rem(18px);
+                height: rem(18px);
+            }
         }
     }
 
@@ -25,6 +37,10 @@
         font: 400 #{rem(16px)} / 180% $ff;
         margin-bottom: rem(16px);
         color: $c_blue;
+        @include media('mobile') {
+            font-size: rem(14px);
+            line-height: 130%;
+        }
     }
 
     &__author {
@@ -32,6 +48,9 @@
         display: flex;
         align-items: center;
         gap: rem(12px);
+        @include media('mobile') {
+            gap: rem(8px);
+        }
     }
 
     &__acr {

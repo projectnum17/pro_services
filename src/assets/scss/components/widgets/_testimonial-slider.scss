@@ -19,6 +19,9 @@
     &__carousel {
         overflow: visible;
         margin-bottom: rem(52px);
+        @include media('mobile') {
+            margin-bottom: rem(36px);
+        }
     }
 
     &__scroll {
@@ -56,6 +59,9 @@
             pointer-events: none;
         }
         @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+        @include media('tablet') {
+            display: none;
+        }
         &:first-of-type {
             transform: rotate(180deg) translateZ(0) translateY(100%);
         }

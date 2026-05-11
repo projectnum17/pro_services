@@ -5,6 +5,11 @@
     font: 400 #{rem(20px)} / 150% $ff;
     color: $c_half;
 
+    @include media('mobile') {
+        font-size: rem(16px);
+        line-height: 120%;
+    }
+
     a {
         text-decoration: underline;
     }

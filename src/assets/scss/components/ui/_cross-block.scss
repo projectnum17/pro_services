@@ -12,6 +12,7 @@
 
     @include media('mobile') {
         border-radius: rem(12px);
+        --cross-size: #{rem(75px)};
     }
 
     &--tl {

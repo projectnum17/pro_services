@@ -28,6 +28,18 @@ $primary_gradient: linear-gradient(90deg, #ffa126 0%, #de5126 100%);
     --container_pdd: #{rem(20px)};
 }
 
+@include media('desktop-lg') {
+    :root {
+        --header-h: #{rem(142px)};
+    }
+}
+
+@include media('laptop') {
+    :root {
+        --header-h: #{rem(78px)};
+    }
+}
+
 @include media('tablet') {
     :root {
         --container_pdd: #{rem(15px)};
@@ -36,6 +48,7 @@ $primary_gradient: linear-gradient(90deg, #ffa126 0%, #de5126 100%);
 
 @include media('mobile') {
     :root {
+        --header-h: #{rem(66px)};
         --container_pdd: #{rem(12px)};
     }
 }

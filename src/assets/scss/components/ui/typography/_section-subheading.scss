@@ -5,4 +5,13 @@
 .section-subheading {
     font: 600#{rem(56px)} / 100% $ff;
     letter-spacing: -2px;
+    @include media('laptop') {
+        font-size: rem(46px);
+    }
+    @include media('tablet') {
+        font-size: rem(38px);
+    }
+    @include media('mobile') {
+        font-size: rem(28px);
+    }
 }

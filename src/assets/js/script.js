@@ -2,6 +2,7 @@
 
 import { headerHandlers } from './modules/_headerHandlers';
 import { initVideoAutoplay } from './modules/_initVideoAutoplay';
+import { initMobileMenu } from './modules/_initMobileMenu';
 import { initProcessSlider } from './modules/_initProcessSlider';
 import { initTestimSlider } from './modules/_initTestimSlider';
 import { initFAQ } from './modules/_initFAQ';
@@ -14,6 +15,7 @@ import { initModals } from './modules/_initModals';
 document.addEventListener('DOMContentLoaded', () => {
     headerHandlers();
     initVideoAutoplay();
+    initMobileMenu();
     initProcessSlider();
     initTestimSlider();
     initFAQ();

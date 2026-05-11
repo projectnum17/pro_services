@@ -5,40 +5,66 @@
 .innovation {
     padding-block: rem(105px);
     background: #e6e7ec;
+    @include media('mobile') {
+        padding-block: rem(56px);
+    }
 
     .container {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         gap: rem(24px);
+        @include media('tablet') {
+            flex-direction: column;
+        }
     }
 
     .section-subheading {
         margin-bottom: rem(24px);
+        @include media('mobile') {
+            margin-bottom: 0;
+        }
     }
 
     &__title {
         margin-bottom: rem(24px);
         font: 700 #{rem(20px)} / 30px $ff;
+        @include media('mobile') {
+            font-size: rem(18px);
+            line-height: 120%;
+        }
     }
 
     &__list {
         display: flex;
         flex-direction: column;
         gap: rem(16px);
+        @include media('mobile') {
+            gap: rem(12px);
+        }
 
         li {
             gap: rem(8px);
             font: 400 #{rem(20px)} / 30px $ff;
             display: inline-flex;
+            @include media('mobile') {
+                font-size: rem(16px);
+                line-height: 120%;
+                align-items: baseline;
+            }
             &::before {
                 content: '';
-                background: url('../images/icons/ico-check.svg') no-repeat center center;
+                background: url('../images/icons/ico-check.svg') no-repeat
+                    center center;
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
                 width: rem(40px);
                 height: rem(40px);
+                @include media('mobile') {
+                    width: rem(30px);
+                    height: rem(30px);
+                }
             }
         }
     }
@@ -46,6 +72,11 @@
     &__text {
         p {
             font: 400 #{rem(20px)} / 30px $ff;
+
+            @include media('mobile') {
+                font-size: rem(16px);
+                line-height: 120%;
+            }
         }
     }
 
@@ -56,6 +87,15 @@
         max-width: rem(705px);
         color: #072136;
 
+        @include media('desktop-lg') {
+            width: 50%;
+            max-width: 100%;
+        }
+
+        @include media('tablet') {
+            width: 100%;
+        }
+
         *:last-child {
             margin-bottom: 0;
         }
@@ -63,9 +103,20 @@
 
     &__pic {
         max-width: rem(852px);
+        @include media('desktop-lg') {
+            width: 50%;
+            max-width: 100%;
+        }
+        @include media('tablet') {
+            width: 100%;
+        }
     }
 
     .cross-block {
         --cross-size: #{rem(300px)};
+
+        @include media('desktop') {
+            --cross-size: #{rem(200px)};
+        }
     }
 }

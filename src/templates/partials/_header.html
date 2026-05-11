@@ -10,7 +10,7 @@
                 </p>
             </div>
             <ul class="header__lang js-lang-trigger">
-                <li class="header__lang-current">
+                <li class="header__lang-current is-current">
                     <span class="header__lang-label">UA</span>
                     <span class="header__lang-label">UA</span>
                 </li>
@@ -32,47 +32,13 @@
             {{> _linkAccent
                 label = "Подати  заявку"
             }}
-            <nav class="header__nav">
-                <ul>
-                    {{#each menuInfo.menuHeader}}
-                    <li>
-                        <a
-                            href="{{url}}"
-                            class="{{#if (eq id @root.pageId)}}is-active{{/if}}"
-                        >
-                            <span>{{title}}</span>
-                            <span>{{title}}</span>
-                        </a>
-                        {{#if submenu}}
-                        <ul>
-                            {{#each submenu}}
-                            <li>
-                                <a href="{{url}}">
-                                    {{title}}
-                                    <span></span>
-                                </a>
-                            </li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-                    </li>
-                    {{/each}}
-                </ul>
-            </nav>
+            {{> _navPanel}}
         </div>
         <div class="header__panel">
             {{> _linkSecondary
                 label = "Зареєструвати пристрій"
             }}
-            <div class="header__account">
-                <a href="#!" target="_blank">
-                    <p>Особистий кабінет</p>
-                    <span>
-                        <img src="./assets/images/icons/ico-acc_1.svg" alt="Icon">
-                        <img src="./assets/images/icons/ico-acc_2.svg" alt="Icon">
-                    </span>
-                </a>
-            </div>
+            {{> _linkAccount}}
             <a class="header__call  border-gradient" href="tel:+0000000000">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -88,5 +54,8 @@
                 </svg>
             </a>
         </div>
+        <button type="button" class="header__burger js-menu-trigger">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 </header>

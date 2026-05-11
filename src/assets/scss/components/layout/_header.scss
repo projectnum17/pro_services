@@ -3,8 +3,14 @@
 @use '../../base/media' as *;
 
 body {
-    &:has(.hero) {
+    &:has(.mobile-menu.is-open) {
         .header {
+            max-width: rem(700px);
+
+            &.is-transform {
+                padding-block: rem(12px);
+                background: $c_white;
+            }
         }
     }
 }
@@ -15,9 +21,17 @@ body {
     width: 100%;
     z-index: 10;
     padding-block: rem(27px);
+    max-width: 100%;
+    align-self: flex-end;
     background: $c_white;
     backdrop-filter: blur(68px);
     @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    @include media('desktop-lg') {
+        padding-block: rem(12px);
+    }
+    @include media('laptop') {
+        padding-block: rem(12px);
+    }
 
     &.is-transform {
         padding-block: rem(12px);
@@ -34,7 +48,7 @@ body {
             max-width: 0;
         }
 
-        .header__nav {
+        .nav-panel {
             transform: translateX(-211px);
         }
     }
@@ -52,6 +66,14 @@ body {
             span {
                 height: rem(44px);
             }
+        }
+
+        @include media('desktop-lg') {
+            order: 4;
+            margin-left: auto;
+        }
+        @include media('laptop') {
+            display: none;
         }
     }
 
@@ -71,6 +93,24 @@ body {
                 height: rem(42px);
             }
         }
+        @include media('laptop') {
+            display: none;
+        }
+    }
+
+    .nav-panel {
+        @include media('desktop-lg') {
+            order: 3;
+        }
+        @include media('laptop') {
+            display: none;
+        }
+    }
+
+    .link-account {
+        @include media('laptop') {
+            display: none;
+        }
     }
 
     .container {
@@ -78,10 +118,64 @@ body {
         align-items: center;
         justify-content: space-between;
         gap: rem(24px);
+        @include media('desktop-lg') {
+            flex-direction: column;
+            gap: rem(8px);
+        }
+        @include media('laptop') {
+            flex-direction: row;
+        }
     }
 
-    &__nav {
+    &__burger {
+        display: none;
+        width: rem(39px);
+        height: rem(39px);
+        flex-shrink: 0;
+        position: relative;
         @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+        @include media('laptop') {
+            display: inline-flex;
+        }
+
+        &.is-active {
+            span {
+                &:nth-child(2) {
+                    width: 0;
+                }
+                &:nth-child(1) {
+                    top: rem(18px);
+                    transform: translateX(-50%) rotate(45deg);
+                }
+                &:nth-child(3) {
+                    bottom: rem(19px);
+                    transform: translateX(-50%) rotate(-45deg);
+                }
+            }
+        }
+
+        span {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: rem(23px);
+            height: rem(2px);
+            background: $c_blue;
+            @include transitions(
+                0.3s,
+                cubic-bezier(0.768, 0.304, 0.496, 0.884)
+            );
+
+            &:nth-child(1) {
+                top: rem(11px);
+            }
+            &:nth-child(2) {
+                top: rem(19px);
+            }
+            &:nth-child(3) {
+                bottom: rem(10px);
+            }
+        }
     }
 
     &__info {
@@ -89,6 +183,16 @@ body {
         display: flex;
         align-items: center;
         gap: rem(20px);
+        @media (max-width: 1620px) {
+            gap: rem(12px);
+            max-width: rem(320px);
+        }
+        @include media('desktop-lg') {
+            order: 1;
+        }
+        @include media('mobile') {
+            gap: rem(12px);
+        }
     }
 
     &__details {
@@ -97,11 +201,30 @@ body {
         display: flex;
         align-items: center;
         gap: rem(48px);
+        @media (max-width: 1620px) {
+            gap: rem(12px);
+        }
+        @include media('desktop-lg') {
+            padding-bottom: rem(8px);
+            gap: rem(24px);
+            max-width: 100%;
+            width: 100%;
+        }
+        @include media('laptop') {
+            padding-bottom: 0;
+            border: none;
+        }
     }
 
     &__logo {
         flex-shrink: 0;
         max-width: rem(160px);
+        @media (max-width: 1620px) {
+            max-width: rem(130px);
+        }
+        @include media('mobile') {
+            max-width: rem(110px);
+        }
         img {
             width: 100%;
         }
@@ -110,91 +233,41 @@ body {
     &__description {
         font: 500 #{rem(12px)} / 120% $ff;
         text-transform: uppercase;
+        @media (max-width: 1620px) {
+            font-size: rem(10px);
+        }
     }
 
     &__panel {
         gap: rem(16px);
         display: flex;
         align-items: center;
-    }
-
-    &__account {
-        display: flex;
-        align-items: center;
-        gap: rem(16px);
-
-        @include hover {
-            span img:last-child {
-                left: rem(2px);
-            }
+        @include media('desktop-lg') {
+            width: 100%;
+            justify-content: flex-end;
         }
-
-        span {
-            display: inline-flex;
-            width: rem(28px);
-            height: rem(28px);
-            position: relative;
-            flex-shrink: 0;
-
-            img {
-                position: absolute;
-                @include transitions(
-                    0.3s,
-                    cubic-bezier(0.768, 0.304, 0.496, 0.884)
-                );
-
-                &:last-child {
-                    top: 50%;
-                    left: 0;
-                    transform: translateY(-50%);
-                }
-
-                &:first-child {
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                }
-            }
-        }
-
-        &::after {
-            content: '';
-            width: rem(2px);
-            height: rem(14px);
-            background: #b0bec9;
-        }
-
-        a {
-            max-width: rem(151px);
-            border-radius: 999px;
-            padding: rem(8px) rem(16px);
-            display: flex;
-            align-items: center;
-            background: $c_blue;
-            @include transitions(
-                0.3s,
-                cubic-bezier(0.768, 0.304, 0.496, 0.884)
-            );
-            @include hover {
-                padding-block: rem(6px);
-            }
-        }
-
-        p {
-            font: 600 #{rem(13px)} / 120% $ff;
-            text-transform: uppercase;
-            margin: 0;
-            color: $c_white;
+        @include media('laptop') {
+            width: auto;
         }
     }
 
     &__call {
+        flex-shrink: 0;
         width: rem(54px);
         height: rem(54px);
         border-radius: 50%;
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        @include media('mobile') {
+            width: rem(42px);
+            height: rem(42px);
+
+            svg {
+                width: rem(24px);
+                height: rem(24px);
+            }
+        }
 
         @include hover {
             svg {
@@ -229,6 +302,12 @@ body {
         font: 400 #{rem(18px)} / 180% $ff;
         position: relative;
         color: $c_blue;
+        @include media('desktop-lg') {
+            order: 2;
+        }
+        @include media('laptop') {
+            display: none;
+        }
         @include hover {
             .header__lang-inner {
                 opacity: 1;
@@ -245,10 +324,14 @@ body {
             }
         }
 
+        .is-current {
+            color: $c_grey;
+        }
+
         &-current {
             overflow: hidden;
             position: relative;
-            color: $c_grey;
+
             @include transitions(
                 0.3s,
                 cubic-bezier(0.768, 0.304, 0.496, 0.884)
@@ -300,6 +383,10 @@ body {
             border-radius: rem(8px);
             background: #ffffff66;
             backdrop-filter: blur(48px);
+            @include media('desktop-lg') {
+                backdrop-filter: blur(6px);
+                background: rgba(255, 255, 255, 0.9);
+            }
         }
 
         &-link {
@@ -311,201 +398,6 @@ body {
             @include hover {
                 background: #07213633;
                 color: $c_white;
-            }
-        }
-    }
-
-    &__nav {
-        ul {
-            padding: 0;
-            margin: 0;
-            list-style-type: none;
-
-            li {
-                &:has(ul) {
-                    position: relative;
-                    display: inline-flex;
-                    flex-direction: row;
-                    align-items: center;
-                    gap: rem(2px);
-                    @include hover {
-                        &::after {
-                            transform: rotate(180deg);
-                        }
-                        ul {
-                            transform: translate(0);
-                            opacity: 1;
-                            pointer-events: all;
-                        }
-                    }
-
-                    &.is-active {
-                        ul {
-                            transform: translate(0);
-                            opacity: 1;
-                            pointer-events: all;
-                        }
-                    }
-
-                    &::after {
-                        content: '';
-                        display: inline-flex;
-                        flex-shrink: 0;
-                        width: rem(20px);
-                        height: rem(20px);
-                        background: url('../images/icons/ico-drop.svg')
-                            no-repeat center center / cover;
-                        @include transitions(
-                            0.3s,
-                            cubic-bezier(0.768, 0.304, 0.496, 0.884)
-                        );
-                    }
-
-                    ul {
-                        width: max-content;
-                        z-index: 2;
-                        position: absolute;
-                        top: 100%;
-                        padding-block: rem(8px);
-                        border-radius: rem(8px);
-                        opacity: 0;
-                        transform: translateY(-5px);
-                        pointer-events: none;
-                        background: #ffffff66;
-                        backdrop-filter: blur(48px);
-                        @include transitions(
-                            0.3s,
-                            cubic-bezier(0.768, 0.304, 0.496, 0.884)
-                        );
-
-                        li {
-                            a {
-                                width: 100%;
-                                display: inline-flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                gap: rem(37px);
-                                padding: rem(8px) rem(16px) rem(8px) rem(12px);
-                                @include hover {
-                                    background: #07213633;
-                                    color: $c_white;
-
-                                    span {
-                                        &::before {
-                                            opacity: 1;
-                                            transform: translate(0);
-                                        }
-                                        &::after {
-                                            opacity: 0;
-                                            transform: translate(50%, 50%);
-                                        }
-                                    }
-                                }
-
-                                span {
-                                    display: inline-flex;
-                                    flex-shrink: 0;
-                                    width: rem(24px);
-                                    height: rem(24px);
-                                    position: relative;
-                                    overflow: hidden;
-
-                                    &::after,
-                                    &::before {
-                                        content: '';
-                                        position: absolute;
-                                        display: inline-flex;
-                                        flex-shrink: 0;
-                                        width: 100%;
-                                        height: 100%;
-                                        @include transitions(
-                                            0.3s,
-                                            cubic-bezier(
-                                                0.768,
-                                                0.304,
-                                                0.496,
-                                                0.884
-                                            )
-                                        );
-                                    }
-
-                                    &::after {
-                                        background: url('../images/icons/ico-arrow-bl.svg')
-                                            no-repeat center center / cover;
-                                    }
-                                    &::before {
-                                        opacity: 0;
-                                        transform: translate(-50%, -50%);
-                                        background: url('../images/icons/ico-arrow-wht.svg')
-                                            no-repeat center center / cover;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        li {
-            font: 400 #{rem(18px)} / 180% $ff;
-        }
-
-        a {
-            font: inherit;
-            color: $c_blue;
-            @include transitions(
-                0.3s,
-                cubic-bezier(0.768, 0.304, 0.496, 0.884)
-            );
-        }
-
-        > ul {
-            display: flex;
-            align-items: center;
-            gap: rem(24px);
-            > li {
-                > a {
-                    overflow: hidden;
-                    width: 100%;
-                    display: inline-flex;
-                    flex-direction: column;
-                    position: relative;
-                    font: inherit;
-                    &.is-active {
-                        opacity: 0.5;
-                    }
-                    @include transitions(
-                        0.3s,
-                        cubic-bezier(0.768, 0.304, 0.496, 0.884)
-                    );
-                    @include hover {
-                        span {
-                            &:first-child {
-                                transform: translateY(-100%);
-                            }
-                            &:last-child {
-                                transform: translateY(0);
-                            }
-                        }
-                    }
-
-                    span {
-                        display: inline-flex;
-                        width: 100%;
-                        font: inherit;
-                        @include transitions(
-                            0.3s,
-                            cubic-bezier(0.768, 0.304, 0.496, 0.884)
-                        );
-
-                        &:last-child {
-                            position: absolute;
-                            top: 0;
-                            transform: translateY(100%);
-                        }
-                    }
-                }
             }
         }
     }
