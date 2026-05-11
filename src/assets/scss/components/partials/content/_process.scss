@@ -5,22 +5,59 @@
 .process {
     position: relative;
     min-height: calc(100vh + 78px);
+    min-height: calc(100svh + 78px);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    @include media('desktop-lg') {
+        min-height: calc(100vh + 150px);
+        min-height: calc(100svh + 150px);
+    }
+    @include media('mobile') {
+        min-height: 100vh;
+        min-height: 100svh;
+    }
     .cross-block {
         --cross-size: #{rem(120px)};
+
+        @include media('tablet') {
+            --cross-size: #{rem(75px)};
+        }
+        @include media('mobile') {
+            --cross-size: #{rem(45px)};
+        }
     }
 
     .container {
         width: 100%;
+        @include media('desktop') {
+            min-height: 75vh;
+            display: grid;
+        }
+        @include media('mobile') {
+            height: 100%;
+            padding-block: 85px 20px;
+        }
     }
 
     &__content {
         display: flex;
         padding-block: rem(80px) rem(65px);
         padding-inline: rem(88px);
+        @include media('desktop-lg') {
+            padding-block: rem(56px);
+            padding-block: rem(40px) rem(20px);
+        }
+        @include media('desktop') {
+            gap: rem(24px);
+            height: 100%;
+            padding-block: rem(56px);
+        }
+        @include media('mobile') {
+            padding: rem(40px) rem(20px);
+            flex-direction: column;
+        }
     }
 
     &__info {
@@ -53,7 +90,11 @@
         width: 100%;
         min-width: 0;
         touch-action: pan-x;
+        gap: rem(90px);
         justify-content: space-between;
+        @include media('mobile') {
+            flex: 1;
+        }
     }
 
     &__paginations {
@@ -68,6 +109,18 @@
         overflow: visible;
         touch-action: none;
         perspective: 1000px;
+        @include media('desktop-lg') {
+            max-width: rem(250px);
+        }
+        @include media('desktop') {
+            position: absolute;
+            height: rem(200px);
+            top: 0;
+            right: 0;
+        }
+        @include media('mobile') {
+            display: none;
+        }
     }
 
     &__pagination {
@@ -82,6 +135,13 @@
         opacity: 0;
         filter: blur(15px);
         transform: translateY(calc(var(--diff) * 90%)) scale(1);
+        @include media('desktop-lg') {
+            font-size: rem(190px);
+        }
+        @include media('desktop') {
+            font-size: rem(50px);
+            right: rem(20px);
+        }
 
         &[data-active='true'] {
             z-index: 10;
@@ -125,6 +185,13 @@
             opacity: 0.4;
             display: inline-flex;
             margin-bottom: rem(72px);
+            @include media('desktop-lg') {
+                margin-bottom: rem(32px);
+            }
+            @include media('mobile') {
+                font-size: rem(24px);
+                margin-bottom: rem(12px);
+            }
         }
 
         &.is-active {
@@ -137,16 +204,48 @@
         font: 600 #{rem(40px)} / 130% $ff;
         letter-spacing: -2px;
         margin-bottom: rem(24px);
+        @include media('desktop-lg') {
+            font-size: rem(34px);
+        }
+        @include media('mobile') {
+            font-size: rem(22px);
+        }
     }
 
     &__descr {
         font: 400 #{rem(18px)} / 130% $ff;
+        max-height: rem(200px);
+        overflow: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        @include media('mobile') {
+            font-size: rem(16px);
+        }
     }
 
     &__controls {
         display: flex;
         align-items: center;
         gap: rem(8px);
+        @include media('desktop-lg') {
+            flex-direction: column;
+            .link-accent,
+            .link-secondary {
+                width: 100%;
+                span {
+                    width: 100%;
+                }
+            }
+        }
+        @include media('desktop') {
+            flex-direction: row;
+        }
+        @include media('mobile') {
+            flex-direction: column;
+        }
     }
 }
 

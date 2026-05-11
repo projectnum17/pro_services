@@ -62,13 +62,9 @@ export const initProcessSlider = () => {
     ScrollTrigger.create({
         trigger: section,
         start: 'top top',
-
-        end: `+=${window.innerHeight * (totalSlides - 1) * 0.5}`,
-
+        end: `+=${totalSlides * 300}`,
         pin: true,
-
         scrub: true,
-
         snap: {
             snapTo: 1 / (totalSlides - 1),
             duration: 0.1,

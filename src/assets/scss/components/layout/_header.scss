@@ -18,7 +18,12 @@ body {
         .header {
             .header__details {
                 @media (max-width: 1620px) {
-                    gap: rem(48px);
+                    gap: rem(30px);
+                }
+                @media (max-width: 1500px) {
+                    .nav-panel li {
+                        font-size: rem(16px);
+                    }
                 }
                 @media (max-width: 1440px) {
                     gap: rem(24px);
