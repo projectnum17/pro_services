@@ -5,12 +5,28 @@
 .contacts {
     padding-block: rem(100px) rem(160px);
     background: $bg_content;
+    @include media('mobile') {
+        padding-block: rem(56px) 0;
+    }
+
+    .contact-box {
+        @include media('desktop-lg') {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
 
     .container {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
         gap: rem(24px);
+        @include media('desktop-lg') {
+            flex-direction: column;
+        }
+        @include media('mobile') {
+            padding: 0;
+        }
     }
 
     &__title {
@@ -18,17 +34,32 @@
         margin-bottom: rem(16px);
         opacity: 0.4;
         color: #16181d;
+        @include media('mobile') {
+            font-size: rem(14px);
+            margin-bottom: rem(12px);
+            line-height: 120%;
+        }
     }
 
     &__details {
         font: 600 #{rem(22px)} / 140% $ff;
         text-transform: uppercase;
+        @include media('mobile') {
+            font-size: rem(18px);
+        }
     }
 
     &__connect {
         display: flex;
         flex-direction: column;
         gap: rem(48px);
+        @include media('desktop-lg') {
+            width: 100%;
+        }
+        @include media('mobile') {
+            gap: rem(24px);
+            padding-inline: var(--container_pdd);
+        }
     }
 
     &__info {
@@ -37,6 +68,15 @@
             align-items: flex-end;
             justify-content: space-between;
             gap: rem(12px);
+            @include media('desktop-lg') {
+                justify-content: flex-start;
+                gap: rem(48px);
+            }
+            @include media('mobile') {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: rem(24px);
+            }
         }
     }
 
@@ -44,6 +84,9 @@
         display: flex;
         flex-direction: column;
         gap: rem(18px);
+        @include media('mobile') {
+            gap: rem(12px);
+        }
     }
 
     &__soc {

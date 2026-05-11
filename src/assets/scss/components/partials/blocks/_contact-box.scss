@@ -8,6 +8,11 @@
     border-radius: rem(24px);
     padding: rem(72px);
     background: #e6e7ec;
+    @include media('mobile') {
+        border-radius: 0;
+        padding-block: rem(24px);
+        padding-inline: var(--container_pdd);
+    }
 
     .section-title {
         margin-bottom: rem(24px);
@@ -26,12 +31,20 @@
         align-items: center;
         justify-content: space-between;
         gap: rem(12px);
+        @include media('mobile') {
+            padding-top: rem(20px);
+            flex-direction: column;
+            gap: rem(24px);
+        }
     }
 
     &__tcpa {
         font: 400 #{rem(16px)} / 180% $ff;
         max-width: rem(456px);
         color: #535862;
+        @include media('mobile') {
+            font-size: rem(12px);
+        }
 
         a {
             text-decoration: underline;
@@ -42,10 +55,24 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: rem(32px);
+        @include media('mobile') {
+            display: flex;
+            flex-direction: column;
+            gap: rem(12px);
+        }
 
         .form-field {
             &:nth-child(n + 3) {
                 grid-column: span 2;
+            }
+        }
+    }
+
+    .link-accent {
+        @include media('mobile') {
+            width: 100%;
+            span {
+                width: 100%;
             }
         }
     }
