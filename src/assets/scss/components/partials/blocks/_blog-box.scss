@@ -90,6 +90,9 @@
         width: 100%;
         aspect-ratio: 1;
         overflow: hidden;
+        @include media('mobile') {
+            max-height: rem(300px);
+        }
 
         img {
             width: 100%;
