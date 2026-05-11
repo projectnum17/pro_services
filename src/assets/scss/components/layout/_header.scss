@@ -13,6 +13,19 @@ body {
             }
         }
     }
+
+    &:has(.hero) {
+        .header {
+            .header__details {
+                @media (max-width: 1620px) {
+                    gap: rem(48px);
+                }
+                @media (max-width: 1440px) {
+                    gap: rem(24px);
+                }
+            }
+        }
+    }
 }
 
 .header {
@@ -43,13 +56,24 @@ body {
             clip-path: inset(0 100% 0 0);
             opacity: 0;
             pointer-events: none;
+            @media (max-width: 1440px) {
+                opacity: 1;
+                pointer-events: all;
+                clip-path: initial;
+            }
         }
         .link-secondary {
             max-width: 0;
+            @media (max-width: 1440px) {
+                max-width: rem(140px);
+            }
         }
 
         .nav-panel {
             transform: translateX(-211px);
+            @media (max-width: 1440px) {
+                transform: translateX(0);
+            }
         }
     }
 
@@ -201,6 +225,7 @@ body {
         display: flex;
         align-items: center;
         gap: rem(48px);
+        @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
         @media (max-width: 1620px) {
             gap: rem(12px);
         }

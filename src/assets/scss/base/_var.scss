@@ -30,7 +30,7 @@ $primary_gradient: linear-gradient(90deg, #ffa126 0%, #de5126 100%);
 
 @include media('desktop-lg') {
     :root {
-        --header-h: #{rem(142px)};
+        --header-h: #{rem(141px)};
     }
 }
 
