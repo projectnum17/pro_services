@@ -27,7 +27,7 @@
                         </p>
                     </div>
                     <ul class="header__lang js-lang-trigger">
-                        <li class="header__lang-current">
+                        <li class="header__lang-current is-current">
                             <span class="header__lang-label">UA</span>
                             <span class="header__lang-label">UA</span>
                         </li>
@@ -49,7 +49,7 @@
                     <a href="javascript: void(0)" class="link-accent">
                         <span>Подати заявку</span>
                     </a>
-                    <nav class="header__nav">
+                    <nav class="nav-panel">
                         <ul>
                             <li>
                                 <a href="about.html" class="">
@@ -64,19 +64,19 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="price.html" class="">
+                                <a href="#!" class="">
                                     <span>Прайс</span>
                                     <span>Прайс</span>
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="price.html">
+                                        <a href="price.html#services">
                                             Прайс Послуги
                                             <span></span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="price.html">
+                                        <a href="price.html#spare">
                                             Прайс Запчастини
                                             <span></span>
                                         </a>
@@ -104,7 +104,7 @@
                             Зареєструвати пристрій
                         </span>
                     </a>
-                    <div class="header__account">
+                    <div class="link-account">
                         <a href="#!" target="_blank">
                             <p>Особистий кабінет</p>
                             <span>
@@ -122,6 +122,11 @@
                         </svg>
                     </a>
                 </div>
+                <button type="button" class="header__burger js-menu-trigger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </header>
         <main class="main">
@@ -390,6 +395,85 @@
                 </div>
             </div>
         </footer>
+        <div class="mobile-menu js-mob-menu">
+            <div class="mobile-menu__box">
+                <nav class="nav-panel">
+                    <ul>
+                        <li>
+                            <a href="about.html" class="">
+                                <span>Про нас</span>
+                                <span>Про нас</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html" class="">
+                                <span>Сервіси</span>
+                                <span>Сервіси</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!" class="">
+                                <span>Прайс</span>
+                                <span>Прайс</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="price.html#services">
+                                        Прайс Послуги
+                                        <span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="price.html#spare">
+                                        Прайс Запчастини
+                                        <span></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="brands.html" class="">
+                                <span>Бренди</span>
+                                <span>Бренди</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contacts.html" class="is-active">
+                                <span>Контакти</span>
+                                <span>Контакти</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <ul class="mobile-menu__langs">
+                    <li>
+                        <a href="javascript: void(0)" class="is-current">ua</a>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0)">en</a>
+                    </li>
+                </ul>
+                <div class="mobile-menu__controls">
+                    <a href="javascript: void(0)" class="link-accent">
+                        <span>Подати заявку</span>
+                    </a>
+                    <a href="javascript: void(0)" class="link-secondary">
+                        <span class="border-gradient">
+                            Зареєструвати пристрій
+                        </span>
+                    </a>
+                    <div class="link-account">
+                        <a href="#!" target="_blank">
+                            <p>Особистий кабінет</p>
+                            <span>
+                                <img src="./assets/images/icons/ico-acc_1.svg" alt="Icon">
+                                <img src="./assets/images/icons/ico-acc_2.svg" alt="Icon">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="modal modal--request js-request-modal">
             <div class="modal__box js-request-box">
                 <button type="button" class="modal__close js-request-close">
