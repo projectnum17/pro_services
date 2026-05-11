@@ -1,5 +1,25 @@
 'use strict';
 
+const loader = document.querySelector('.loader');
+let loaderHidden = false;
+
+const hideLoader = () => {
+    if (loader && !loaderHidden) {
+        loaderHidden = true;
+        loader.classList.add('is-hide');
+
+        setTimeout(() => loader.remove(), 500);
+    }
+};
+
+if (document.readyState === 'complete') {
+    hideLoader();
+} else {
+    window.addEventListener('load', hideLoader);
+}
+
+setTimeout(hideLoader, 7000);
+
 import { headerHandlers } from './modules/_headerHandlers';
 import { initVideoAutoplay } from './modules/_initVideoAutoplay';
 import { initMobileMenu } from './modules/_initMobileMenu';
