@@ -23,20 +23,35 @@
         }
     }
 
+    @include media('mobile') {
+        border-radius: rem(12px);
+        padding: rem(12px);
+    }
+
     &:not(:has(.price-box__cta)) {
         .price-box__price {
             padding-block: rem(18px);
             display: flex;
             align-items: center;
             gap: rem(8px);
+            @include media('mobile') {
+                padding-block: 0;
+            }
         }
     }
 
     &__pic {
+        width: 100%;
         border-radius: rem(12px);
         aspect-ratio: 386 / 244;
         max-height: rem(244px);
         overflow: hidden;
+
+        @include media('mobile') {
+            &.cross-block {
+                border-radius: rem(8px);
+            }
+        }
 
         img {
             height: 100%;
@@ -54,12 +69,20 @@
         letter-spacing: -1px;
         margin-bottom: rem(15px);
         color: #072136;
+        @include media('mobile') {
+            font-size: rem(22px);
+            margin-bottom: rem(10px);
+        }
     }
 
     &__subtitle {
         font: 600 #{rem(16px)} / 150% $ff;
         margin-bottom: rem(15px);
         color: #535862;
+        @include media('mobile') {
+            font-size: rem(14px);
+            margin-bottom: rem(10px);
+        }
     }
 
     &__descr {
@@ -68,6 +91,14 @@
         visibility: hidden;
         color: #537896;
         @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+        @include media('tablet') {
+            opacity: 1;
+            visibility: visible;
+        }
+        @include media('mobile') {
+            font-size: rem(12px);
+            line-height: 120%;
+        }
     }
 
     &__foot {
@@ -79,14 +110,24 @@
         margin-top: auto;
         margin-inline: rem(16px);
         border-top: 1px solid #b0bec9;
+        @include media('mobile') {
+            padding-block: rem(12px) 0;
+            margin-inline: 0;
+        }
     }
 
     &__details {
         padding: rem(24px) rem(16px) rem(23px) rem(16px);
+        @include media('mobile') {
+            padding: rem(18px) rem(0px) rem(17px) rem(0px);
+        }
     }
 
     &__price {
         font: 600 #{rem(22px)} / 28px $ff;
+        @include media('mobile') {
+            font-size: rem(18px);
+        }
     }
 
     &__reminder {
@@ -105,6 +146,11 @@
         border-radius: 999px;
         color: $c_white;
         @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+        @include media('mobile') {
+            height: rem(42px);
+            font-size: rem(14px);
+            width: 50%;
+        }
         span {
             height: 100%;
             border-radius: 999px;
@@ -117,6 +163,9 @@
                 0.5s,
                 cubic-bezier(0.768, 0.304, 0.496, 0.884)
             );
+            @include media('mobile') {
+                width: 100%;
+            }
         }
     }
 }

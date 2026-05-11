@@ -5,6 +5,9 @@
 .prices {
     padding-block: rem(100px);
     background: $c_white;
+    @include media('mobile') {
+        padding-block: rem(56px);
+    }
 
     &__panel {
         display: flex;
@@ -12,11 +15,20 @@
         justify-content: space-between;
         gap: rem(24px);
         margin-bottom: rem(80px);
+        @include media('mobile') {
+            flex-direction: column-reverse;
+            margin-bottom: rem(36px);
+            gap: rem(12px);
+        }
     }
 
     &__controls {
         display: flex;
         gap: rem(24px);
+        @include media('mobile') {
+            width: 100%;
+            gap: rem(12px);
+        }
     }
 
     &__reminder {
@@ -24,15 +36,25 @@
         display: flex;
         align-items: flex-start;
         gap: rem(16px);
+        @include media('mobile') {
+            gap: rem(2px);
+        }
 
         > span {
             font: 400 #{rem(56px)} / 1 $ff;
             color: #ff6122;
+            @include media('mobile') {
+                font-size: rem(22px);
+            }
         }
 
         p {
             font: 400 #{rem(20px)} / 30px $ff;
             color: #ff6122;
+            @include media('mobile') {
+                font-size: rem(14px);
+                line-height: 120%;
+            }
             span {
                 font-weight: 600;
             }
@@ -44,6 +66,17 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: rem(16px);
         margin-bottom: rem(80px);
+        @include media('desktop-lg') {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: rem(12px);
+        }
+        @include media('laptop') {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        @include media('mobile') {
+            margin-bottom: rem(56px);
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
     }
 
     &__content {
@@ -65,7 +98,7 @@
 
 @keyframes pricesFadeIn {
     from {
-        opacity: .1;
+        opacity: 0.1;
     }
 
     to {

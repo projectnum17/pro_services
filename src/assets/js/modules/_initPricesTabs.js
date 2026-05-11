@@ -7,7 +7,12 @@ export const initPricesTabs = () => {
     const tabs = section.querySelectorAll('.js-prices-tab');
     const contents = section.querySelectorAll('.js-prices-content');
 
-    const setActiveTab = (index) => {
+    const hashMap = {
+        services: 0,
+        spare: 1,
+    };
+
+    const setActiveTab = (index, updateHash = true) => {
         tabs.forEach((tab, i) => {
             tab.classList.toggle('is-active', i === index);
         });
@@ -15,10 +20,29 @@ export const initPricesTabs = () => {
         contents.forEach((content, i) => {
             content.classList.toggle('is-active', i === index);
         });
+
+        if (updateHash) {
+            const keys = Object.keys(hashMap);
+            history.replaceState(null, null, `#${keys[index]}`);
+        }
+    };
+
+    const getIndexFromHash = () => {
+        const hash = window.location.hash.replace('#', '');
+        return hashMap[hash] ?? 0;
     };
 
     tabs.forEach((tab, i) => {
-        tab.addEventListener('click', () => setActiveTab(i));
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            setActiveTab(i);
+        });
+    });
+
+    setActiveTab(getIndexFromHash(), false);
+
+    window.addEventListener('hashchange', () => {
+        setActiveTab(getIndexFromHash(), false);
     });
 
     initShowMore({
@@ -28,6 +52,4 @@ export const initPricesTabs = () => {
         buttonSelector: '.js-prices-more',
         limit: 12,
     });
-
-    setActiveTab(0);
 };

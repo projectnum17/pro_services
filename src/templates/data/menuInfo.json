@@ -7,8 +7,8 @@
             "id": "price",
             "url": "#!",
             "submenu": [
-                { "title": "Прайс Послуги", "url": "price.html", "id": "price"},
-                { "title": "Прайс Запчастини", "url": "price.html", "id": "price"}
+                { "title": "Прайс Послуги", "url": "price.html#services", "id": "price"},
+                { "title": "Прайс Запчастини", "url": "price.html#spare", "id": "price"}
             ]
         },
         { "title": "Бренди", "url": "brands.html", "id": "brands" },

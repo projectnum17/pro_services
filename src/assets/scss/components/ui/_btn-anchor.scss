@@ -5,7 +5,6 @@
 .btn-anchor {
     $border-width: #{rem(2px)};
     $corner-size: #{rem(9px)};
-
     font: 600 #{rem(15px)} / 140% $ff;
     text-transform: uppercase;
     border: $border-width solid #00000066;
@@ -14,6 +13,12 @@
     z-index: 1;
     color: rgba(0, 0, 0, 0.6);
     @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    @include media('mobile') {
+        width: 100%;
+        justify-content: center;
+        font-size: rem(14px);
+        padding: rem(12px);
+    }
 
     &.is-active {
         background: #000000;

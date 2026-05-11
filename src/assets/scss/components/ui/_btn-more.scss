@@ -19,6 +19,10 @@
             height: rem(45px);
         }
     }
+    @include media('mobile') {
+        font-size: rem(14px);
+        height: rem(42px);
+    }
 
     span {
         height: 100%;

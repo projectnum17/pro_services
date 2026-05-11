@@ -2,6 +2,7 @@ export const initMobileMenu = () => {
     const toggleStateShowMenu = () => {
         const menuTrigger = document.querySelector('.js-menu-trigger');
         const menuBox = document.querySelector('.js-mob-menu');
+
         if (!menuTrigger || !menuBox) return;
 
         const openState = () => {
@@ -18,14 +19,21 @@ export const initMobileMenu = () => {
 
         menuTrigger.addEventListener('click', (e) => {
             e.stopPropagation();
-
             menuBox.classList.contains('is-open') ? closeState() : openState();
         });
 
         menuBox.addEventListener('click', (e) => {
-            if (e.target === menuBox) {
+            if (e.target === menuBox) closeState();
+        });
+
+        const anchors = document.querySelectorAll(
+            '.js-mob-menu .nav-panel ul li:has(ul) ul li a',
+        );
+
+        anchors.forEach((link) => {
+            link.addEventListener('click', () => {
                 closeState();
-            }
+            });
         });
     };
 
@@ -33,7 +41,6 @@ export const initMobileMenu = () => {
         const ddMenu = document.querySelectorAll(
             '.js-mob-menu .nav-panel ul li:has(ul)',
         );
-        if (!ddMenu.length) return;
 
         ddMenu.forEach((menu) => {
             menu.addEventListener('click', (e) => {
