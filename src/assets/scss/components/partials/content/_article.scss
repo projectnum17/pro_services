@@ -5,12 +5,18 @@
 .article {
     padding-block: rem(80px);
     background: $bg_content;
+    @include media('mobile') {
+        padding-block: rem(56px);
+    }
 
     .container {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
         gap: rem(24px);
+        @include media('mobile') {
+            gap: rem(12px);
+        }
     }
 
     &__socials {
@@ -37,6 +43,10 @@
                 background: $c_blue;
                 color: $c_white;
             }
+            @include media('mobile') {
+                width: rem(36px);
+                height: rem(36px);
+            }
 
             svg {
                 width: rem(16px);
@@ -45,6 +55,10 @@
                     0.3s,
                     cubic-bezier(0.768, 0.304, 0.496, 0.884)
                 );
+                @include media('mobile') {
+                    width: rem(14px);
+                    height: rem(14px);
+                }
             }
         }
     }
@@ -66,18 +80,29 @@
             font: 600 #{rem(28px)} / 100% $ff;
             letter-spacing: -1px;
             margin: 0 0 rem(40px) 0;
+            @include media('mobile') {
+                font-size: rem(22px);
+                margin: 0 0 rem(24px) 0;
+            }
         }
 
         h3 {
             font: 600 #{rem(26px)} / 100% $ff;
             letter-spacing: -1px;
             margin: 0 0 rem(30px) 0;
+            @include media('mobile') {
+                font-size: rem(20px);
+                margin: 0 0 rem(24px) 0;
+            }
         }
 
         h4 {
             font: 600 #{rem(24px)} / 100% $ff;
             letter-spacing: -1px;
             margin: 0 0 rem(24px) 0;
+            @include media('mobile') {
+                font-size: rem(18px);
+            }
         }
 
         h5,
@@ -85,13 +110,23 @@
             font: 600 #{rem(22px)} / 100% $ff;
             letter-spacing: -1px;
             margin: 0 0 rem(24px) 0;
+            @include media('mobile') {
+                font-size: rem(16px);
+            }
         }
 
         p {
             font: 400 #{rem(20px)} / 30px $ff;
+            @include media('mobile') {
+                font-size: rem(16px);
+                line-height: 130%;
+            }
 
             &:has(+ :not(p)) {
                 margin-bottom: rem(80px);
+                @include media('mobile') {
+                    margin-bottom: rem(40px);
+                }
             }
 
             &:has(+ ul),
@@ -108,11 +143,19 @@
             flex-direction: column;
             list-style-type: none;
             gap: rem(16px);
+            @include media('mobile') {
+                gap: rem(12px);
+                margin: 0 0 rem(24px);
+            }
 
             li {
                 gap: rem(8px);
                 display: inline-flex;
+                align-items: baseline;
                 font: 400 #{rem(20px)} / 30px $ff;
+                @include media('mobile') {
+                    font-size: rem(16px);
+                }
 
                 &::before {
                     flex-shrink: 0;
@@ -130,6 +173,10 @@
                     mask: url('../images/icons/ico-check.svg') no-repeat center
                         center;
                     background: $c_blue;
+                    @include media('mobile') {
+                        width: rem(24px);
+                        height: rem(24px);
+                    }
                 }
             }
         }
@@ -148,6 +195,11 @@
                     text-transform: uppercase;
                     width: rem(40px);
                     height: rem(30px);
+                    @include media('mobile') {
+                        font-size: rem(14px);
+                        width: rem(24px);
+                        height: rem(24px);
+                    }
                 }
             }
         }
@@ -157,11 +209,19 @@
             margin: 0 0 rem(80px) 0;
             padding-left: rem(40px);
             border-left: 3px solid $c_blue;
+            @include media('mobile') {
+                font-size: rem(18px);
+                padding-left: rem(20px);
+                margin: 0 0 rem(40px) 0;
+            }
             * {
                 font: inherit;
                 &:first-child,
                 &:last-child {
                     padding-block: rem(32px);
+                    @include media('mobile') {
+                        padding-block: rem(24px);
+                    }
                 }
             }
         }
@@ -172,6 +232,11 @@
             border-radius: rem(24px);
             aspect-ratio: 852 / 500;
             object-fit: cover;
+
+            @include media('mobile') {
+                margin-bottom: rem(40px);
+                border-radius: rem(12px);
+            }
         }
     }
 }
