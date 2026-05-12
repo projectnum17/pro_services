@@ -38,6 +38,14 @@
         svg {
             width: 100%;
             color: #fff;
+            backdrop-filter: blur(34px);
+            -webkit-backdrop-filter: blur(34px);
+            background-color: rgba(255, 255, 255, 0.01);
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            clip-path: url(#bgblur_0_3007_10782_clip_path);
+            height: 100%;
+            width: 100%;
         }
     }
 }

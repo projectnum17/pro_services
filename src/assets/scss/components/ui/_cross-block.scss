@@ -4,92 +4,113 @@
 
 .cross-block {
     --cross-size: #{rem(100px)};
+    --bleed: 2px;
 
     $svg-path: 'M150 0C142.649 0 135.599 2.95657 130.401 8.21927L8.05038 132.095C3.30573 136.899 0.460408 143.266 0 150V0H150Z';
 
-    $svg-base: "data:image/svg+xml,%3Csvg width='150' height='150' viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='#{$svg-path}' fill='black' stroke='black' stroke-width='3' shape-rendering='geometricPrecision'/%3E%3C/svg%3E";
-    $svg-rotated: "data:image/svg+xml,%3Csvg width='150' height='150' viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='rotate(180 75 75)'%3E%3Cpath d='#{$svg-path}' fill='black' stroke='black' stroke-width='3' shape-rendering='geometricPrecision'/%3E%3C/g%3E%3C/svg%3E";
-
     border-radius: rem(24px);
-
-    mask-repeat: no-repeat !important;
-    -webkit-mask-repeat: no-repeat !important;
-
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
 
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    -webkit-mask-clip: border-box;
-    mask-clip: border-box;
-
-    outline: 1px solid transparent;
+    will-change: mask-image;
 
     @include media('mobile') {
         border-radius: rem(12px);
         --cross-size: #{rem(75px)};
     }
 
-    &--tl {
-        mask-image: url($svg-base), linear-gradient(#fff, #fff);
-        -webkit-mask-image: url($svg-base), linear-gradient(#fff, #fff);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
 
-        mask-position:
-            -2px -2px,
-            -1px -1px;
-        -webkit-mask-position:
-            -2px -2px,
-            -1px -1px;
-
-        mask-size:
-            calc(var(--cross-size) + 4px) calc(var(--cross-size) + 4px),
-            calc(100% + 2px) calc(100% + 2px);
-        -webkit-mask-size:
-            calc(var(--cross-size) + 4px) calc(var(--cross-size) + 4px),
-            calc(100% + 2px) calc(100% + 2px);
-    }
-
-    &--lot {
-        mask-image:
-            url($svg-base), url($svg-rotated), linear-gradient(#fff, #fff);
-        -webkit-mask-image:
-            url($svg-base), url($svg-rotated), linear-gradient(#fff, #fff);
-
-        mask-position:
-            -2px -2px,
-            calc(100% + 2px) calc(100% + 2px),
-            -1px -1px;
-        -webkit-mask-position:
-            -2px -2px,
-            calc(100% + 2px) calc(100% + 2px),
-            -1px -1px;
-
-        mask-size:
-            calc(var(--cross-size) + 4px) calc(var(--cross-size) + 4px),
-            calc(var(--cross-size) + 4px) calc(var(--cross-size) + 4px),
-            calc(100% + 2px) calc(100% + 2px);
-        -webkit-mask-size:
-            calc(var(--cross-size) + 4px) calc(var(--cross-size) + 4px),
-            calc(var(--cross-size) + 4px) calc(var(--cross-size) + 4px),
-            calc(100% + 2px) calc(100% + 2px);
-    }
-
+    &--tl,
+    &--lot,
     &--br {
-        mask-image: url($svg-rotated), linear-gradient(#fff, #fff);
-        -webkit-mask-image: url($svg-rotated), linear-gradient(#fff, #fff);
+        -webkit-mask-composite: destination-out;
+        mask-composite: exclude;
+    }
 
-        mask-position:
-            calc(100% + 2px) calc(100% + 2px),
-            -1px -1px;
+    // Top-Left
+    &--tl {
+        $mask:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150' preserveAspectRatio='none'%3E%3Cpath d='#{$svg-path}' fill='black'/%3E%3C/svg%3E"),
+            linear-gradient(white, white);
+
+        -webkit-mask-image: $mask;
+        mask-image: $mask;
+
         -webkit-mask-position:
-            calc(100% + 2px) calc(100% + 2px),
-            -1px -1px;
+            calc(var(--bleed) * -1) calc(var(--bleed) * -1),
+            0 0;
+        mask-position:
+            calc(var(--bleed) * -1) calc(var(--bleed) * -1),
+            0 0;
 
-        mask-size:
-            calc(var(--cross-size) + 4px) calc(var(--cross-size) + 4px),
-            calc(100% + 2px) calc(100% + 2px);
         -webkit-mask-size:
-            calc(var(--cross-size) + 4px) calc(var(--cross-size) + 4px),
-            calc(100% + 2px) calc(100% + 2px);
+            calc(var(--cross-size) + (var(--bleed) * 2))
+                calc(var(--cross-size) + (var(--bleed) * 2)),
+            100% 100%;
+        mask-size:
+            calc(var(--cross-size) + (var(--bleed) * 2))
+                calc(var(--cross-size) + (var(--bleed) * 2)),
+            100% 100%;
+    }
+
+    // Bottom-Right
+    &--br {
+        $mask:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150' preserveAspectRatio='none'%3E%3Cg transform='rotate(180 75 75)'%3E%3Cpath d='#{$svg-path}' fill='black'/%3E%3C/g%3E%3C/svg%3E"),
+            linear-gradient(white, white);
+
+        -webkit-mask-image: $mask;
+        mask-image: $mask;
+
+        -webkit-mask-position:
+            calc(100% + var(--bleed)) calc(100% + var(--bleed)),
+            0 0;
+        mask-position:
+            calc(100% + var(--bleed)) calc(100% + var(--bleed)),
+            0 0;
+
+        -webkit-mask-size:
+            calc(var(--cross-size) + (var(--bleed) * 2))
+                calc(var(--cross-size) + (var(--bleed) * 2)),
+            100% 100%;
+        mask-size:
+            calc(var(--cross-size) + (var(--bleed) * 2))
+                calc(var(--cross-size) + (var(--bleed) * 2)),
+            100% 100%;
+    }
+
+    // Left-Top + Bottom-Right (Combo)
+    &--lot {
+        $mask:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150' preserveAspectRatio='none'%3E%3Cpath d='#{$svg-path}' fill='black'/%3E%3C/svg%3E"),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150' preserveAspectRatio='none'%3E%3Cg transform='rotate(180 75 75)'%3E%3Cpath d='#{$svg-path}' fill='black'/%3E%3C/g%3E%3C/svg%3E"),
+            linear-gradient(white, white);
+
+        -webkit-mask-image: $mask;
+        mask-image: $mask;
+
+        -webkit-mask-position:
+            calc(var(--bleed) * -1) calc(var(--bleed) * -1),
+            calc(100% + var(--bleed)) calc(100% + var(--bleed)),
+            0 0;
+        mask-position:
+            calc(var(--bleed) * -1) calc(var(--bleed) * -1),
+            calc(100% + var(--bleed)) calc(100% + var(--bleed)),
+            0 0;
+
+        -webkit-mask-size:
+            calc(var(--cross-size) + (var(--bleed) * 2))
+                calc(var(--cross-size) + (var(--bleed) * 2)),
+            calc(var(--cross-size) + (var(--bleed) * 2))
+                calc(var(--cross-size) + (var(--bleed) * 2)),
+            100% 100%;
+        mask-size:
+            calc(var(--cross-size) + (var(--bleed) * 2))
+                calc(var(--cross-size) + (var(--bleed) * 2)),
+            calc(var(--cross-size) + (var(--bleed) * 2))
+                calc(var(--cross-size) + (var(--bleed) * 2)),
+            100% 100%;
     }
 }
