@@ -88,7 +88,8 @@ function serve() {
 // HTML
 function html() {
     panini.refresh();
-    return src(path.src.html, { base: srcPath })
+    // Добавлена защита, если вдруг временно нет *.html файлов в корне src
+    return src(path.src.html, { base: srcPath, allowEmpty: true })
         .pipe(plumberNotify('HTML Error'))
         .pipe(
             panini({
@@ -123,7 +124,8 @@ function html() {
 
 // STYLES
 function css() {
-    return src(path.src.css)
+    // Добавлена защита на случай отсутствия главного scss
+    return src(path.src.css, { allowEmpty: true })
         .pipe(plumberNotify('CSS/SCSS Error'))
         .pipe(gulpif(isDev, sourcemaps.init()))
         .pipe(
@@ -156,16 +158,15 @@ function css() {
 
 // LIBS
 function libs() {
-    return src('src/assets/js/libs.js', { base: 'src/' })
+    // ВОТ ТУТ падала ошибка. Теперь если libs.js нет, gulp не упадет
+    return src('src/assets/js/libs.js', { base: 'src/', allowEmpty: true })
         .pipe(dest(distPath))
         .pipe(browserSync.reload({ stream: true }));
 }
 
 // SCRIPTS (Копирование нативных модулей)
 function js() {
-    return src(['src/assets/js/**/*.js', '!src/assets/js/libs.js'], {
-        base: 'src/',
-    })
+    return src(['src/assets/js/**/*.js', '!src/assets/js/libs.js'], { base: 'src/', allowEmpty: true })
         .pipe(plumberNotify('JS Error'))
         .pipe(dest(distPath))
         .pipe(browserSync.reload({ stream: true }));
@@ -173,7 +174,7 @@ function js() {
 
 // IMAGES
 function images() {
-    return src(path.src.images)
+    return src(path.src.images, { allowEmpty: true })
         .pipe(plumberNotify('Images Error'))
         .pipe(newer(path.build.images))
         .pipe(
@@ -193,7 +194,7 @@ function images() {
 
 // VIDEO
 function video() {
-    return src(path.src.video)
+    return src(path.src.video, { allowEmpty: true })
         .pipe(plumberNotify('Video Error'))
         .pipe(newer(path.build.video))
         .pipe(dest(path.build.video))
@@ -201,20 +202,21 @@ function video() {
 }
 
 function audio() {
-    return src(path.src.audio)
+    return src(path.src.audio, { allowEmpty: true })
         .pipe(plumberNotify('Audio Error'))
-        .pipe(newer(path.build.audio)) // Пропускает файлы, которые уже есть в dist
+        .pipe(newer(path.build.audio))
         .pipe(dest(path.build.audio))
         .pipe(browserSync.reload({ stream: true }));
 }
 
 // FONTS
 function fonts() {
-    return src(path.src.fonts)
+    return src(path.src.fonts, { allowEmpty: true })
         .pipe(plumberNotify('Fonts Error'))
         .pipe(newer(path.build.fonts))
         .pipe(fonter({ formats: ['woff', 'ttf'] }))
-        .pipe(src(srcPath + 'assets/fonts/**/*.ttf'))
+        // Для маски со шрифтами внутри таска тоже лучше добавить allowEmpty
+        .pipe(src(srcPath + 'assets/fonts/**/*.ttf', { allowEmpty: true }))
         .pipe(ttf2woff2())
         .pipe(dest(path.build.fonts))
         .pipe(browserSync.reload({ stream: true }));
@@ -227,6 +229,7 @@ function clean() {
 
 // WATCHER
 function watchFiles() {
+    // В вотчерах используем опцию { allowEmpty: true } не нужно, но для надежности проверим пути
     watch([path.watch.html], html);
     watch([path.watch.css], css);
     watch(['src/assets/js/**/*.js', '!src/assets/js/libs.js'], js);
