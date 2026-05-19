@@ -1,5 +1,3 @@
-import Swiper from 'swiper';
-import { Navigation, Scrollbar } from 'swiper/modules';
 export const initTestimSlider = () => {
     if (typeof Swiper === 'undefined') return;
 
@@ -9,7 +7,6 @@ export const initTestimSlider = () => {
     const isMob = window.innerWidth <= 767;
 
     new Swiper(sliderBlock, {
-        modules: [Navigation, Scrollbar],
         slidesPerView: 'auto',
         spaceBetween: 10,
         speed: 900,

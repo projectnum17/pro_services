@@ -1,9 +1,6 @@
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
 export const initProcessSlider = () => {
+    const { ScrollTrigger } = window;
+    gsap.registerPlugin(ScrollTrigger);
     const section = document.querySelector('.process');
     const paginationContainer = document.querySelector('.js-process-pag');
     const slides = gsap.utils.toArray('.js-process-slide');

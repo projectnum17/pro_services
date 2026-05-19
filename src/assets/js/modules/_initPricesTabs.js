@@ -1,4 +1,4 @@
-import { initShowMore } from './_initShowMore';
+import { initShowMore } from './_initShowMore.js';
 
 export const initPricesTabs = () => {
     const section = document.querySelector('.prices');
