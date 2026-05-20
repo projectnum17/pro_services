@@ -489,10 +489,17 @@ a {
   mask-composite: exclude;
 }
 
+@property --s {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 10px;
+}
+
 .btn-anchor {
+  --s: 10px;
   font: 600 0.9375rem/140% "IBM Plex Sans", sans-serif;
   text-transform: uppercase;
-  border: 0.125rem solid rgba(0, 0, 0, 0.4);
+  border: 0.09375rem solid transparent;
   padding: 1rem 0.9375rem;
   position: relative;
   z-index: 1;
@@ -505,42 +512,27 @@ a {
   color: #fff;
 }
 
-.btn-anchor.is-active::after,
-.btn-anchor.is-active::before {
-  background: #000000;
-}
-
-.btn-anchor.is-active::before {
-  width: 0;
-}
-
-.btn-anchor.is-active::after {
-  height: 0;
-}
-
-.btn-anchor::before,
-.btn-anchor::after {
+.btn-anchor::before {
   content: "";
   position: absolute;
-  background: #fff;
-  z-index: -1;
+  inset: calc(-1 * 0.09375rem);
+  background: transparent;
+  border: 0.09375rem solid rgba(0, 0, 0, 0.4);
   transition: all 0.3s cubic-bezier(0.768, 0.304, 0.496, 0.884);
+  clip-path: polygon(0% 0%, var(--s) 0%, var(--s) 2px, calc(100% - var(--s)) 2px, calc(100% - var(--s)) 0%, 100% 0%, 100% var(--s), calc(100% - 2px) var(--s), calc(100% - 2px) calc(100% - var(--s)), 100% calc(100% - var(--s)), 100% 100%, calc(100% - var(--s)) 100%, calc(100% - var(--s)) calc(100% - 2px), var(--s) calc(100% - 2px), var(--s) 100%, 0% 100%, 0% calc(100% - var(--s)), 2px calc(100% - var(--s)), 2px var(--s), 0% var(--s));
 }
 
-.btn-anchor::before {
-  width: calc(100% - 0.5625rem);
-  height: calc(101% + 0.125rem * 2);
-  top: -0.125rem;
-  left: 50%;
-  transform: translateX(-50%);
+.btn-anchor--light {
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.btn-anchor::after {
-  height: calc(100% - 0.5625rem);
-  width: calc(101% + 0.125rem * 2);
-  left: -0.125rem;
-  top: 50%;
-  transform: translateY(-50%);
+.btn-anchor--light::before {
+  border-color: #fff;
+}
+
+.btn-anchor--light.is-active {
+  background: #fff;
+  color: #000;
 }
 
 .btn-more {
@@ -999,67 +991,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
 .header__call svg .second-wave {
   opacity: 0;
-}
-
-.header__lang {
-  cursor: pointer;
-  font: 400 1.125rem/180% "IBM Plex Sans", sans-serif;
-  position: relative;
-  color: #072136;
-}
-
-.header__lang.is-active .header__lang-inner {
-  opacity: 1;
-  pointer-events: all;
-  transform: translate(-50%, 0);
-}
-
-.header__lang .is-current {
-  color: #537896;
-}
-
-.header__lang-current {
-  overflow: hidden;
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.768, 0.304, 0.496, 0.884);
-}
-
-.header__lang-label {
-  display: inline-flex;
-  transition: all 0.3s cubic-bezier(0.768, 0.304, 0.496, 0.884);
-}
-
-.header__lang-label:last-child {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateY(100%);
-}
-
-.header__lang-inner {
-  z-index: 2;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -5%);
-  transition: all 0.3s cubic-bezier(0.768, 0.304, 0.496, 0.884);
-}
-
-.header__lang-list {
-  overflow: hidden;
-  z-index: 2;
-  padding-block: 0.5rem;
-  border-radius: 0.5rem;
-  background: rgba(255, 255, 255, 0.4);
-  -webkit-backdrop-filter: blur(48px);
-  backdrop-filter: blur(48px);
-}
-
-.header__lang-link {
-  padding: 0.5rem 1rem 0.5rem;
-  transition: all 0.3s cubic-bezier(0.768, 0.304, 0.496, 0.884);
 }
 
 .footer {
@@ -2293,6 +2224,13 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   color: #e6e7ec;
 }
 
+.blog__controls {
+  display: flex;
+  width: 100%;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
 .blog__bg {
   pointer-events: none;
   position: absolute;
@@ -3455,6 +3393,8 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 .loader__ico img {
   height: 100%;
   width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 
 @keyframes pulseOpacity {
@@ -3787,6 +3727,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 .mobile-menu {
   display: flex;
   position: fixed;
+  top: 0;
   width: 100%;
   height: 100vh;
   height: 100svh;
@@ -3828,30 +3769,8 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   display: none;
 }
 
-.mobile-menu__langs {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.mobile-menu__langs li {
-  font: 400 1.125rem/180% "IBM Plex Sans", sans-serif;
-  text-transform: uppercase;
-  position: relative;
-  color: #072136;
-}
-
-.mobile-menu__langs li * {
-  font: inherit;
-}
-
-.mobile-menu__langs .is-current {
-  color: #537896;
-}
-
 .mobile-menu__controls {
+  margin-top: auto;
   padding-top: 0.75rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -4017,16 +3936,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   .header__panel {
     width: 100%;
     justify-content: flex-end;
-  }
-
-  .header__lang {
-    order: 2;
-  }
-
-  .header__lang-list {
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-    background: rgba(255, 255, 255, 0.9);
   }
 
   .hero .container--th {
@@ -4320,10 +4229,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
   .header__panel {
     width: auto;
-  }
-
-  .header__lang {
-    display: none;
   }
 
   .hero .container--th {
@@ -5132,6 +5037,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   .prices__controls {
     width: 100%;
     gap: 0.75rem;
+    flex-wrap: wrap;
   }
 
   .prices__reminder {
@@ -5262,6 +5168,12 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
   .blog {
     padding-block: var(--header-h) 3.5rem;
+  }
+
+  .blog__controls {
+    margin-bottom: 1.5rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
 
   .blog__collect {
@@ -5784,21 +5696,21 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     opacity: 1;
   }
 
-  .btn-anchor.is-active:hover {
-    color: #fff;
-  }
-
   .btn-anchor:hover {
-    color: #000000;
-    border-color: #000000;
+    --s: 100px;
+    color: #000;
   }
 
   .btn-anchor:hover::before {
-    width: 0;
+    border-color: #000;
   }
 
-  .btn-anchor:hover::after {
-    height: 0;
+  .btn-anchor--light:hover {
+    color: #fff;
+  }
+
+  .btn-anchor--light:hover::before {
+    border-color: #fff;
   }
 
   .btn-more:hover {
@@ -5835,25 +5747,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
   .header__call:hover svg .second-wave {
     opacity: 1;
-  }
-
-  .header__lang:hover .header__lang-inner {
-    opacity: 1;
-    pointer-events: all;
-    transform: translate(-50%, 0);
-  }
-
-  .header__lang-current:hover .header__lang-label:last-child {
-    transform: translateY(0);
-  }
-
-  .header__lang-current:hover .header__lang-label:first-child {
-    transform: translateY(-100%);
-  }
-
-  .header__lang-link:hover {
-    background: rgba(7, 33, 54, 0.2);
-    color: #ffffff;
   }
 
   .footer__routes li a:hover {
@@ -6031,21 +5924,21 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     opacity: 1;
   }
 
-  .btn-anchor.is-active:active {
-    color: #fff;
-  }
-
   .btn-anchor:active {
-    color: #000000;
-    border-color: #000000;
+    --s: 100px;
+    color: #000;
   }
 
   .btn-anchor:active::before {
-    width: 0;
+    border-color: #000;
   }
 
-  .btn-anchor:active::after {
-    height: 0;
+  .btn-anchor--light:active {
+    color: #fff;
+  }
+
+  .btn-anchor--light:active::before {
+    border-color: #fff;
   }
 
   .btn-more:active {
@@ -6082,25 +5975,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
   .header__call:active svg .second-wave {
     opacity: 1;
-  }
-
-  .header__lang:active .header__lang-inner {
-    opacity: 1;
-    pointer-events: all;
-    transform: translate(-50%, 0);
-  }
-
-  .header__lang-current:active .header__lang-label:last-child {
-    transform: translateY(0);
-  }
-
-  .header__lang-current:active .header__lang-label:first-child {
-    transform: translateY(-100%);
-  }
-
-  .header__lang-link:active {
-    background: rgba(7, 33, 54, 0.2);
-    color: #ffffff;
   }
 
   .footer__routes li a:active {
