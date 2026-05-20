@@ -50,8 +50,14 @@
         gap: rem(20px);
         justify-content: space-between;
         padding: rem(60px) rem(60px) rem(28px) rem(130px);
+        @media (max-width: 1490.98px) {
+            padding-inline: rem(100px) rem(40px);
+        }
+        @include media('desktop-lg') {
+            padding-inline: rem(60px) rem(40px);
+        }
         @include media('desktop') {
-            padding: rem(60px) rem(60px) rem(28px) rem(60px);
+            padding: rem(60px) rem(20px) rem(28px) rem(60px);
         }
         @include media('mobile') {
             padding: rem(40px) rem(20px) rem(20px);
@@ -61,7 +67,10 @@
     &__routes {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: rem(8px) rem(50px);
+        gap: rem(8px) rem(48px);
+        @include media('desktop-lg') {
+            gap: rem(8px) rem(12px);
+        }
         @include media('tablet') {
             display: flex;
             flex-wrap: wrap;
@@ -74,6 +83,9 @@
 
         li {
             font: 400 #{rem(18px)} / 120% $ff;
+            @include media('desktop-lg') {
+                font-size: rem(16px);
+            }
             @include media('mobile') {
                 font-size: rem(14px);
             }
@@ -214,7 +226,7 @@
     &__soc {
         display: flex;
         align-items: center;
-        gap: rem(24px);
+        gap: rem(12px);
 
         li {
             width: rem(40px);

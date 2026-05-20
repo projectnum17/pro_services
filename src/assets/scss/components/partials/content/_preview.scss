@@ -127,6 +127,72 @@
             }
         }
 
+        ol,
+        ul {
+            margin: 0 0 rem(16px) 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: rem(16px);
+            @include media('mobile') {
+                gap: rem(12px);
+            }
+
+            li {
+                gap: rem(8px);
+                font: 400 #{rem(20px)} / 30px $ff;
+                display: inline-flex;
+                @include media('mobile') {
+                    font-size: rem(16px);
+                    line-height: 120%;
+                    align-items: baseline;
+                }
+            }
+        }
+
+        ol {
+            counter-reset: item;
+
+            li {
+                counter-increment: item;
+                &::before {
+                    flex-shrink: 0;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    content: counter(item);
+                    font: 600 #{rem(15px)} / 140% $ff;
+                    text-transform: uppercase;
+                    width: rem(40px);
+                    height: rem(30px);
+                    @include media('mobile') {
+                        width: rem(30px);
+                        height: rem(30px);
+                    }
+                }
+            }
+        }
+
+        ul {
+            li {
+                &::before {
+                    content: '';
+                    background: url('../images/icons/ico-check.svg') no-repeat
+                        center center;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: rem(40px);
+                    height: rem(40px);
+                    @include media('mobile') {
+                        width: rem(30px);
+                        height: rem(30px);
+                    }
+                }
+            }
+        }
+
         *:last-child {
             margin-bottom: 0;
         }
