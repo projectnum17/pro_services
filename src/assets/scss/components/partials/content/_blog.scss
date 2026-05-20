@@ -32,6 +32,18 @@
         color: #e6e7ec;
     }
 
+    &__controls {
+        display: flex;
+        width: 100%;
+        gap: rem(24px);
+        margin-bottom: rem(40px);
+        @include media('mobile') {
+            margin-bottom: rem(24px);
+            gap: rem(12px);
+            flex-wrap: wrap;
+        }
+    }
+
     &__bg {
         pointer-events: none;
         position: absolute;

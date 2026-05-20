@@ -7,14 +7,32 @@
             {{> _breadcrumbsBuilder}}
             {{> _tag label = "Блог" }}
             {{> _titleBuilder
-                className = "section-heading"
-                tagWrapper = "h1"
-                label = "Актуальне та корисне"
+            className = "section-heading"
+            tagWrapper = "h1"
+            label = "Актуальне та корисне"
+            }}
+        </div>
+        <div class="blog__controls">
+            {{> _btnAnchor
+                label = "Все"
+                additClass = "btn-anchor--light js-blog-filter is-active"
+            }}
+            {{> _btnAnchor
+                label = "Новини"
+                additClass = "btn-anchor--light js-blog-filter"
+            }}
+            {{> _btnAnchor
+                label = "Акції"
+                additClass = "btn-anchor--light js-blog-filter"
+            }}
+            {{> _btnAnchor
+                label = "Статті"
+                additClass = "btn-anchor--light js-blog-filter"
             }}
         </div>
         <div class="blog__collect">
             {{#each blog.blog}}
-                {{> _blogBox this}}
+            {{> _blogBox this}}
             {{/each}}
         </div>
         {{> _btnMore additClasses = "js-blog-more"}}

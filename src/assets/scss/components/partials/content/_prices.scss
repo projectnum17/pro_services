@@ -28,6 +28,7 @@
         @include media('mobile') {
             width: 100%;
             gap: rem(12px);
+            flex-wrap: wrap;
         }
     }
 

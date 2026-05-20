@@ -2,17 +2,25 @@
 @use '../../base/mixins' as *;
 @use '../../base/media' as *;
 
+@property --s {
+    syntax: '<length-percentage>';
+    inherits: true;
+    initial-value: 10px;
+}
+
 .btn-anchor {
-    $border-width: #{rem(2px)};
+    --s: 10px;
+    $border-width: #{rem(1.5px)};
     $corner-size: #{rem(9px)};
     font: 600 #{rem(15px)} / 140% $ff;
     text-transform: uppercase;
-    border: $border-width solid #00000066;
+    border: $border-width solid transparent;
     padding: rem(16px) rem(15px);
     position: relative;
     z-index: 1;
     color: rgba(0, 0, 0, 0.6);
     @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+
     @include media('mobile') {
         width: 100%;
         justify-content: center;
@@ -20,63 +28,67 @@
         padding: rem(12px);
     }
 
+    @include hover {
+        --s: 100px;
+        color: #000;
+
+        &::before {
+            border-color: #000;
+        }
+    }
+
     &.is-active {
         background: #000000;
         color: #fff;
-
-        @include hover {
-            color: #fff;
-        }
-
-        &::after,
-        &::before {
-            background: #000000;
-        }
-
-        &::before {
-            width: 0;
-        }
-
-        &::after {
-            height: 0;
-        }
-    }
-
-    @include hover {
-        color: #000000;
-        border-color: #000000;
-
-        &::before {
-            width: 0;
-        }
-
-        &::after {
-            height: 0;
-        }
-    }
-
-    &::before,
-    &::after {
-        content: '';
-        position: absolute;
-        background: #fff;
-        z-index: -1;
-        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
     }
 
     &::before {
-        width: calc(100% - $corner-size);
-        height: calc(101% + ($border-width * 2));
-        top: -$border-width;
-        left: 50%;
-        transform: translateX(-50%);
+        content: '';
+        position: absolute;
+        inset: calc(-1 * #{$border-width});
+        background: transparent;
+        border: #{$border-width} solid #00000066;
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+        clip-path: polygon(
+            0% 0%,
+            var(--s) 0%,
+            var(--s) 2px,
+            calc(100% - var(--s)) 2px,
+            calc(100% - var(--s)) 0%,
+            100% 0%,
+            100% var(--s),
+            calc(100% - 2px) var(--s),
+            calc(100% - 2px) calc(100% - var(--s)),
+            100% calc(100% - var(--s)),
+            100% 100%,
+            calc(100% - var(--s)) 100%,
+            calc(100% - var(--s)) calc(100% - 2px),
+            var(--s) calc(100% - 2px),
+            var(--s) 100%,
+            0% 100%,
+            0% calc(100% - var(--s)),
+            2px calc(100% - var(--s)),
+            2px var(--s),
+            0% var(--s)
+        );
     }
 
-    &::after {
-        height: calc(100% - $corner-size);
-        width: calc(101% + $border-width * 2);
-        left: -$border-width;
-        top: 50%;
-        transform: translateY(-50%);
+    &--light {
+        color: rgba(255, 255, 255, 0.6);
+        @include hover {
+            color: #fff;
+            &::before {
+                border-color: #fff;
+            }
+        }
+
+        &::before {
+            border-color: #fff;
+        }
+
+        &.is-active {
+            background: #fff;
+            color: #000;
+        }
     }
 }
