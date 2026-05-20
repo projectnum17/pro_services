@@ -157,18 +157,28 @@ function css() {
 }
 
 // LIBS
+// function libs() {
+//     // ВОТ ТУТ падала ошибка. Теперь если libs.js нет, gulp не упадет
+//     return src('src/assets/js/libs.js', { base: 'src/', allowEmpty: true })
+//         .pipe(dest(distPath))
+//         .pipe(browserSync.reload({ stream: true }));
+// }
 function libs() {
-    // ВОТ ТУТ падала ошибка. Теперь если libs.js нет, gulp не упадет
-    return src('src/assets/js/libs.js', { base: 'src/', allowEmpty: true })
-        .pipe(dest(distPath))
+    return src('src/assets/js/libs.js', { allowEmpty: true })
+        .pipe(dest(distPath + 'assets/js/'))
         .pipe(browserSync.reload({ stream: true }));
 }
 
 // SCRIPTS (Копирование нативных модулей)
+// function js() {
+//     return src(['src/assets/js/**/*.js', '!src/assets/js/libs.js'], { base: 'src/', allowEmpty: true })
+//         .pipe(plumberNotify('JS Error'))
+//         .pipe(dest(distPath))
+//         .pipe(browserSync.reload({ stream: true }));
+// }
 function js() {
-    return src(['src/assets/js/**/*.js', '!src/assets/js/libs.js'], { base: 'src/', allowEmpty: true })
-        .pipe(plumberNotify('JS Error'))
-        .pipe(dest(distPath))
+    return src(['src/assets/js/**/*.js', '!src/assets/js/libs.js'], { allowEmpty: true })
+        .pipe(dest(distPath + 'assets/js/'))
         .pipe(browserSync.reload({ stream: true }));
 }
 
