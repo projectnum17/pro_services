@@ -11,7 +11,7 @@
         }
     }
 
-    @include media('tablet') {
+    @include media('desktop') {
         padding-block: rem(80px);
     }
     @include media('mobile') {
@@ -22,7 +22,7 @@
         margin-bottom: rem(97px);
         max-width: rem(997px);
 
-        @include media('tablet') {
+        @include media('desktop') {
             margin-bottom: rem(56px);
             max-width: rem(450px);
         }
@@ -71,7 +71,7 @@
         @include media('desktop-lg') {
             gap: rem(8px) rem(12px);
         }
-        @include media('tablet') {
+        @include media('desktop') {
             display: flex;
             flex-wrap: wrap;
         }
@@ -131,7 +131,7 @@
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap: rem(8px);
-        @include media('tablet') {
+        @include media('desktop') {
             display: flex;
             flex-direction: column;
         }
