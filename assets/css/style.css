@@ -2609,6 +2609,40 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   background: #16181d;
 }
 
+.error {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  padding-block: calc(var(--header-h) + 3rem) 3rem;
+}
+
+.error .container {
+  width: 100%;
+  height: 100%;
+}
+
+.error .link-accent {
+  max-width: 11.875rem;
+  width: 100%;
+}
+
+.error .link-accent span {
+  width: 100%;
+}
+
+.error__state {
+  font: 500 10.625rem/120% "IBM Plex Sans", sans-serif;
+}
+
+.error__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 :root {
   --gap: 1.25rem;
 }
@@ -5353,6 +5387,18 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 
   .contacts__phones {
+    gap: 0.75rem;
+  }
+
+  .error {
+    padding-block: calc(var(--header-h) + 1.5rem) 1.5rem;
+  }
+
+  .error__state {
+    font-size: 3.5rem;
+  }
+
+  .error__content {
     gap: 0.75rem;
   }
 
