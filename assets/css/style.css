@@ -832,6 +832,15 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   padding-block: 1.6875rem;
   max-width: 100%;
   align-self: flex-end;
+  transition: all 0.5s cubic-bezier(0.768, 0.304, 0.496, 0.884);
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
   background: #ffffff;
   -webkit-backdrop-filter: blur(68px);
   backdrop-filter: blur(68px);
@@ -840,6 +849,9 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
 .header.is-transform {
   padding-block: 0.75rem;
+}
+
+.header.is-transform::before {
   background: rgba(255, 255, 255, 0.6980392157);
 }
 
