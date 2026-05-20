@@ -4305,8 +4305,27 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 @media (max-width: 1199.98px) {
+  .footer {
+    padding-block: 5rem;
+  }
+
+  .footer__logo {
+    margin-bottom: 3.5rem;
+    max-width: 28.125rem;
+  }
+
   .footer__menu {
     padding: 3.75rem 1.25rem 1.75rem 3.75rem;
+  }
+
+  .footer__routes {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .footer__info {
+    display: flex;
+    flex-direction: column;
   }
 
   .footer__panel {
@@ -4554,25 +4573,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
   .section-subheading {
     font-size: 2.375rem;
-  }
-
-  .footer {
-    padding-block: 5rem;
-  }
-
-  .footer__logo {
-    margin-bottom: 3.5rem;
-    max-width: 28.125rem;
-  }
-
-  .footer__routes {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .footer__info {
-    display: flex;
-    flex-direction: column;
   }
 
   .process .cross-block {
