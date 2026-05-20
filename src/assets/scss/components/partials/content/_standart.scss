@@ -10,6 +10,9 @@
 
     &__content {
         padding-block: rem(67px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding-inline: var(--container_pdd);
         @include media('mobile') {
             padding-block: rem(56px);
@@ -23,22 +26,43 @@
     &__info {
         max-width: rem(851px);
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         text-align: center;
-        gap: rem(40px);
         @include media('mobile') {
             gap: rem(24px);
         }
-    }
 
-    &__desc {
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0 0 rem(40px) 0;
+            font: 600#{rem(56px)} / 100% $ff;
+            letter-spacing: -2px;
+            @include media('laptop') {
+                font-size: rem(46px);
+            }
+            @include media('tablet') {
+                font-size: rem(38px);
+            }
+            @include media('mobile') {
+                font-size: rem(28px);
+            }
+        }
+
         p {
             font: 400 #{rem(20px)} / 30px $ff;
+            margin-bottom: rem(24px);
             @include media('mobile') {
                 font-size: rem(16px);
                 line-height: 120%;
+            }
+        }
+
+        *:last-child {
+            margin-bottom: rem(40px);
+            @include media('mobile') {
+                gap: rem(24px);
             }
         }
     }
