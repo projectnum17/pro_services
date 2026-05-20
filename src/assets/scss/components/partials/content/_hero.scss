@@ -55,6 +55,9 @@
             width: 100%;
             left: 50%;
             transform: translateX(-50%);
+            @media(max-height: 800px) {
+                left: 60%;
+            }
             @media (max-width: 1480px) {
                 left: 70%;
             }

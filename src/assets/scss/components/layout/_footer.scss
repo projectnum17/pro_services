@@ -73,12 +73,15 @@
         }
 
         li {
-            font: 400 #{rem(18px)} / 180% $ff;
+            font: 400 #{rem(18px)} / 120% $ff;
             @include media('mobile') {
                 font-size: rem(14px);
             }
 
             a {
+                display: flex;
+                align-items: center;
+                min-height: rem(32px);
                 font: inherit;
                 color: $c_white;
                 @include transitions(
@@ -87,6 +90,9 @@
                 );
                 @include hover {
                     color: $c_orange;
+                }
+                @include media('mobile') {
+                    min-height: rem(20px);
                 }
             }
         }

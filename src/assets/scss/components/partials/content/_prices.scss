@@ -14,7 +14,8 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: rem(24px);
-        margin-bottom: rem(80px);
+        margin-bottom: rem(40px);
+        flex-direction: column;
         @include media('mobile') {
             flex-direction: column-reverse;
             margin-bottom: rem(36px);

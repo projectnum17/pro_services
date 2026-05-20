@@ -6,6 +6,7 @@ export const initPricesTabs = () => {
 
     const tabs = section.querySelectorAll('.js-prices-tab');
     const contents = section.querySelectorAll('.js-prices-content');
+    const disklaimer = section.querySelector('.prices__reminder');
 
     const hashMap = {
         services: 0,
@@ -20,6 +21,10 @@ export const initPricesTabs = () => {
         contents.forEach((content, i) => {
             content.classList.toggle('is-active', i === index);
         });
+
+        if (disklaimer) {
+            disklaimer.style.display = index === 0 ? '' : 'none';
+        }
 
         if (updateHash) {
             const keys = Object.keys(hashMap);

@@ -15,7 +15,6 @@
 
     .section-title {
         color: $c_white;
-        margin-bottom: rem(28px);
         @include media('mobile') {
             margin-bottom: rem(12px);
         }
@@ -36,9 +35,15 @@
     }
 
     &__info {
+        display: flex;
+        flex-direction: column;
+        gap: rem(28px);
         max-width: rem(852px);
         @include media('laptop') {
             max-width: 100%;
+        }
+        @include media('mobile') {
+            gap: rem(12px);
         }
     }
 
