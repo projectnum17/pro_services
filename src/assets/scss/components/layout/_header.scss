@@ -41,8 +41,6 @@ body {
     padding-block: rem(27px);
     max-width: 100%;
     align-self: flex-end;
-    background: $c_white;
-    backdrop-filter: blur(68px);
     @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
     @include media('desktop-lg') {
         padding-block: rem(12px);
@@ -51,9 +49,23 @@ body {
         padding-block: rem(12px);
     }
 
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        background: $c_white;
+        backdrop-filter: blur(68px);
+        @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+    }
+
     &.is-transform {
         padding-block: rem(12px);
-        background: #ffffffb2;
+
+        &::before {
+            background: #ffffffb2;
+        }
     }
 
     &.is-mutated {
