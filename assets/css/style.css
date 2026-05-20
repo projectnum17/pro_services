@@ -1744,6 +1744,14 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   background: #ffffff;
 }
 
+.control--reverse .container {
+  flex-direction: row-reverse;
+}
+
+.control--colored {
+  background: #e6e7ec;
+}
+
 .control .container {
   display: flex;
   justify-content: space-between;
@@ -1751,30 +1759,65 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   gap: 1.5rem;
 }
 
-.control .section-subheading {
-  margin-bottom: 1.5rem;
+.control__info {
+  display: flex;
+  flex-direction: column;
+  max-width: 44.0625rem;
+  color: #072136;
 }
 
-.control__title {
-  margin-bottom: 1.5rem;
+.control__info *:last-child {
+  margin-bottom: 0;
+}
+
+.control__info h2 {
+  margin: 0 0 1.5rem 0;
+  font: 600 3.5rem/100% "IBM Plex Sans", sans-serif;
+  letter-spacing: -2px;
+}
+
+.control__info h3,
+.control__info h4,
+.control__info h5,
+.control__info h6 {
+  margin: 0 0 1.5rem 0;
   font: 700 1.25rem/30px "IBM Plex Sans", sans-serif;
 }
 
-.control__list {
-  counter-reset: item;
+.control__info p {
+  font: 400 1.25rem/30px "IBM Plex Sans", sans-serif;
+}
+
+.control__info p:has(+ ol) {
+  margin-bottom: 1rem;
+}
+
+.control__info ol,
+.control__info ul {
+  margin: 0 0 1rem 0;
+  padding: 0;
+  list-style-type: none;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.control__list li {
-  counter-increment: item;
+.control__info ol li,
+.control__info ul li {
   gap: 0.5rem;
   font: 400 1.25rem/30px "IBM Plex Sans", sans-serif;
   display: inline-flex;
 }
 
-.control__list li::before {
+.control__info ol {
+  counter-reset: item;
+}
+
+.control__info ol li {
+  counter-increment: item;
+}
+
+.control__info ol li::before {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -1786,20 +1829,14 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   height: 1.875rem;
 }
 
-.control__text p {
-  font: 400 1.25rem/30px "IBM Plex Sans", sans-serif;
-}
-
-.control__info {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 44.0625rem;
-  color: #072136;
-}
-
-.control__info *:last-child {
-  margin-bottom: 0;
+.control__info ul li::before {
+  content: "";
+  background: url("../images/icons/ico-check.svg") no-repeat center center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .control__pic {
@@ -1810,94 +1847,41 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   --cross-size: 18.75rem;
 }
 
-.innovation {
-  padding-block: 6.5625rem;
-  background: #e6e7ec;
-}
-
-.innovation .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1.5rem;
-}
-
-.innovation .section-subheading {
-  margin-bottom: 1.5rem;
-}
-
-.innovation__title {
-  margin-bottom: 1.5rem;
-  font: 700 1.25rem/30px "IBM Plex Sans", sans-serif;
-}
-
-.innovation__list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.innovation__list li {
-  gap: 0.5rem;
-  font: 400 1.25rem/30px "IBM Plex Sans", sans-serif;
-  display: inline-flex;
-}
-
-.innovation__list li::before {
-  content: "";
-  background: url("../images/icons/ico-check.svg") no-repeat center center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-}
-
-.innovation__text p {
-  font: 400 1.25rem/30px "IBM Plex Sans", sans-serif;
-}
-
-.innovation__info {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 44.0625rem;
-  color: #072136;
-}
-
-.innovation__info *:last-child {
-  margin-bottom: 0;
-}
-
-.innovation__pic {
-  max-width: 53.25rem;
-}
-
-.innovation .cross-block {
-  --cross-size: 18.75rem;
-}
-
 .standart {
   padding-block: 3.9375rem;
 }
 
 .standart__content {
   padding-block: 4.1875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-inline: var(--container_pdd);
 }
 
 .standart__info {
   max-width: 53.1875rem;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
-  gap: 2.5rem;
 }
 
-.standart__desc p {
+.standart__info h2,
+.standart__info h3,
+.standart__info h4,
+.standart__info h5,
+.standart__info h6 {
+  margin: 0 0 2.5rem 0;
+  font: 600 3.5rem/100% "IBM Plex Sans", sans-serif;
+  letter-spacing: -2px;
+}
+
+.standart__info p {
   font: 400 1.25rem/30px "IBM Plex Sans", sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+.standart__info *:last-child {
+  margin-bottom: 2.5rem;
 }
 
 .intro {
@@ -3895,7 +3879,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1440.98px) {
   :root {
     --header-h: 8.8125rem;
   }
@@ -3904,26 +3888,8 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     gap: 0.75rem;
   }
 
-  body:has(.hero) .header .header__details {
-    gap: 1.5rem;
-  }
-
   .header {
     padding-block: 0.75rem;
-  }
-
-  .header.is-mutated .link-accent {
-    opacity: 1;
-    pointer-events: all;
-    clip-path: initial;
-  }
-
-  .header.is-mutated .link-secondary {
-    max-width: 8.75rem;
-  }
-
-  .header.is-mutated .nav-panel {
-    transform: translateX(0);
   }
 
   .header .link-accent {
@@ -4066,16 +4032,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     max-width: 100%;
   }
 
-  .innovation__info {
-    width: 50%;
-    max-width: 100%;
-  }
-
-  .innovation__pic {
-    width: 50%;
-    max-width: 100%;
-  }
-
   .prices__cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.75rem;
@@ -4124,7 +4080,27 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1440px) {
+  body:has(.hero) .header .header__details {
+    gap: 1.5rem;
+  }
+
+  .header.is-mutated .link-accent {
+    opacity: 1;
+    pointer-events: all;
+    clip-path: initial;
+  }
+
+  .header.is-mutated .link-secondary {
+    max-width: 8.75rem;
+  }
+
+  .header.is-mutated .nav-panel {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 1199.98px) {
   .footer__menu {
     padding: 3.75rem 3.75rem 1.75rem 3.75rem;
   }
@@ -4168,10 +4144,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     --cross-size: 12.5rem;
   }
 
-  .innovation .cross-block {
-    --cross-size: 12.5rem;
-  }
-
   .preview:has(.testimonial-collect) .container {
     flex-direction: column;
   }
@@ -4199,7 +4171,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024.98px) {
   :root {
     --header-h: 4.875rem;
   }
@@ -4298,8 +4270,20 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     max-width: 100%;
   }
 
+  .control__info h2 {
+    font-size: 2.875rem;
+  }
+
   .control .cross-block {
     --cross-size: 6.25rem;
+  }
+
+  .standart__info h2,
+  .standart__info h3,
+  .standart__info h4,
+  .standart__info h5,
+  .standart__info h6 {
+    font-size: 2.875rem;
   }
 
   .prices__cards {
@@ -4339,7 +4323,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 991.98px) {
   :root {
     --container_pdd: 0.9375rem;
   }
@@ -4406,20 +4390,20 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     width: 100%;
   }
 
+  .control__info h2 {
+    font-size: 2.375rem;
+  }
+
   .control__pic {
     width: 100%;
   }
 
-  .innovation .container {
-    flex-direction: column;
-  }
-
-  .innovation__info {
-    width: 100%;
-  }
-
-  .innovation__pic {
-    width: 100%;
+  .standart__info h2,
+  .standart__info h3,
+  .standart__info h4,
+  .standart__info h5,
+  .standart__info h6 {
+    font-size: 2.375rem;
   }
 
   .terms__content h2 {
@@ -4486,7 +4470,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
   :root {
     --header-h: 4.125rem;
     --container_pdd: 0.75rem;
@@ -4941,70 +4925,47 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     padding-block: 3.5rem;
   }
 
-  .control .section-subheading {
-    margin-bottom: 0;
+  .control__info h2 {
+    font-size: 1.75rem;
   }
 
-  .control__title {
+  .control__info h3,
+  .control__info h4,
+  .control__info h5,
+  .control__info h6 {
     font-size: 1.125rem;
     line-height: 120%;
   }
 
-  .control__list {
+  .control__info p {
+    font-size: 1rem;
+    line-height: 120%;
+  }
+
+  .control__info ol,
+  .control__info ul {
     gap: 0.75rem;
   }
 
-  .control__list li {
+  .control__info ol li,
+  .control__info ul li {
     font-size: 1rem;
     line-height: 120%;
     align-items: baseline;
   }
 
-  .control__list li::before {
+  .control__info ol li::before {
     width: 1.875rem;
     height: 1.875rem;
   }
 
-  .control__text p {
-    font-size: 1rem;
-    line-height: 120%;
+  .control__info ul li::before {
+    width: 1.875rem;
+    height: 1.875rem;
   }
 
   .control .cross-block {
     --cross-size: 4.6875rem;
-  }
-
-  .innovation {
-    padding-block: 3.5rem;
-  }
-
-  .innovation .section-subheading {
-    margin-bottom: 0;
-  }
-
-  .innovation__title {
-    font-size: 1.125rem;
-    line-height: 120%;
-  }
-
-  .innovation__list {
-    gap: 0.75rem;
-  }
-
-  .innovation__list li {
-    font-size: 1rem;
-    line-height: 120%;
-    align-items: baseline;
-  }
-
-  .innovation__list li::before {
-    width: 1.875rem;
-    height: 1.875rem;
-  }
-
-  .innovation__text p {
-    font-size: 1rem;
-    line-height: 120%;
   }
 
   .standart {
@@ -5023,9 +4984,21 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     gap: 1.5rem;
   }
 
-  .standart__desc p {
+  .standart__info h2,
+  .standart__info h3,
+  .standart__info h4,
+  .standart__info h5,
+  .standart__info h6 {
+    font-size: 1.75rem;
+  }
+
+  .standart__info p {
     font-size: 1rem;
     line-height: 120%;
+  }
+
+  .standart__info *:last-child {
+    gap: 1.5rem;
   }
 
   .standart .link-accent {
@@ -5660,7 +5633,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 }
 
-@media (hover: hover) and (max-width: 767px) {
+@media (hover: hover) and (max-width: 767.98px) {
   .link-accent:hover span {
     height: 2.375rem;
   }
@@ -5670,7 +5643,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 }
 
-@media (hover: none) and (max-width: 767px) {
+@media (hover: none) and (max-width: 767.98px) {
   .link-accent:active span {
     height: 2.375rem;
   }
