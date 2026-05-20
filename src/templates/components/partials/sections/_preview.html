@@ -1,26 +1,21 @@
 <section class="preview">
     <div class="container">
         <div class="preview__descr">
-            {{#if sectionSubtitle}}
-                {{> _titleBuilder
-                    className = "section-subtitle"
-                    label = subtitleText
-                    tagWrapper = "h2"
-                }}
-            {{/if}}
-            {{#if sectionTitle}}
-                {{> _titleBuilder
-                    label = titleText
-                    className = 'section-title'
-                    tagWrapper = 'h2'
-                }}
-            {{/if}}
-
-
-            <div class="preview__txts">
+            <div class="preview__info">
+                {{#if sectionSubtitle}}
+                    {{> _titleBuilder
+                        label = subtitleText
+                        tagWrapper = "h3"
+                    }}
+                {{/if}}
+                {{#if sectionTitle}}
+                    {{> _titleBuilder
+                        label = titleText
+                        tagWrapper = 'h2'
+                    }}
+                {{/if}}
                 {{{ info }}}
             </div>
-
             {{#if linkFeedback}}
                 {{> _linkFeedback
                     additClasses = "js-questions-btn"
