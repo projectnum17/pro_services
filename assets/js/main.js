@@ -20,17 +20,17 @@ if (document.readyState === 'complete') {
 
 setTimeout(hideLoader, 7000);
 
-import { headerHandlers } from './modules/_headerHandlers.js';
-import { initVideoAutoplay } from './modules/_initVideoAutoplay.js';
-import { initMobileMenu } from './modules/_initMobileMenu.js';
-import { initProcessSlider } from './modules/_initProcessSlider.js';
-import { initTestimSlider } from './modules/_initTestimSlider.js';
-import { initFAQ } from './modules/_initFAQ.js';
-import { initPricesTabs } from './modules/_initPricesTabs.js';
-import { initGridBorderHelper } from './modules/_initGridBorderHelper.js';
-import { initShowMore } from './modules/_initShowMore.js';
-import { initForms } from './modules/_initForms.js';
-import { initModals } from './modules/_initModals.js';
+import { headerHandlers } from './modules/headerHandlers.js';
+import { initVideoAutoplay } from './modules/initVideoAutoplay.js';
+import { initMobileMenu } from './modules/initMobileMenu.js';
+import { initProcessSlider } from './modules/initProcessSlider.js';
+import { initTestimSlider } from './modules/initTestimSlider.js';
+import { initFAQ } from './modules/initFAQ.js';
+import { initPricesTabs } from './modules/initPricesTabs.js';
+import { initGridBorderHelper } from './modules/initGridBorderHelper.js';
+import { initShowMore } from './modules/initShowMore.js';
+import { initForms } from './modules/initForms.js';
+import { initModals } from './modules/initModals.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     headerHandlers();
