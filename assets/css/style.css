@@ -580,13 +580,18 @@ a {
   color: #203805;
 }
 
-.blog-tag--promo {
+.blog-tag--promotions {
   background: linear-gradient(90deg, #f6bb8b 0%, #fdefc4 100%);
   color: #000000;
 }
 
-.blog-tag--article {
+.blog-tag--articles {
   background: linear-gradient(90deg, #cab4ff 0%, #f1eefc 100%);
+  color: #000000;
+}
+
+.blog-tag--other {
+  background: linear-gradient(90deg, #f2f4f7 0%, #e6e9ef 100%);
   color: #000000;
 }
 
@@ -1748,52 +1753,63 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
 .about__info ol,
 .about__info ul {
-  margin: 0 0 1rem 0;
   padding: 0;
-  list-style-type: none;
+  margin: 0 0 2.5rem;
   display: flex;
   flex-direction: column;
+  list-style-type: none;
   gap: 1rem;
-  color: #b0bec9;
 }
 
 .about__info ol li,
 .about__info ul li {
-  gap: 0.5rem;
+  position: relative;
   font: 400 1.25rem/30px "IBM Plex Sans", sans-serif;
-  display: inline-flex;
+  color: #b0bec9;
+}
+
+.about__info ol li::before,
+.about__info ul li::before {
+  flex-shrink: 0;
+}
+
+.about__info ul li {
+  padding-left: 3rem;
+}
+
+.about__info ul li::before {
+  left: 0;
+  top: -0.125rem;
+  position: absolute;
+  content: "";
+  width: 2.5rem;
+  height: 2.5rem;
+  -webkit-mask: url("../images/icons/ico-check.svg") no-repeat center center;
+  mask: url("../images/icons/ico-check.svg") no-repeat center center;
+  background: #b0bec9;
 }
 
 .about__info ol {
-  counter-reset: item;
+  counter-reset: counter;
 }
 
 .about__info ol li {
-  counter-increment: item;
+  counter-increment: counter;
+  padding-left: 3rem;
 }
 
 .about__info ol li::before {
-  flex-shrink: 0;
+  position: absolute;
+  top: 0.125rem;
+  left: 0;
+  content: counter(counter);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  content: counter(item);
   font: 600 0.9375rem/140% "IBM Plex Sans", sans-serif;
   text-transform: uppercase;
   width: 2.5rem;
   height: 1.875rem;
-}
-
-.about__info ul li::before {
-  content: "";
-  -webkit-mask: url("../images/icons/ico-check.svg") no-repeat center center;
-  mask: url("../images/icons/ico-check.svg") no-repeat center center;
-  background: #b0bec9;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
 }
 
 .about__info *:last-child {
@@ -1859,49 +1875,62 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
 .control__info ol,
 .control__info ul {
-  margin: 0 0 1rem 0;
   padding: 0;
-  list-style-type: none;
+  margin: 0 0 2.5rem;
   display: flex;
   flex-direction: column;
+  list-style-type: none;
   gap: 1rem;
 }
 
 .control__info ol li,
 .control__info ul li {
-  gap: 0.5rem;
+  position: relative;
   font: 400 1.25rem/30px "IBM Plex Sans", sans-serif;
-  display: inline-flex;
+}
+
+.control__info ol li::before,
+.control__info ul li::before {
+  flex-shrink: 0;
+}
+
+.control__info ul li {
+  padding-left: 3rem;
+}
+
+.control__info ul li::before {
+  left: 0;
+  top: -0.3125rem;
+  position: absolute;
+  content: "";
+  width: 2.5rem;
+  height: 2.5rem;
+  -webkit-mask: url("../images/icons/ico-check.svg") no-repeat center center;
+  mask: url("../images/icons/ico-check.svg") no-repeat center center;
+  background: #072136;
 }
 
 .control__info ol {
-  counter-reset: item;
+  counter-reset: counter;
 }
 
 .control__info ol li {
-  counter-increment: item;
+  counter-increment: counter;
+  padding-left: 3rem;
 }
 
 .control__info ol li::before {
-  flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: counter(counter);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  content: counter(item);
   font: 600 0.9375rem/140% "IBM Plex Sans", sans-serif;
   text-transform: uppercase;
   width: 2.5rem;
   height: 1.875rem;
-}
-
-.control__info ul li::before {
-  content: "";
-  background: url("../images/icons/ico-check.svg") no-repeat center center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
 }
 
 .control__pic {
@@ -2548,9 +2577,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
 .article__info ol li,
 .article__info ul li {
-  gap: 0.5rem;
-  display: inline-flex;
-  align-items: baseline;
+  position: relative;
   font: 400 1.25rem/30px "IBM Plex Sans", sans-serif;
 }
 
@@ -2560,10 +2587,13 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 .article__info ul li {
-  align-items: center;
+  padding-left: 3rem;
 }
 
 .article__info ul li::before {
+  left: 0;
+  top: -0.3125rem;
+  position: absolute;
   content: "";
   width: 2.5rem;
   height: 2.5rem;
@@ -2578,9 +2608,13 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
 .article__info ol li {
   counter-increment: counter;
+  padding-left: 3rem;
 }
 
 .article__info ol li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
   content: counter(counter);
   display: inline-flex;
   align-items: center;
@@ -3126,49 +3160,62 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
 .benefit-box__details ol,
 .benefit-box__details ul {
-  margin: 0 0 1rem 0;
   padding: 0;
-  list-style-type: none;
+  margin: 0 0 2.5rem;
   display: flex;
   flex-direction: column;
+  list-style-type: none;
   gap: 1rem;
 }
 
 .benefit-box__details ol li,
 .benefit-box__details ul li {
-  gap: 0.5rem;
+  position: relative;
   font: 400 1.25rem/30px "IBM Plex Sans", sans-serif;
-  display: inline-flex;
+}
+
+.benefit-box__details ol li::before,
+.benefit-box__details ul li::before {
+  flex-shrink: 0;
+}
+
+.benefit-box__details ul li {
+  padding-left: 3rem;
+}
+
+.benefit-box__details ul li::before {
+  left: 0;
+  top: -0.3125rem;
+  position: absolute;
+  content: "";
+  width: 2.5rem;
+  height: 2.5rem;
+  -webkit-mask: url("../images/icons/ico-check.svg") no-repeat center center;
+  mask: url("../images/icons/ico-check.svg") no-repeat center center;
+  background: #072136;
 }
 
 .benefit-box__details ol {
-  counter-reset: item;
+  counter-reset: counter;
 }
 
 .benefit-box__details ol li {
-  counter-increment: item;
+  counter-increment: counter;
+  padding-left: 3rem;
 }
 
 .benefit-box__details ol li::before {
-  flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: counter(counter);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  content: counter(item);
   font: 600 0.9375rem/140% "IBM Plex Sans", sans-serif;
   text-transform: uppercase;
   width: 2.5rem;
   height: 1.875rem;
-}
-
-.benefit-box__details ul li::before {
-  content: "";
-  background: url("../images/icons/ico-check.svg") no-repeat center center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
 }
 
 .benefit-box__info {
@@ -3382,7 +3429,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem 0.625rem;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
 }
 
 .testimonial-collect__wrapper .testimonial-box:nth-child(3n-1) {
@@ -3391,6 +3438,10 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
 .testimonial-collect__wrapper .testimonial-box:nth-child(3n) {
   transform: translateY(40px);
+}
+
+.testimonial-collect .btn-more {
+  margin-top: 5rem;
 }
 
 .contact-box {
@@ -4382,6 +4433,18 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     min-height: 32.5rem;
   }
 
+  .benefit-box__details h2,
+  .benefit-box__details h3,
+  .benefit-box__details h4,
+  .benefit-box__details h5,
+  .benefit-box__details h6 {
+    font-size: 2.875rem;
+  }
+
+  .benefit-box__info {
+    padding: 5.625rem 2.5rem;
+  }
+
   .testimonial-collect {
     width: 100%;
   }
@@ -4528,14 +4591,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
   .blog__collect {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .benefit-box__details h2,
-  .benefit-box__details h3,
-  .benefit-box__details h4,
-  .benefit-box__details h5,
-  .benefit-box__details h6 {
-    font-size: 2.875rem;
   }
 
   .benefit-box__info {
@@ -5184,23 +5239,33 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   .about__info ol,
   .about__info ul {
     gap: 0.75rem;
+    margin: 0 0 1.5rem;
   }
 
   .about__info ol li,
   .about__info ul li {
     font-size: 1rem;
-    line-height: 120%;
-    align-items: baseline;
   }
 
-  .about__info ol li::before {
-    width: 1.875rem;
-    height: 1.875rem;
+  .about__info ul li {
+    padding-left: 2rem;
   }
 
   .about__info ul li::before {
-    width: 1.875rem;
-    height: 1.875rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0.1875rem;
+  }
+
+  .about__info ol li {
+    padding-left: 2rem;
+  }
+
+  .about__info ol li::before {
+    font-size: 0.875rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0.1875rem;
   }
 
   .control {
@@ -5227,23 +5292,33 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   .control__info ol,
   .control__info ul {
     gap: 0.75rem;
+    margin: 0 0 1.5rem;
   }
 
   .control__info ol li,
   .control__info ul li {
     font-size: 1rem;
-    line-height: 120%;
-    align-items: baseline;
   }
 
-  .control__info ol li::before {
-    width: 1.875rem;
-    height: 1.875rem;
+  .control__info ul li {
+    padding-left: 2rem;
   }
 
   .control__info ul li::before {
-    width: 1.875rem;
-    height: 1.875rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0.1875rem;
+  }
+
+  .control__info ol li {
+    padding-left: 2rem;
+  }
+
+  .control__info ol li::before {
+    font-size: 0.875rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0.1875rem;
   }
 
   .control .cross-block {
@@ -5342,14 +5417,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   .preview {
     padding-block: 3.5rem;
     overflow: hidden;
-  }
-
-  .preview:has(.brands-box) .container {
-    padding: 0;
-  }
-
-  .preview:has(.brands-box) .preview__descr {
-    padding-inline: var(--container_pdd);
   }
 
   .preview:has(.testimonial-collect) {
@@ -5558,15 +5625,25 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     font-size: 1rem;
   }
 
+  .article__info ul li {
+    padding-left: 2rem;
+  }
+
   .article__info ul li::before {
     width: 1.5rem;
     height: 1.5rem;
+    top: 0.1875rem;
+  }
+
+  .article__info ol li {
+    padding-left: 2rem;
   }
 
   .article__info ol li::before {
     font-size: 0.875rem;
     width: 1.5rem;
     height: 1.5rem;
+    top: 0.1875rem;
   }
 
   .article__info blockquote {
@@ -5759,23 +5836,33 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   .benefit-box__details ol,
   .benefit-box__details ul {
     gap: 0.75rem;
+    margin: 0 0 1.5rem;
   }
 
   .benefit-box__details ol li,
   .benefit-box__details ul li {
     font-size: 1rem;
-    line-height: 120%;
-    align-items: baseline;
   }
 
-  .benefit-box__details ol li::before {
-    width: 1.875rem;
-    height: 1.875rem;
+  .benefit-box__details ul li {
+    padding-left: 2rem;
   }
 
   .benefit-box__details ul li::before {
-    width: 1.875rem;
-    height: 1.875rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0.1875rem;
+  }
+
+  .benefit-box__details ol li {
+    padding-left: 2rem;
+  }
+
+  .benefit-box__details ol li::before {
+    font-size: 0.875rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0.1875rem;
   }
 
   .benefit-box__info {
@@ -5848,26 +5935,15 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 
   .brands-box {
-    display: flex;
-    -ms-scroll-snap-type: x mandatory;
-    scroll-snap-type: x mandatory;
-    overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding-inline: var(--container_pdd);
-    scroll-padding-inline: var(--container_pdd);
-  }
-
-  .brands-box::-webkit-scrollbar {
-    display: none;
+    width: 100%;
+    place-items: center;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .brands-box__item {
     border: none;
-    flex-shrink: 0;
-    max-width: 13.75rem;
+    max-width: 9.375rem;
     min-height: auto;
-    scroll-snap-align: start;
   }
 
   .faq-list {
@@ -5879,13 +5955,17 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 
   .testimonial-collect__wrapper {
-    margin-bottom: 7rem;
+    margin-bottom: 2.5rem;
     display: flex;
     flex-direction: column;
   }
 
   .testimonial-collect__wrapper .testimonial-box:nth-child(2n) {
     transform: translateY(0);
+  }
+
+  .testimonial-collect .btn-more {
+    margin-top: 2.5rem;
   }
 
   .contact-box {

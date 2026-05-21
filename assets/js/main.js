@@ -307,14 +307,6 @@ const initPricesTabs = () => {
     window.addEventListener('hashchange', () => {
         setActiveTab(getIndexFromHash(), false);
     });
-
-    initShowMore({
-        container: section,
-        cardsSelector: '.js-prices-content',
-        itemSelector: '.js-price-box',
-        buttonSelector: '.js-prices-more',
-        limit: 12,
-    });
 };
 
 const initGridBorderHelper = () => {
@@ -365,46 +357,6 @@ const initTestimSlider = () => {
             draggable: true,
             dragSize: isMob ? 120 : 514,
         },
-    });
-};
-
-const initShowMore = ({
-    container,
-    cardsSelector,
-    itemSelector,
-    buttonSelector,
-    limit = 12,
-}) => {
-    if (!container) return;
-
-    const blocks = container.querySelectorAll(cardsSelector);
-
-    blocks.forEach((block) => {
-        const items = block.querySelectorAll(itemSelector);
-        const btnMore = block.querySelector(buttonSelector);
-
-        if (!btnMore) return;
-
-        if (items.length <= limit) {
-            btnMore.style.display = 'none';
-            btnMore.classList.add('is-hidden');
-            return;
-        }
-
-        items.forEach((item, index) => {
-            if (index >= limit) {
-                item.style.display = 'none';
-            }
-        });
-
-        btnMore.addEventListener('click', () => {
-            items.forEach((item) => {
-                item.style.display = '';
-            });
-
-            btnMore.style.display = 'none';
-            btnMore.classList.add('is-hidden');
-        });
     });
 };
 
@@ -476,20 +428,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initPricesTabs();
     initGridBorderHelper();
     initForms();
-    initShowMore({
-        container: document.querySelector('.preview'),
-        cardsSelector: '.js-testimonial-collect',
-        itemSelector: '.js-testimonial-box',
-        buttonSelector: '.js-testimonial-more',
-        limit: 15,
-    });
-    initShowMore({
-        container: document.querySelector('.blog'),
-        cardsSelector: '.js-blog-collect',
-        itemSelector: '.js-blog-box',
-        buttonSelector: '.js-blog-more',
-        limit: 8,
-    });
     initModals({
         triggers: '.js-request-btn',
         modalSelector: '.js-request-modal',
