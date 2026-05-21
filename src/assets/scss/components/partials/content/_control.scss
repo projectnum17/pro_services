@@ -89,65 +89,81 @@
 
         ol,
         ul {
-            margin: 0 0 rem(16px) 0;
             padding: 0;
-            list-style-type: none;
+            margin: 0 0 rem(40px);
             display: flex;
             flex-direction: column;
+            list-style-type: none;
             gap: rem(16px);
             @include media('mobile') {
                 gap: rem(12px);
+                margin: 0 0 rem(24px);
             }
 
             li {
-                gap: rem(8px);
+                position: relative;
                 font: 400 #{rem(20px)} / 30px $ff;
-                display: inline-flex;
                 @include media('mobile') {
                     font-size: rem(16px);
-                    line-height: 120%;
-                    align-items: baseline;
                 }
-            }
-        }
 
-        ol {
-            counter-reset: item;
-
-            li {
-                counter-increment: item;
                 &::before {
                     flex-shrink: 0;
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    content: counter(item);
-                    font: 600 #{rem(15px)} / 140% $ff;
-                    text-transform: uppercase;
-                    width: rem(40px);
-                    height: rem(30px);
-                    @include media('mobile') {
-                        width: rem(30px);
-                        height: rem(30px);
-                    }
                 }
             }
         }
 
         ul {
             li {
+                padding-left: rem(48px);
+                @include media('mobile') {
+                    padding-left: rem(32px);
+                }
                 &::before {
+                    left: 0;
+                    top: rem(-5px);
+                    position: absolute;
                     content: '';
-                    background: url('../images/icons/ico-check.svg') no-repeat
-                        center center;
+                    width: rem(40px);
+                    height: rem(40px);
+                    mask: url('../images/icons/ico-check.svg') no-repeat center
+                        center;
+                    background: $c_blue;
+                    @include media('mobile') {
+                        width: rem(24px);
+                        height: rem(24px);
+                        top: rem(3px);
+                    }
+                }
+            }
+        }
+
+        ol {
+            counter-reset: counter;
+
+            li {
+                counter-increment: counter;
+                padding-left: rem(48px);
+                @include media('mobile') {
+                    padding-left: rem(32px);
+                }
+                &::before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    content: counter(counter);
                     display: inline-flex;
                     align-items: center;
                     justify-content: center;
+                    font: 600 #{rem(15px)} / 140% $ff;
+                    text-transform: uppercase;
                     width: rem(40px);
-                    height: rem(40px);
+                    height: rem(30px);
                     @include media('mobile') {
-                        width: rem(30px);
-                        height: rem(30px);
+                        font-size: rem(14px);
+                        width: rem(24px);
+                        height: rem(24px);
+                        top: rem(3px);
                     }
                 }
             }

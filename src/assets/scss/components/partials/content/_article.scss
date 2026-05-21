@@ -158,9 +158,7 @@
             }
 
             li {
-                gap: rem(8px);
-                display: inline-flex;
-                align-items: baseline;
+                position: relative;
                 font: 400 #{rem(20px)} / 30px $ff;
                 @include media('mobile') {
                     font-size: rem(16px);
@@ -174,8 +172,14 @@
 
         ul {
             li {
-                align-items: center;
+                padding-left: rem(48px);
+                @include media('mobile') {
+                    padding-left: rem(32px);
+                }
                 &::before {
+                    left: 0;
+                    top: rem(-5px);
+                    position: absolute;
                     content: '';
                     width: rem(40px);
                     height: rem(40px);
@@ -185,6 +189,7 @@
                     @include media('mobile') {
                         width: rem(24px);
                         height: rem(24px);
+                        top: rem(3px);
                     }
                 }
             }
@@ -195,7 +200,14 @@
 
             li {
                 counter-increment: counter;
+                padding-left: rem(48px);
+                @include media('mobile') {
+                    padding-left: rem(32px);
+                }
                 &::before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                     content: counter(counter);
                     display: inline-flex;
                     align-items: center;
@@ -208,6 +220,7 @@
                         font-size: rem(14px);
                         width: rem(24px);
                         height: rem(24px);
+                        top: rem(3px);
                     }
                 }
             }

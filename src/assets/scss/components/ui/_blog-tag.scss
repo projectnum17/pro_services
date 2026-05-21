@@ -31,13 +31,18 @@
         color: #203805;
     }
 
-    &--promo {
+    &--promotions {
         background: linear-gradient(90deg, #f6bb8b 0%, #fdefc4 100%);
         color: #000000;
     }
 
-    &--article {
+    &--articles {
         background: linear-gradient(90deg, #cab4ff 0%, #f1eefc 100%);
+        color: #000000;
+    }
+
+    &--other {
+        background: linear-gradient(90deg, #f2f4f7 0%, #e6e9ef 100%);
         color: #000000;
     }
 }

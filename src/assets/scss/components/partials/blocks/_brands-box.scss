@@ -12,16 +12,9 @@
     }
 
     @include media('mobile') {
-        display: flex;
-        scroll-snap-type: x mandatory;
-        overflow: auto;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        &::-webkit-scrollbar {
-            display: none;
-        }
-        padding-inline: var(--container_pdd);
-        scroll-padding-inline: var(--container_pdd);
+        width: 100%;
+        place-items: center;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     &__item {
@@ -34,10 +27,8 @@
 
         @include media('mobile') {
             border: none;
-            flex-shrink: 0;
-            max-width: rem(220px);
+            max-width: rem(150px);
             min-height: auto;
-            scroll-snap-align: start;
         }
 
         &:nth-child(3n) {
