@@ -163,6 +163,7 @@ const initMobileMenu = () => {
 const initProcessSlider = () => {
     const { ScrollTrigger } = window;
     gsap.registerPlugin(ScrollTrigger);
+
     const section = document.querySelector('.process');
     const paginationContainer = document.querySelector('.js-process-pag');
     const slides = gsap.utils.toArray('.js-process-slide');
@@ -184,6 +185,7 @@ const initProcessSlider = () => {
 
             item.className = 'process__pagination';
             item.textContent = String(i + 1).padStart(2, '0');
+            item.dataset.index = i;
 
             paginationContainer.appendChild(item);
         });
@@ -193,12 +195,10 @@ const initProcessSlider = () => {
         const numbers = paginationContainer.querySelectorAll(
             '.process__pagination',
         );
-
         const half = Math.floor(totalSlides / 2);
 
         numbers.forEach((num, i) => {
             let diff = i - index;
-
             if (diff > half) diff -= totalSlides;
             if (diff < -half) diff += totalSlides;
 
@@ -218,7 +218,9 @@ const initProcessSlider = () => {
 
     let lastIndex = 0;
 
-    ScrollTrigger.create({
+    let isNavigating = false;
+
+    const trigger = ScrollTrigger.create({
         trigger: section,
         start: 'top top',
         end: `+=${totalSlides * 300}`,
@@ -229,10 +231,11 @@ const initProcessSlider = () => {
             duration: 0.1,
             ease: 'power1.out',
         },
-
         anticipatePin: 1,
 
         onUpdate: (self) => {
+            if (isNavigating) return;
+
             const index = Math.round(self.progress * (totalSlides - 1));
 
             if (index !== lastIndex) {
@@ -241,8 +244,42 @@ const initProcessSlider = () => {
             }
         },
     });
-};
 
+    const goToSlide = (index) => {
+        if (index === lastIndex) return;
+
+        isNavigating = true;
+        lastIndex = index;
+
+        updateSlider(index);
+
+        const progress = index / (totalSlides - 1);
+        const scrollPos =
+            trigger.start + (trigger.end - trigger.start) * progress;
+
+        gsap.to(window, {
+            scrollTo: scrollPos,
+            duration: 0.6,
+            ease: 'power2.out',
+            onComplete: () => {
+                isNavigating = false;
+            },
+        });
+    };
+
+    paginationContainer.addEventListener('click', (e) => {
+        const item = e.target.closest('.process__pagination');
+        if (!item) return;
+
+        goToSlide(+item.dataset.index);
+    });
+
+    slides.forEach((slide, i) => {
+        slide.addEventListener('click', () => {
+            goToSlide(i);
+        });
+    });
+};
 const initFAQ = () => {
     const faqBoxes = document.querySelectorAll('.js-faq-box');
     if (!faqBoxes.length) return;

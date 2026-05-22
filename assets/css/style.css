@@ -1484,6 +1484,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 .process__paginations {
+  cursor: pointer;
   --active-index: 0;
   max-width: 30rem;
   width: 100%;
@@ -1538,6 +1539,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 .process__slider-slide {
+  cursor: pointer;
   display: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -2860,9 +2862,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
   margin: 2rem;
   border-radius: 1rem;
   padding: 2.5rem 1.25rem;
@@ -2875,13 +2874,86 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   display: none;
 }
 
-.service-box__title {
+.service-box__about h2,
+.service-box__about h3,
+.service-box__about h4,
+.service-box__about h5,
+.service-box__about h6 {
   font: 400 1.5rem/130% "IBM Plex Sans", sans-serif;
   letter-spacing: -1px;
+  margin: 0 0 1rem 0;
 }
 
-.service-box__subtitle {
+.service-box__about p {
   font: 400 0.875rem/170% "IBM Plex Sans", sans-serif;
+}
+
+.service-box__about p:where(:not([class]):not(:last-child)) {
+  margin-bottom: 1rem;
+}
+
+.service-box__about ol,
+.service-box__about ul {
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  gap: 1rem;
+}
+
+.service-box__about ol li,
+.service-box__about ul li {
+  position: relative;
+  font: 400 0.875rem/30px "IBM Plex Sans", sans-serif;
+}
+
+.service-box__about ol li::before,
+.service-box__about ul li::before {
+  flex-shrink: 0;
+}
+
+.service-box__about ul li {
+  padding-left: 3rem;
+}
+
+.service-box__about ul li::before {
+  left: 0;
+  top: -0.3125rem;
+  position: absolute;
+  content: "";
+  width: 2.5rem;
+  height: 2.5rem;
+  -webkit-mask: url("../images/icons/ico-check.svg") no-repeat center center;
+  mask: url("../images/icons/ico-check.svg") no-repeat center center;
+  background: #ffffff;
+}
+
+.service-box__about ol {
+  counter-reset: counter;
+}
+
+.service-box__about ol li {
+  counter-increment: counter;
+  padding-left: 3rem;
+}
+
+.service-box__about ol li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: counter(counter);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 0.9375rem/140% "IBM Plex Sans", sans-serif;
+  text-transform: uppercase;
+  width: 2.5rem;
+  height: 1.875rem;
+}
+
+.service-box__about *:last-child {
+  margin-bottom: 0;
 }
 
 .testimonial-box {
@@ -5732,8 +5804,43 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     gap: 0.75rem;
   }
 
-  .service-box__title {
+  .service-box__about h2,
+  .service-box__about h3,
+  .service-box__about h4,
+  .service-box__about h5,
+  .service-box__about h6 {
     font-size: 1.125rem;
+  }
+
+  .service-box__about ol,
+  .service-box__about ul {
+    gap: 0.75rem;
+  }
+
+  .service-box__about ol li,
+  .service-box__about ul li {
+    font-size: 1rem;
+  }
+
+  .service-box__about ul li {
+    padding-left: 2rem;
+  }
+
+  .service-box__about ul li::before {
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0.1875rem;
+  }
+
+  .service-box__about ol li {
+    padding-left: 2rem;
+  }
+
+  .service-box__about ol li::before {
+    font-size: 0.875rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0.1875rem;
   }
 
   .testimonial-box {
