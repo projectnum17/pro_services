@@ -15,8 +15,14 @@
 
     @include hover {
         min-width: rem(346px);
+        @include media('mobile') {
+            min-width: rem(334px);
+        }
         span {
             height: rem(45px);
+            @include media('mobile') {
+                height: rem(40px);
+            }
         }
     }
     @include media('mobile') {

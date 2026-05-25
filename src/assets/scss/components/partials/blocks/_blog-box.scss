@@ -3,13 +3,13 @@
 @use '../../../base/media' as *;
 
 .blog-box {
-    min-height: rem(728px);
+    gap: rem(185px);
+    min-height: rem(350px);
     overflow: hidden;
     display: flex;
     position: relative;
     flex-direction: column;
     justify-content: space-between;
-    gap: rem(12px);
     padding: rem(16px);
     border-radius: rem(24px);
     background: linear-gradient(164.78deg, #a8c0cf 3.99%, #dad4e3 97.11%);
@@ -25,13 +25,13 @@
     }
 
     @include media('desktop') {
-        min-height: rem(520px);
+        gap: rem(110px);
     }
 
     @include media('mobile') {
         padding: rem(12px);
         border-radius: rem(12px);
-        min-height: rem(420px);
+        gap: rem(12px);
     }
 
     .cross-block {

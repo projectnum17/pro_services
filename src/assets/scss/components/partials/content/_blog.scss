@@ -32,6 +32,17 @@
         color: #e6e7ec;
     }
 
+    &__empty {
+        position: relative;
+        margin-bottom: rem(12px);
+        font: 600 #{rem(28px)} / 100% $ff;
+        letter-spacing: -1px;
+        color: #fff;
+        @include media('mobile') {
+            font-size: rem(22px);
+        }
+    }
+
     &__controls {
         display: flex;
         width: 100%;

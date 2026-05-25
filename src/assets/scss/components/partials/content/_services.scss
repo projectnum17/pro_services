@@ -79,30 +79,7 @@
         gap: rem(8px);
 
         @include media('laptop') {
-            display: flex;
-            scroll-snap-type: x mandatory;
-            overflow: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            &::-webkit-scrollbar {
-                display: none;
-            }
-            padding-inline: rem(48px);
-            scroll-padding-inline: rem(48px);
-
-            li {
-                flex-shrink: 0;
-                scroll-snap-align: start;
-            }
-        }
-
-        @include media('mobile') {
-            padding-inline: var(--container_pdd);
-            scroll-padding-inline: var(--container_pdd);
-
-            li {
-                max-width: 95%;
-            }
+            grid-template-columns: repeat(1, minmax(0, 1fr));
         }
     }
 

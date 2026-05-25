@@ -7,7 +7,7 @@
     align-items: center;
     gap: rem(16px);
     @include media('desktop-lg') {
-        gap: rem(12px);
+        gap: rem(3px);
     }
 
     @include hover {
@@ -62,6 +62,9 @@
         @include hover {
             padding-block: rem(6px);
         }
+        @include media('desktop-lg') {
+            padding: rem(5px) rem(12px);
+        }
     }
 
     p {
@@ -69,5 +72,11 @@
         text-transform: uppercase;
         margin: 0;
         color: $c_white;
+        @include media('desktop-lg') {
+            font-size: rem(12px);
+        }
+        @include media('mobile') {
+            font-size: rem(13px);
+        }
     }
 }

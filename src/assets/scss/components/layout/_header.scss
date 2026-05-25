@@ -112,6 +112,8 @@ body {
         @include media('desktop-lg') {
             order: 4;
             margin-left: auto;
+            font-size: rem(12px);
+            height: rem(35px);
         }
         @include media('laptop') {
             display: none;
@@ -133,6 +135,10 @@ body {
             span {
                 height: rem(42px);
             }
+        }
+        @include media('desktop-lg') {
+            padding: rem(5px) rem(12px);
+            font-size: rem(12px);
         }
         @include media('laptop') {
             display: none;
@@ -160,7 +166,6 @@ body {
         justify-content: space-between;
         gap: rem(24px);
         @include media('desktop-lg') {
-            flex-direction: column;
             gap: rem(8px);
         }
         @include media('laptop') {
@@ -230,6 +235,10 @@ body {
         }
         @include media('desktop-lg') {
             order: 1;
+            max-width: rem(110px);
+            gap: rem(6px);
+            flex-direction: column;
+            align-items: flex-start;
         }
         @include media('mobile') {
             gap: rem(12px);
@@ -247,7 +256,6 @@ body {
             gap: rem(12px);
         }
         @include media('desktop-lg') {
-            padding-bottom: rem(8px);
             gap: rem(24px);
             max-width: 100%;
             width: 100%;
@@ -278,6 +286,9 @@ body {
         @media (max-width: 1620.98px) {
             font-size: rem(10px);
         }
+        @include media('desktop-lg') {
+            font-size: rem(8px);
+        }
     }
 
     &__panel {
@@ -285,7 +296,7 @@ body {
         display: flex;
         align-items: center;
         @include media('desktop-lg') {
-            width: 100%;
+            gap: rem(3px);
             justify-content: flex-end;
         }
         @include media('laptop') {
@@ -301,10 +312,9 @@ body {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        @include media('mobile') {
+        @include media('desktop-lg') {
             width: rem(42px);
             height: rem(42px);
-
             svg {
                 width: rem(24px);
                 height: rem(24px);

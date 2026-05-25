@@ -36,6 +36,7 @@
                 }
 
                 &::after {
+                    cursor: pointer;
                     content: '';
                     display: inline-flex;
                     flex-shrink: 0;
@@ -136,6 +137,9 @@
 
     li {
         font: 400 #{rem(18px)} / 180% $ff;
+        @include media('desktop-lg') {
+            font-size: rem(14px);
+        }
     }
 
     a {
@@ -150,7 +154,7 @@
         gap: rem(24px);
 
         @include media('desktop-lg') {
-            gap: rem(12px);
+            gap: rem(8px);
         }
 
         > li {

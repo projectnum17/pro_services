@@ -3,23 +3,26 @@
 @use '../../base/media' as *;
 
 .link-feedback {
+    width: max-content;
+    height: rem(52px);
     font: 600 #{rem(15px)} / 140% $ff;
     text-transform: uppercase;
     display: inline-flex;
-    align-items: center;
-    gap: rem(24px);
-    justify-content: center;
-    border-radius: 999px;
-    padding: rem(10px) rem(12px);
     color: $c_white;
-    background: $primary_gradient;
-    @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
     @include media('mobile') {
-        width: 100%;
-        padding: rem(8px);
-        gap: rem(12px);
         line-height: 100%;
+        height: rem(42px);
         font-size: rem(14px);
+    }
+    span {
+        border-radius: 999px;
+        height: 100%;
+        padding: rem(10px) rem(12px);
+        display: flex;
+        gap: rem(24px);
+        align-items: center;
+        background: $primary_gradient;
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
     }
     svg {
         color: $c_white;
@@ -43,7 +46,13 @@
         }
     }
     @include hover {
-        padding-block: rem(8px);
+        span {
+            padding-block: rem(8px);
+            height: rem(47px);
+            @include media('mobile') {
+                height: rem(38px);
+            }
+        }
         svg {
             .first-wave {
                 opacity: 1;

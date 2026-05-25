@@ -121,10 +121,15 @@ const initMobileMenu = () => {
             document.body.classList.remove('is-locked');
             menuBox.classList.remove('is-open');
             menuTrigger.classList.remove('is-active');
+
+            menuBox
+                .querySelectorAll('.is-open')
+                .forEach((el) => el.classList.remove('is-open'));
         };
 
         menuTrigger.addEventListener('click', (e) => {
             e.stopPropagation();
+
             menuBox.classList.contains('is-open') ? closeState() : openState();
         });
 
@@ -132,14 +137,14 @@ const initMobileMenu = () => {
             if (e.target === menuBox) closeState();
         });
 
+        window.addEventListener('resize', closeState);
+
         const anchors = document.querySelectorAll(
             '.js-mob-menu .nav-panel ul li:has(ul) ul li a',
         );
 
         anchors.forEach((link) => {
-            link.addEventListener('click', () => {
-                closeState();
-            });
+            link.addEventListener('click', closeState);
         });
     };
 
@@ -455,6 +460,16 @@ const initModals = ({
     });
 };
 
+const blogStatement = () => {
+    const blogList = document.querySelectorAll('.blog .blog-box');
+    const blogEmpty = document.querySelector('.blog .blog__empty');
+
+    if (!blogEmpty) return;
+
+    if (blogList.length === 0) {
+        blogEmpty.style.display = '';
+    }
+};
 document.addEventListener('DOMContentLoaded', () => {
     headerHandlers();
     initVideoAutoplay();
@@ -465,6 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPricesTabs();
     initGridBorderHelper();
     initForms();
+    blogStatement();
     initModals({
         triggers: '.js-request-btn',
         modalSelector: '.js-request-modal',
