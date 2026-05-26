@@ -154,9 +154,22 @@ const initMobileMenu = () => {
         );
 
         ddMenu.forEach((menu) => {
+            const subMenu = menu.querySelector('ul');
+            if (!subMenu) return;
+
             menu.addEventListener('click', (e) => {
                 e.stopPropagation();
-                menu.classList.toggle('is-open');
+
+                const isOpen = menu.classList.contains('is-open');
+
+                if (!isOpen) {
+                    menu.classList.add('is-open');
+                    const fullHeight = subMenu.scrollHeight;
+                    subMenu.style.height = `${fullHeight}px`;
+                } else {
+                    menu.classList.remove('is-open');
+                    subMenu.style.height = '0px';
+                }
             });
         });
     };
@@ -460,16 +473,6 @@ const initModals = ({
     });
 };
 
-const blogStatement = () => {
-    const blogList = document.querySelectorAll('.blog .blog-box');
-    const blogEmpty = document.querySelector('.blog .blog__empty');
-
-    if (!blogEmpty) return;
-
-    if (blogList.length === 0) {
-        blogEmpty.style.display = '';
-    }
-};
 document.addEventListener('DOMContentLoaded', () => {
     headerHandlers();
     initVideoAutoplay();
@@ -480,7 +483,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initPricesTabs();
     initGridBorderHelper();
     initForms();
-    blogStatement();
     initModals({
         triggers: '.js-request-btn',
         modalSelector: '.js-request-modal',
