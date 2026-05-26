@@ -547,6 +547,11 @@ a {
 }
 
 .btn-more {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   font: 600 0.9375rem/140% "IBM Plex Sans", sans-serif;
   text-transform: uppercase;
   display: inline-flex;
@@ -6221,13 +6226,21 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     margin-bottom: 2rem;
   }
 
+  .breadcrumbs ul {
+    gap: 0.25rem;
+  }
+
   .breadcrumbs ul li {
     font-size: 0.8125rem;
   }
 
+  .breadcrumbs ul li:has(> a) {
+    gap: 0.25rem;
+  }
+
   .modal__box {
     padding: 2.625rem 0.75rem 0.75rem;
-    max-width: 90%;
+    max-width: 100%;
   }
 
   .modal__close {
