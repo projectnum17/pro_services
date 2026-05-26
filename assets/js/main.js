@@ -402,7 +402,6 @@ const initModals = ({
     const modalClose = modal.querySelector(closeSelector);
     const form = modal.querySelector('form');
 
-    // Находим label, связанный с textarea по его ID
     const label = modal.querySelector('label[for="questionBoxMessage"]');
     const defaultLabelText = label ? label.textContent : '';
 
