@@ -3,6 +3,8 @@
 @use '../../base/media' as *;
 
 .btn-more {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
     font: 600 #{rem(15px)} / 140% $ff;
     text-transform: uppercase;
     display: inline-flex;

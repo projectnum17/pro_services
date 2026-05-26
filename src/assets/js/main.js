@@ -123,8 +123,16 @@ const initMobileMenu = () => {
             menuTrigger.classList.remove('is-active');
 
             menuBox
-                .querySelectorAll('.is-open')
-                .forEach((el) => el.classList.remove('is-open'));
+                .querySelectorAll('.nav-panel ul li:has(ul)')
+                .forEach((menu) => {
+                    menu.classList.remove('is-open');
+
+                    const subMenu = menu.querySelector('ul');
+
+                    if (subMenu) {
+                        subMenu.style.height = '0px';
+                    }
+                });
         };
 
         menuTrigger.addEventListener('click', (e) => {

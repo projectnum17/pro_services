@@ -44,7 +44,7 @@
         }
         @include media('mobile') {
             padding: rem(42px) rem(12px) rem(12px);
-            max-width: 90%;
+            max-width: 100%;
         }
     }
 
