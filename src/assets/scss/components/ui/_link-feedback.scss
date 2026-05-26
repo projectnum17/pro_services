@@ -3,6 +3,7 @@
 @use '../../base/media' as *;
 
 .link-feedback {
+    z-index: 2;
     width: max-content;
     font: 600 #{rem(15px)} / 140% $ff;
     text-transform: uppercase;
