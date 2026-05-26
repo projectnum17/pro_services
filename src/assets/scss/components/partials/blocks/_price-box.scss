@@ -3,6 +3,7 @@
 @use '../../../base/media' as *;
 
 .price-box {
+    position: relative;
     padding: rem(16px);
     border-radius: rem(24px);
     display: flex;
@@ -130,13 +131,8 @@
         }
     }
 
-    &__reminder {
-        font: 400 #{rem(12px)} / 150% $ff;
-        max-width: rem(215px);
-        color: #072136;
-    }
-
     &__cta {
+        z-index: 3;
         font: 600 #{rem(15px)} / 140% $ff;
         text-transform: uppercase;
         display: inline-flex;
@@ -167,5 +163,11 @@
                 width: 100%;
             }
         }
+    }
+
+    &__route {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
     }
 }

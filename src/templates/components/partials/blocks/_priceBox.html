@@ -1,4 +1,5 @@
-<a href="javascript: void(0)" class="price-box js-price-box">
+<div class="price-box js-price-box">
+    <a href="#!" class="price-box__route"></a>
     <div class="price-box__info">
         <div class="price-box__pic cross-block cross-block--br">
             <img src="{{picture}}" alt="{{title}}">
@@ -10,20 +11,9 @@
         </div>
     </div>
     <div class="price-box__foot">
-        <span class="price-box__price">
-            {{#if spareBox}}
-            <span>від</span>
-            {{/if}}
-            <span>{{price}}</span>
-            <span class="currency">₴</span>
-        </span>
-        {{#if spareBox}}
-        <div class="price-box__cta">
+        <span class="price-box__price">від 250 ₴</span>
+        <a href="javascript: void(0)" class="price-box__cta js-questions-btn" data-product-name="Мене цікавить {{title}} *">
             <span>Придбати</span>
-        </div>
-        {{/if}}
-        {{#if reminder}}
-        <p class="price-box__reminder">{{reminder}}</p>
-        {{/if}}
+        </a>
     </div>
-</a>
+</div>

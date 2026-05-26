@@ -4,7 +4,7 @@
             <div class="prices__controls">
                 {{> _btnAnchor
                     label = "Послуги"
-                    additClass = "js-prices-tab"
+                    additClass = "is-active js-prices-tab"
                 }}
                 {{> _btnAnchor
                     label = "Запчастини"
@@ -29,9 +29,7 @@
         <div class="prices__content js-prices-content">
             <div class="prices__cards js-prices-cards">
                 {{#each prices.pricesSpare}}
-                    {{> _priceBox this
-                        spareBox = 1
-                    }}
+                    {{> _priceBox this }}
                 {{/each}}
             </div>
             <button type="button" class="btn-more js-prices-more">
