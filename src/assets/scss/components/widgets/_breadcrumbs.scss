@@ -11,6 +11,7 @@
         margin-bottom: rem(32px);
     }
     ul {
+        flex-wrap: wrap;
         display: flex;
         align-items: baseline;
         gap: rem(10px);

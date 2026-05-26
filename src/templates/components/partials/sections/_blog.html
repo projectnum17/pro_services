@@ -31,11 +31,11 @@
             }}
         </div>
         <div class="blog__collect">
+            <p class="blog__empty" style="display: none;">Публікації відсутні</p>
             {{#each blog.blog}}
             {{> _blogBox this}}
             {{/each}}
         </div>
-        <p class="blog__empty" style="display: none;">Публікації відсутні</p>
         {{> _btnMore additClasses = "js-blog-more"}}
     </div>
 </section>

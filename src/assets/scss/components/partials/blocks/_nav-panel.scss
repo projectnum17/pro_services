@@ -16,15 +16,22 @@
                 flex-direction: row;
                 align-items: center;
                 gap: rem(2px);
-                @include hover {
-                    &::after {
-                        transform: rotate(180deg);
+                @media(min-width: 1025.99px) {
+
+                    @include hover {
+                        &::after {
+                            transform: rotate(180deg);
+                        }
+                        ul {
+                            transform: translate(0);
+                            opacity: 1;
+                            pointer-events: all;
+                        }
                     }
-                    ul {
-                        transform: translate(0);
-                        opacity: 1;
-                        pointer-events: all;
-                    }
+                }
+
+                @include media('laptop') {
+                    flex-direction: column;
                 }
 
                 &.is-active {
@@ -48,6 +55,11 @@
                         0.3s,
                         cubic-bezier(0.768, 0.304, 0.496, 0.884)
                     );
+                    @include media('laptop') {
+                        position: absolute;
+                        right: 0;
+                        top: rem(7px);
+                    }
                 }
 
                 ul {
@@ -69,6 +81,14 @@
                     @include media('desktop-lg') {
                         backdrop-filter: blur(6px);
                         background: rgba(255, 255, 255, 0.9);
+                    }
+                    @include media('laptop') {
+                        height: 0;
+                        width: 100%;
+                        padding-block: 0;
+                        overflow: hidden;
+                        transform: translate(0);
+                        position: relative;
                     }
 
                     li {
@@ -181,6 +201,10 @@
                             transform: translateY(0);
                         }
                     }
+                }
+
+                @include media('laptop') {
+                    width: max-content;
                 }
 
                 span {

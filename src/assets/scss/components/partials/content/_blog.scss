@@ -34,12 +34,17 @@
 
     &__empty {
         position: relative;
-        margin-bottom: rem(12px);
         font: 600 #{rem(28px)} / 100% $ff;
         letter-spacing: -1px;
+        grid-column: span 3;
+        text-align: center;
         color: #fff;
+        @include media('laptop') {
+            grid-column: span 2;
+        }
         @include media('mobile') {
             font-size: rem(22px);
+            grid-column: span 1;
         }
     }
 

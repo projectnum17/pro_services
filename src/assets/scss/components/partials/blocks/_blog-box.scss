@@ -3,8 +3,8 @@
 @use '../../../base/media' as *;
 
 .blog-box {
-    gap: rem(185px);
-    min-height: rem(350px);
+    gap: rem(12px);
+    min-height: 70vh;
     overflow: hidden;
     display: flex;
     position: relative;
@@ -24,14 +24,11 @@
         }
     }
 
-    @include media('desktop') {
-        gap: rem(110px);
-    }
-
     @include media('mobile') {
         padding: rem(12px);
         border-radius: rem(12px);
-        gap: rem(12px);
+        min-height: auto;
+        gap: rem(24px);
     }
 
     .cross-block {

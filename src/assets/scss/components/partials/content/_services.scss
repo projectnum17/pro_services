@@ -79,7 +79,11 @@
         gap: rem(8px);
 
         @include media('laptop') {
+            padding-inline: rem(48px);
             grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        @include media('mobile') {
+            padding-inline: var(--container_pdd);
         }
     }
 

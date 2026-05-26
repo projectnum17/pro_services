@@ -4,23 +4,27 @@
 
 .link-feedback {
     width: max-content;
-    height: rem(52px);
     font: 600 #{rem(15px)} / 140% $ff;
     text-transform: uppercase;
     display: inline-flex;
     color: $c_white;
+    padding: rem(10px) rem(12px);
+    position: relative;
+    display: flex;
+    gap: rem(24px);
+    overflow: hidden;
+    align-items: center;
     @include media('mobile') {
+        padding: rem(8px) rem(12px);
         line-height: 100%;
-        height: rem(42px);
         font-size: rem(14px);
     }
     span {
         border-radius: 999px;
+        position: absolute;
+        inset: 0;
+        z-index: -1;
         height: 100%;
-        padding: rem(10px) rem(12px);
-        display: flex;
-        gap: rem(24px);
-        align-items: center;
         background: $primary_gradient;
         @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
     }
@@ -47,11 +51,7 @@
     }
     @include hover {
         span {
-            padding-block: rem(8px);
-            height: rem(47px);
-            @include media('mobile') {
-                height: rem(38px);
-            }
+            transform: scaleY(0.95);
         }
         svg {
             .first-wave {

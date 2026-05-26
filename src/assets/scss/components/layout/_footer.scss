@@ -93,7 +93,6 @@
 
             a {
                 display: flex;
-                align-items: center;
                 min-height: rem(32px);
                 font: inherit;
                 color: $c_white;
@@ -272,7 +271,6 @@
     }
 
     &__copy {
-        // margin-top: auto;
         font: 400 #{rem(16px)} / 180% $ff;
         @include media('mobile') {
             font-size: rem(14px);
