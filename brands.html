@@ -393,6 +393,49 @@
                     </div>
                 </div>
             </div>
+            <div class="modal modal--questions js-questions-modal">
+                <div class="modal__box js-questions-box">
+                    <button type="button" class="modal__close js-questions-close">
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.784524 23.1376L12 11.9221M12 11.9221L0.784525 0.706686M12 11.9221L23.2154 0.706649M12 11.9221L23.2154 23.1375" stroke="#537896" stroke-width="2" />
+                        </svg>
+                    </button>
+                    <p class="section-title">
+                        Залишились питання
+                    </p>
+                    <p class="modal__subtitle">
+                        Зв’язатися з нами. Наші фахівці завжди готові допомогти та надати потрібну інформацію.
+                    </p>
+                    <form>
+                        <div class="modal__fields">
+                            <div class="form-field">
+                                <label class="form-field__title" for="questionBoxName">Ваше Імʼя *</label>
+                                <input class="form-field__data" required type="text" name="questionBoxName" id="questionBoxName" placeholder=" ">
+                            </div>
+                            <div class="form-field">
+                                <label class="form-field__title" for="questionBoxPhone">Номер телефону *</label>
+                                <input class="form-field__data" required type="text" name="questionBoxPhone" id="questionBoxPhone" placeholder=" ">
+                            </div>
+                            <div class="form-field">
+                                <label class="form-field__title" for="questionBoxEmail">Електрона пошта *</label>
+                                <input class="form-field__data" required type="email" name="questionBoxEmail" id="questionBoxEmail" placeholder=" ">
+                            </div>
+                            <div class="form-field">
+                                <label class="form-field__title" for="questionBoxMessage">Ваше запитання *</label>
+                                <textarea class="form-field__data" required name="questionBoxMessage" id="questionBoxMessage" placeholder=" "></textarea>
+                            </div>
+                        </div>
+                        <div class="modal__foot">
+                            <p class="modal__tcpa">
+                                Натискаючт кнопку ви погоджуєтесь з нашою <a target="_blank" href="javascript: void(0)">Політикою конфеденційності</a> та <a target="_blank" href="javascript: void(0)">Обробкою персональных данных</a>
+                            </p>
+                            <button type="submit" class="link-accent">
+                                <span>Надіслати</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </footer>
         <div class="mobile-menu js-mob-menu">
             <div class="mobile-menu__box">
@@ -500,7 +543,6 @@
                 </form>
             </div>
         </div>
-
     </body>
 
 </html>

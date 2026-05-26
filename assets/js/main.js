@@ -324,57 +324,6 @@ const initFAQ = () => {
     });
 };
 
-const initPricesTabs = () => {
-    const section = document.querySelector('.prices');
-    if (!section) return;
-
-    const tabs = section.querySelectorAll('.js-prices-tab');
-    const contents = section.querySelectorAll('.js-prices-content');
-    const disklaimer = section.querySelector('.prices__reminder');
-
-    const hashMap = {
-        services: 0,
-        spare: 1,
-    };
-
-    const setActiveTab = (index, updateHash = true) => {
-        tabs.forEach((tab, i) => {
-            tab.classList.toggle('is-active', i === index);
-        });
-
-        contents.forEach((content, i) => {
-            content.classList.toggle('is-active', i === index);
-        });
-
-        if (disklaimer) {
-            disklaimer.style.display = index === 0 ? '' : 'none';
-        }
-
-        if (updateHash) {
-            const keys = Object.keys(hashMap);
-            history.replaceState(null, null, `#${keys[index]}`);
-        }
-    };
-
-    const getIndexFromHash = () => {
-        const hash = window.location.hash.replace('#', '');
-        return hashMap[hash] ?? 0;
-    };
-
-    tabs.forEach((tab, i) => {
-        tab.addEventListener('click', (e) => {
-            e.preventDefault();
-            setActiveTab(i);
-        });
-    });
-
-    setActiveTab(getIndexFromHash(), false);
-
-    window.addEventListener('hashchange', () => {
-        setActiveTab(getIndexFromHash(), false);
-    });
-};
-
 const initGridBorderHelper = () => {
     const grid = document.querySelector('.js-brands-box');
     const items = document.querySelectorAll('.js-brands-item');
@@ -453,11 +402,26 @@ const initModals = ({
     const modalClose = modal.querySelector(closeSelector);
     const form = modal.querySelector('form');
 
+    // Находим label, связанный с textarea по его ID
+    const label = modal.querySelector('label[for="questionBoxMessage"]');
+    const defaultLabelText = label ? label.textContent : '';
+
     if (!modalBox || !modalClose) return;
 
-    const openState = () => {
+    const openState = (e) => {
         modal.classList.add('is-open');
         document.body.classList.add('is-locked');
+
+        if (label) {
+            const productName =
+                e.currentTarget.getAttribute('data-product-name');
+
+            if (productName) {
+                label.textContent = productName;
+            } else {
+                label.textContent = defaultLabelText;
+            }
+        }
     };
 
     const closeState = () => {
@@ -491,7 +455,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initProcessSlider();
     initTestimSlider();
     initFAQ();
-    initPricesTabs();
     initGridBorderHelper();
     initForms();
     initModals({
