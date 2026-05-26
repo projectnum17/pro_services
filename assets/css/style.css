@@ -3374,7 +3374,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 .price-box {
-  position: relative;
   padding: 1rem;
   border-radius: 1.5rem;
   display: flex;
@@ -3388,6 +3387,11 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.price-box__info {
+  display: flex;
+  flex-direction: column;
 }
 
 .price-box__pic {
@@ -3447,7 +3451,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 .price-box__cta {
-  z-index: 3;
   font: 600 0.9375rem/140% "IBM Plex Sans", sans-serif;
   text-transform: uppercase;
   display: inline-flex;
@@ -3468,12 +3471,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   padding: 0.625rem 1rem;
   background: linear-gradient(90deg, #ffa126 0%, #de5126 100%);
   transition: all 0.5s cubic-bezier(0.768, 0.304, 0.496, 0.884);
-}
-
-.price-box__route {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
 }
 
 .brands-box {
@@ -6453,7 +6450,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     visibility: visible;
   }
 
-  .price-box:hover .price-box__cta span {
+  .price-box__cta:hover span {
     height: 3.625rem;
   }
 
@@ -6657,7 +6654,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     visibility: visible;
   }
 
-  .price-box:active .price-box__cta span {
+  .price-box__cta:active span {
     height: 3.625rem;
   }
 
