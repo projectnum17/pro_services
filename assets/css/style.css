@@ -426,6 +426,7 @@ a {
 }
 
 .link-feedback {
+  z-index: 2;
   width: -moz-max-content;
   width: max-content;
   font: 600 0.9375rem/140% "IBM Plex Sans", sans-serif;
