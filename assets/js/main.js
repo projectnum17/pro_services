@@ -145,7 +145,11 @@ const initMobileMenu = () => {
             if (e.target === menuBox) closeState();
         });
 
-        window.addEventListener('resize', closeState);
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                closeState();
+            }
+        });
 
         const anchors = document.querySelectorAll(
             '.js-mob-menu .nav-panel ul li:has(ul) ul li a',
