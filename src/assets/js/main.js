@@ -208,7 +208,6 @@ const initProcessSlider = () => {
             );
 
             const item = document.createElement('div');
-
             item.className = 'process__pagination';
             item.textContent = String(i + 1).padStart(2, '0');
             item.dataset.index = i;
