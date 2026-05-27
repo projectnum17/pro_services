@@ -20,6 +20,7 @@
         </div>
         <div class="prices__content js-prices-content">
             <div class="prices__cards js-prices-cards">
+                <p class="blog__empty" style="display: none;">Публікації відсутні</p>
                 {{#each prices.pricesServices}}
                     {{> _priceBox this}}
                 {{/each}}

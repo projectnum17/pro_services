@@ -3,6 +3,7 @@
 @use '../../../base/media' as *;
 
 .price-box {
+    min-height: rem(350px);
     padding: rem(16px);
     border-radius: rem(24px);
     display: flex;
@@ -13,10 +14,6 @@
         background: #e6e7ec;
         .price-box__pic img {
             transform: scale(1.15);
-        }
-        .price-box__descr {
-            opacity: 1;
-            visibility: visible;
         }
     }
 
@@ -89,14 +86,8 @@
 
     &__descr {
         font: 400 #{rem(16px)} / 180% $ff;
-        opacity: 0;
-        visibility: hidden;
         color: #537896;
         @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
-        @include media('tablet') {
-            opacity: 1;
-            visibility: visible;
-        }
         @include media('mobile') {
             font-size: rem(12px);
             line-height: 120%;
@@ -135,6 +126,7 @@
     &__cta {
         font: 600 #{rem(15px)} / 140% $ff;
         text-transform: uppercase;
+        margin-left: auto;
         display: inline-flex;
         align-items: center;
         height: rem(64px);
