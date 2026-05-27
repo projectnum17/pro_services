@@ -78,6 +78,7 @@
         @include media('mobile') {
             font-size: rem(16px);
             margin-bottom: rem(12px);
+            line-height: 120%;
         }
     }
 
@@ -107,6 +108,7 @@
         color: #535862;
         @include media('mobile') {
             font-size: rem(12px);
+            text-align: left;
         }
 
         a {
