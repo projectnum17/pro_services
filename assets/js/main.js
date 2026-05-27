@@ -402,8 +402,8 @@ const initModals = ({
     const modalClose = modal.querySelector(closeSelector);
     const form = modal.querySelector('form');
 
-    const label = modal.querySelector('label[for="questionBoxMessage"]');
-    const defaultLabelText = label ? label.textContent : '';
+    const input = modal.querySelector('#questionBoxMessage');
+    const defaultValue = input ? input.value : '';
 
     if (!modalBox || !modalClose) return;
 
@@ -411,15 +411,11 @@ const initModals = ({
         modal.classList.add('is-open');
         document.body.classList.add('is-locked');
 
-        if (label) {
+        if (input) {
             const productName =
                 e.currentTarget.getAttribute('data-product-name');
 
-            if (productName) {
-                label.textContent = productName;
-            } else {
-                label.textContent = defaultLabelText;
-            }
+            input.value = productName || defaultValue;
         }
     };
 
@@ -435,7 +431,7 @@ const initModals = ({
     modalClose.addEventListener('click', closeState);
 
     if (form) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', () => {
             closeState();
         });
     }
