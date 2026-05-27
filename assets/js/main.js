@@ -408,6 +408,7 @@ const initModals = ({
     if (!modalBox || !modalClose) return;
 
     const openState = (e) => {
+        e.preventDefault()
         modal.classList.add('is-open');
         document.body.classList.add('is-locked');
 
