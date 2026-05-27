@@ -6264,6 +6264,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   .modal__subtitle {
     font-size: 1rem;
     margin-bottom: 0.75rem;
+    line-height: 120%;
   }
 
   .modal__fields {
@@ -6277,6 +6278,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
   .modal__tcpa {
     font-size: 0.75rem;
+    text-align: left;
   }
 }
 
