@@ -836,6 +836,29 @@ a {
   color: #ffffff;
 }
 
+.logo-blur {
+  right: 6.25rem;
+  top: 100%;
+  transform: translateY(-40%);
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  max-width: 42.125rem;
+}
+
+.logo-blur svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(34px);
+  -webkit-backdrop-filter: blur(34px);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  clip-path: url(#adaptive_logo_clip);
+}
+
 .container {
   max-width: 110rem;
   padding-inline: var(--container_pdd);
@@ -2018,29 +2041,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   margin-bottom: 1rem;
   border-color: #e6e7ec;
   color: #e6e7ec;
-}
-
-.intro__logo {
-  right: 6.25rem;
-  top: 100%;
-  transform: translateY(-40%);
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  max-width: 42.125rem;
-}
-
-.intro__logo svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(34px);
-  -webkit-backdrop-filter: blur(34px);
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  clip-path: url(#adaptive_logo_clip);
 }
 
 .benefits {
@@ -3381,26 +3381,12 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   color: #16181d;
 }
 
-.page-presentation__logo {
-  width: 100%;
+.page-presentation .logo-blur {
   right: 12.5rem;
-  position: absolute;
+  text-align: left;
   max-width: 42.125rem;
   bottom: 4.375rem;
   transform: translateY(50%);
-}
-
-.page-presentation__logo svg {
-  width: 100%;
-  color: #fff;
-  backdrop-filter: blur(34px);
-  -webkit-backdrop-filter: blur(34px);
-  background-color: rgba(255, 255, 255, 0.01);
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  clip-path: url(#bgblur_0_3007_10782_clip_path);
-  height: 100%;
-  width: 100%;
 }
 
 .benefit-box {
@@ -4394,6 +4380,16 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   margin-top: 0.625rem;
 }
 
+.app-modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  inset: 0;
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.768, 0.304, 0.496, 0.884);
+}
+
 @media (min-width: 1025.99px) and (hover: hover) {
   .nav-panel ul li:has(ul):hover::after {
     transform: rotate(180deg);
@@ -5361,6 +5357,12 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     font-size: 0.8125rem;
   }
 
+  .logo-blur {
+    top: 35%;
+    right: -10%;
+    max-width: 300px;
+  }
+
   .header__info {
     gap: 0.75rem;
   }
@@ -5798,12 +5800,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
   .standart .link-accent span {
     width: 100%;
-  }
-
-  .intro__logo {
-    top: 35%;
-    right: -10%;
-    max-width: 300px;
   }
 
   .benefits {
@@ -6389,7 +6385,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     left: 0;
   }
 
-  .page-presentation__logo {
+  .page-presentation .logo-blur {
     max-width: 12.5rem;
     right: 0;
     bottom: 1.5rem;
