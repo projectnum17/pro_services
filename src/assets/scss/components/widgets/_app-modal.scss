@@ -1,0 +1,15 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.app-modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    inset: 0;
+    z-index: 10;
+    // opacity: 0;
+    // visibility: hidden;
+    @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+}
