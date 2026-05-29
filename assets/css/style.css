@@ -4541,7 +4541,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
 .app-modal__submit {
   height: 100%;
-  padding-inline: 6.25rem 5.25rem;
+  padding-inline: 2.625rem 1.625rem;
   padding-block: 4.5rem 3.125rem;
 }
 
@@ -4556,7 +4556,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
 .app-modal__head {
   padding-block: 1.5rem;
-  padding-inline: 6.25rem 2rem;
+  padding-inline: 2.625rem 1.625rem;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
@@ -4655,7 +4655,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 .app-form__reminder {
   display: flex;
   align-items: flex-start;
-  font: 400 1rem/180% "IBM Plex Sans", sans-serif;
+  font: 400 1rem/130% "IBM Plex Sans", sans-serif;
   gap: 1.5rem;
   padding: 1rem;
   border-radius: 1rem;
