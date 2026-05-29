@@ -4300,7 +4300,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 .modal__tcpa {
-  text-align: center;
   font: 400 1rem/180% "IBM Plex Sans", sans-serif;
   color: #535862;
 }
@@ -4515,6 +4514,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 .app-modal__form {
+  flex: 1;
   margin-right: 1rem;
   overflow-y: auto;
   overflow-x: hidden;
@@ -4540,6 +4540,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 .app-modal__submit {
+  height: 100%;
   padding-inline: 6.25rem 5.25rem;
   padding-block: 4.5rem 3.125rem;
 }
@@ -4548,7 +4549,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   transform: translateX(100%);
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
   background: #fff;
   transition: all 0.5s cubic-bezier(0.768, 0.304, 0.496, 0.884);
 }
@@ -4593,7 +4594,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 .app-modal__show {
   transform: translateX(-100%);
   position: relative;
-  width: 50%;
+  width: 40%;
   padding: var(--container_pdd);
   transition: all 0.5s cubic-bezier(0.768, 0.304, 0.496, 0.884);
 }
@@ -4620,41 +4621,35 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 .app-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   counter-reset: counter;
   --gap: 4.5rem;
 }
 
+.app-form__tab {
+  flex: 1;
+  display: none;
+  flex-direction: column;
+}
+
+.app-form__tab.is-active {
+  display: flex;
+}
+
+.app-form__tab form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .app-form__targets {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1.5rem;
   margin-bottom: var(--gap);
-}
-
-.app-form__target {
-  position: relative;
-}
-
-.app-form__target .app-form__target-input:checked + .app-form__target-label {
-  background: #000000;
-  color: #fff;
-}
-
-.app-form__target-input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.app-form__target-label {
-  display: flex;
-  font: 600 0.9375rem/140% "IBM Plex Sans", sans-serif;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.6);
 }
 
 .app-form__reminder {
@@ -4762,11 +4757,17 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   margin-bottom: 2.5rem;
 }
 
+.app-form__short {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .app-form__submit {
+  margin-top: auto;
   padding-top: var(--gap);
   display: flex;
   flex-direction: column;
-  text-align: center;
   gap: 1.5rem;
 }
 
@@ -4812,7 +4813,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 .file-upload__info {
-  max-width: 31.9375rem;
+  max-width: 80%;
   font: 400 1rem/180% "IBM Plex Sans", sans-serif;
   color: #535862;
 }
@@ -4888,7 +4889,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 .select2 .select2-selection--multiple {
   display: grid;
   min-height: 6.875rem;
-  padding: 1rem 2.5rem 1rem 1rem !important;
+  padding: 0rem 2.5rem 1rem 1rem !important;
 }
 
 .select2 .select2-selection--multiple::after {
@@ -4976,15 +4977,10 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 .select2-selection--multiple .select2-selection__rendered {
-  position: absolute;
   display: flex !important;
-  padding: 0 !important;
+  padding: 1rem 0 0 0 !important;
   flex-wrap: wrap;
   gap: 0.5rem;
-  top: 1rem;
-  bottom: 1rem;
-  right: 2.8125rem;
-  left: 1rem;
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -5002,8 +4998,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 }
 
 .select2-selection--multiple .select2-search__field {
-  caret-color: transparent !important;
-  pointer-events: none !important;
   margin: 0 !important;
   height: auto !important;
 }
@@ -5038,6 +5032,10 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 .my-dropdown-multiple .select2-results__option--selected {
   color: #b0bec9 !important;
   background: #e6e7ec !important;
+}
+
+.select2-search__field {
+  outline: none !important;
 }
 
 @media (min-width: 1025.99px) and (hover: hover) {
@@ -5488,6 +5486,18 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
   .testimonial-collect .testimonial-box {
     max-width: 100%;
+  }
+
+  .app-modal__submit {
+    padding-inline: 2.25rem;
+  }
+
+  .app-modal__head {
+    padding-inline: 2.25rem;
+  }
+
+  .app-form__reminder {
+    line-height: 130%;
   }
 }
 
@@ -7325,7 +7335,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 
   .modal__fields {
-    margin-bottom: rme(24px);
+    margin-bottom: 1.5rem;
     gap: 0.75rem;
   }
 
@@ -7335,7 +7345,6 @@ body:has(.mobile-menu.is-open) .header.is-transform {
 
   .modal__tcpa {
     font-size: 0.75rem;
-    text-align: left;
   }
 
   .modal .tribute-content {
@@ -7463,6 +7472,10 @@ body:has(.mobile-menu.is-open) .header.is-transform {
     margin-bottom: 1.125rem;
   }
 
+  .app-form__short {
+    gap: 0.75rem;
+  }
+
   .app-form__submit {
     gap: 0.75rem;
     text-align: left;
@@ -7488,6 +7501,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   .file-upload__info {
     font-size: 0.875rem;
     line-height: 130%;
+    max-width: 100%;
   }
 
   .file-upload__dropzone {
@@ -7509,8 +7523,8 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 
   .select2 .select2-selection--multiple {
-    min-height: 5rem;
-    padding: 0.75rem 1.875rem 0.75rem 0.75rem !important;
+    min-height: 5.9375rem;
+    padding: 0rem 1.875rem 0.75rem 0.75rem !important;
   }
 
   .select2 .select2-selection--multiple::after {
@@ -7522,10 +7536,7 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 
   .select2-selection--multiple .select2-selection__rendered {
-    bottom: 0.5rem;
-    top: 0.5rem;
-    right: 1.875rem;
-    left: 0.75rem;
+    padding-top: 0.75rem;
   }
 
   .select2-selection--multiple .select2-search {
@@ -7778,10 +7789,18 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 
   .mobile-menu .link-accent:hover {
-    height: 2.375rem;
+    height: 2.5rem;
+  }
+
+  .mobile-menu .link-accent:hover span {
+    height: 2.5rem;
   }
 
   .mobile-menu .link-secondary:hover {
+    height: 3rem;
+  }
+
+  .mobile-menu .link-secondary:hover span {
     height: 3rem;
   }
 
@@ -7993,10 +8012,18 @@ body:has(.mobile-menu.is-open) .header.is-transform {
   }
 
   .mobile-menu .link-accent:active {
-    height: 2.375rem;
+    height: 2.5rem;
+  }
+
+  .mobile-menu .link-accent:active span {
+    height: 2.5rem;
   }
 
   .mobile-menu .link-secondary:active {
+    height: 3rem;
+  }
+
+  .mobile-menu .link-secondary:active span {
     height: 3rem;
   }
 

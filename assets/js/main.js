@@ -395,20 +395,55 @@ const initSelects = () => {
 
             $this.select2({
                 placeholder: $this.data('placeholder'),
-                minimumResultsForSearch: Infinity,
                 dropdownPosition: 'below',
                 dropdownCssClass: isMultiple
                     ? 'my-dropdown-multiple'
                     : 'my-dropdown-single',
-            });
 
-            if (isMultiple) {
-                $this.on('select2:opening', function () {
-                    $this
-                        .next('.select2-container')
-                        .find('.select2-search__field')
-                        .prop('readonly', true);
-                });
+                language: {
+                    noResults: function () {
+                        return 'Нічого не знайдено';
+                    },
+                },
+            });
+        });
+    });
+};
+
+const initFormsTabs = () => {
+    const tabButtons = document.querySelectorAll('.js-modal-tab');
+    const tabContents = document.querySelectorAll('.js-modal-content');
+
+    const activeInitialButton = document.querySelector(
+        '.js-modal-tab.is-active',
+    );
+
+    if (activeInitialButton) {
+        const targetId = activeInitialButton.getAttribute('data-tab-target');
+        const initialTab = document.querySelector(
+            `[data-tab-content="${targetId}"]`,
+        );
+        if (initialTab) {
+            initialTab.classList.add('is-active');
+        }
+    } else if (tabButtons.length > 0 && tabContents.length > 0) {
+        tabButtons[0].classList.add('is-active');
+        tabContents[0].classList.add('is-active');
+    }
+
+    tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-tab-target');
+
+            tabButtons.forEach((btn) => btn.classList.remove('is-active'));
+            tabContents.forEach((tab) => tab.classList.remove('is-active'));
+            button.classList.add('is-active');
+
+            const currentTab = document.querySelector(
+                `[data-tab-content="${targetId}"]`,
+            );
+            if (currentTab) {
+                currentTab.classList.add('is-active');
             }
         });
     });
@@ -525,9 +560,7 @@ const initMemoryModal = () => {
 
                 video.load();
 
-                video
-                    .play()
-                    .catch((err) => console.log('Error', err));
+                video.play().catch((err) => console.log('Error', err));
             }
         }, 500);
     };
@@ -582,4 +615,5 @@ document.addEventListener('DOMContentLoaded', () => {
         closeSelector: '.js-app-close',
     });
     initMemoryModal();
+    initFormsTabs();
 });
