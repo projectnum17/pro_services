@@ -12,7 +12,8 @@
         <link rel="preload" href="./assets/fonts/ff_600.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="./assets/css/libs.min.css">
         <link rel="stylesheet" href="./assets/css/style.min.css">
-        <script defer src="./assets/js/libs.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="./assets/js/libs.js"></script>
         <script defer src="./assets/js/main.js"></script>
     </head>
 
@@ -33,7 +34,7 @@
                             ОФІЦІЙНИЙ СЕРВІСНИЙ ЦЕНТР ТЕХНІКИ ДЛЯ НІГТЬОВОГО СЕРВІСУ
                         </p>
                     </div>
-                    <a href="javascript: void(0)" class="link-accent">
+                    <a href="javascript: void(0)" class="link-accent js-app-trigger">
                         <span>Подати заявку</span>
                     </a>
                     <nav class="nav-panel">
@@ -86,7 +87,7 @@
                     </nav>
                 </div>
                 <div class="header__panel">
-                    <a href="javascript: void(0)" class="link-secondary">
+                    <a href="javascript: void(0)" class="link-secondary js-app-trigger">
                         <span class="border-gradient">
                             Зареєструвати пристрій
                         </span>
@@ -541,6 +542,242 @@
                         </button>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div class="app-modal js-app-modal">
+            <div class="app-modal__show">
+                <video muted autoplay loop playsinline class="js-video-bg" poster="./assets/video/poster.png">
+                    <source data-src="./assets/video/present.mp4" type="video/mp4">
+                    <p>Your browser does not support the video tag.</p>
+                </video>
+                <div class="logo-blur">
+                    <svg viewBox="0 0 674 497" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <clipPath id="adaptive_logo_clip" clipPathUnits="objectBoundingBox">
+                                <path transform="scale(0.00148368, 0.00201207)" d="M534.526 96.0399C534.529 96.0328 534.537 96.0301 534.543 96.0345C559.866 114.51 582.125 135.05 601.025 156.768C673.46 239.989 696.318 340.508 649.804 408.9C588.881 498.433 432.117 499.032 299.631 410.245C287.899 402.37 276.737 394.062 266.2 385.389C261.719 381.701 261.501 374.966 265.62 370.877L265.897 370.603C269.154 367.369 274.264 366.91 278.064 369.483C400.356 451.45 526.955 477.55 560.833 427.756C592.41 381.341 532.247 285.363 424.855 206.163C415.553 199.302 402.661 200.468 394.457 208.611L107.542 493.418C101.112 499.801 90.217 497.216 87.3386 488.626C85.8601 484.214 87.015 479.345 90.3176 476.067L175.307 391.702C175.634 391.377 175.634 390.849 175.307 390.524C175.08 390.298 174.758 390.229 174.49 390.405C170.97 392.715 152.181 408.951 139.469 400.817C114.151 382.33 91.8779 361.797 72.9752 340.075C0.53974 256.854 -22.318 156.335 24.1959 87.9432C85.119 -1.59029 241.874 -2.18934 374.36 86.6069C386.091 94.4824 397.254 102.791 407.791 111.463C412.272 115.151 412.489 121.886 408.371 125.975L408.099 126.244C404.839 129.48 399.726 129.938 395.918 127.369C273.635 45.4021 147.035 19.3024 113.157 69.1057C81.5809 115.521 141.744 211.498 249.135 290.698C258.438 297.559 271.33 296.394 279.533 288.251L341.679 226.561C341.69 226.551 341.706 226.551 341.716 226.561C341.727 226.571 341.743 226.571 341.754 226.561L566.423 3.54223C569.681 0.308181 574.479 -0.823574 578.839 0.613381C587.489 3.46444 590.079 14.4448 583.615 20.8615L498.684 105.169C498.357 105.493 498.357 106.022 498.684 106.347C498.911 106.572 499.233 106.642 499.5 106.466C503.019 104.155 521.798 87.9215 534.51 96.0455C534.516 96.0494 534.524 96.0467 534.526 96.0399Z" />
+                            </clipPath>
+                        </defs>
+
+                        <path d="M534.526 96.0399C534.529 96.0328 534.537 96.0301 534.543 96.0345C559.866 114.51 582.125 135.05 601.025 156.768C673.46 239.989 696.318 340.508 649.804 408.9C588.881 498.433 432.117 499.032 299.631 410.245C287.899 402.37 276.737 394.062 266.2 385.389C261.719 381.701 261.501 374.966 265.62 370.877L265.897 370.603C269.154 367.369 274.264 366.91 278.064 369.483C400.356 451.45 526.955 477.55 560.833 427.756C592.41 381.341 532.247 285.363 424.855 206.163C415.553 199.302 402.661 200.468 394.457 208.611L107.542 493.418C101.112 499.801 90.217 497.216 87.3386 488.626C85.8601 484.214 87.015 479.345 90.3176 476.067L175.307 391.702C175.634 391.377 175.634 390.849 175.307 390.524C175.08 390.298 174.758 390.229 174.49 390.405C170.97 392.715 152.181 408.951 139.469 400.817C114.151 382.33 91.8779 361.797 72.9752 340.075C0.53974 256.854 -22.318 156.335 24.1959 87.9432C85.119 -1.59029 241.874 -2.18934 374.36 86.6069C386.091 94.4824 397.254 102.791 407.791 111.463C412.272 115.151 412.489 121.886 408.371 125.975L408.099 126.244C404.839 129.48 399.726 129.938 395.918 127.369C273.635 45.4021 147.035 19.3024 113.157 69.1057C81.5809 115.521 141.744 211.498 249.135 290.698C258.438 297.559 271.33 296.394 279.533 288.251L341.679 226.561C341.69 226.551 341.706 226.551 341.716 226.561C341.727 226.571 341.743 226.571 341.754 226.561L566.423 3.54223C569.681 0.308181 574.479 -0.823574 578.839 0.613381C587.489 3.46444 590.079 14.4448 583.615 20.8615L498.684 105.169C498.357 105.493 498.357 106.022 498.684 106.347C498.911 106.572 499.233 106.642 499.5 106.466C503.019 104.155 521.798 87.9215 534.51 96.0455C534.516 96.0494 534.524 96.0467 534.526 96.0399Z" fill="#537896" fill-opacity="0.1" />
+                    </svg>
+                </div>
+            </div>
+            <div class="app-modal__flow">
+                <div class="app-modal__head">
+                    <div class="app-modal__titles">
+                        <p class="app-modal__heading">Подати заявку</p>
+                        <p class="app-modal__subheading">
+                            Зареєструйтесь для зручного керування заявками та перегляду статусу ремонту.
+                        </p>
+                    </div>
+                    <button class="app-modal__close js-app-close" type="button">
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.784524 23.1385L12 11.9231M12 11.9231L0.784525 0.707662M12 11.9231L23.2154 0.707626M12 11.9231L23.2154 23.1385" stroke="#537896" stroke-width="2" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="app-modal__form">
+                    <div class="app-modal__submit">
+                        <div class="app-form">
+                            <form>
+                                <div class="app-form__targets">
+                                    <div class="app-form__target">
+                                        <input checked class="app-form__target-input" type="radio" name="appModalTarget" id="appModalUnRegister">
+                                        <label class="btn-anchor app-form__target-label" for="appModalUnRegister">Заявка без
+                                            реєстрації</label>
+                                    </div>
+                                    <div class="app-form__target">
+                                        <input class="app-form__target-input" type="radio" name="appModalTarget" id="appModalUnManager">
+                                        <label class="btn-anchor app-form__target-label" for="appModalUnManager">Заявка через
+                                            менеджера</label>
+                                    </div>
+                                </div>
+                                <div class="app-form__reminder">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z" stroke="#072136" />
+                                        <path d="M16 21C16.2833 21 16.5208 20.9042 16.7125 20.7125C16.9042 20.5208 17 20.2833 17 20C17 19.7167 16.9042 19.4792 16.7125 19.2875C16.5208 19.0958 16.2833 19 16 19C15.7167 19 15.4792 19.0958 15.2875 19.2875C15.0958 19.4792 15 19.7167 15 20C15 20.2833 15.0958 20.5208 15.2875 20.7125C15.4792 20.9042 15.7167 21 16 21ZM15 17H17V11H15V17Z" fill="#072136" />
+                                    </svg>
+                                    <p>
+                                        ТІЛЬКИ Після заповнення заявки з вами зв’яжеться сервіс- менеджер для уточнення деталей
+                                        (відео-регістрації поломки за потреби) та ПІДТВЕРДЖЕННЯ ЗАЯВКИ , після цього в особистий
+                                        кабінет Ви отримаєте інструкцію, щодо відправки обладнання до сервісного центру.
+                                    </p>
+                                </div>
+                                <div class="app-form__detail">
+                                    <p class="app-form__title">Основна інформація</p>
+                                    <p class="app-form__subtitle">Контактні данні *</p>
+                                    <div class="app-form__info">
+                                        <div class="form-field">
+                                            <label class="form-field__title" for="addModalLastName">Прізвище*</label>
+                                            <input class="form-field__data" required type="text" name="addModalLastName" id="addModalLastName" placeholder=" ">
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="form-field__title" for="addModalFirstName">Ваше Імʼя*</label>
+                                            <input class="form-field__data" required type="text" name="addModalFirstName" id="addModalFirstName" placeholder=" ">
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="form-field__title" for="addModalMiddleName">По батькові*</label>
+                                            <input class="form-field__data" required type="text" name="addModalMiddleName" id="addModalMiddleName" placeholder=" ">
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="form-field__title" for="addModalPhone">Номер телефону*</label>
+                                            <input class="form-field__data" required type="text" name="addModalPhone" id="addModalPhone" placeholder=" ">
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="form-field__title" for="addModalEmail">Електрона пошта*</label>
+                                            <input class="form-field__data" required type="email" name="addModalEmail" id="addModalEmail" placeholder=" ">
+                                        </div>
+                                    </div>
+                                    <div class="app-form__reminder">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z" stroke="#072136" />
+                                            <path d="M16 21C16.2833 21 16.5208 20.9042 16.7125 20.7125C16.9042 20.5208 17 20.2833 17 20C17 19.7167 16.9042 19.4792 16.7125 19.2875C16.5208 19.0958 16.2833 19 16 19C15.7167 19 15.4792 19.0958 15.2875 19.2875C15.0958 19.4792 15 19.7167 15 20C15 20.2833 15.0958 20.5208 15.2875 20.7125C15.4792 20.9042 15.7167 21 16 21ZM15 17H17V11H15V17Z" fill="#072136" />
+                                        </svg>
+                                        <p>
+                                            УВАГА! Номер телефону повинен співпадати з телефоном відправника Нової пошти
+                                        </p>
+                                    </div>
+                                    <p class="app-form__subtitle">
+                                        Який канал звязку для Вас зручний (комунікація з сервіс-менеджером)
+                                    </p>
+                                    <div class="app-form__radios">
+                                        <div class="radio-box">
+                                            <label class="radio-box__title" for="addModalContact_1">Viber</label>
+                                            <input class="radio-box__data" type="radio" name="addModalConnect" id="addModalContact_1">
+                                        </div>
+                                        <div class="radio-box">
+                                            <label class="radio-box__title" for="addModalContact_2">WhatsApp</label>
+                                            <input class="radio-box__data" type="radio" name="addModalConnect" id="addModalContact_2">
+                                        </div>
+                                        <div class="radio-box">
+                                            <label class="radio-box__title" for="addModalContact_3">Telegram</label>
+                                            <input class="radio-box__data" type="radio" name="addModalConnect" id="addModalContact_3">
+                                        </div>
+                                        <div class="radio-box">
+                                            <label class="radio-box__title" for="addModalContact_4">Телефон</label>
+                                            <input class="radio-box__data" type="radio" name="addModalConnect" id="addModalContact_4">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="app-form__detail">
+                                    <p class="app-form__title">Інформація про обладнання</p>
+                                    <p class="app-form__subtitle">Оберіть прилад</p>
+                                    <div class="app-form__select">
+                                        <select data-placeholder="Перелік допустимих приладів" name="selectDevices" class="form-select js-select-smpl">
+                                            <option value=""></option>
+                                            <option value="Прилад 1">Прилад 1</option>
+                                            <option value="Прилад 2">Прилад 2</option>
+                                            <option value="Прилад 3">Прилад 3</option>
+                                        </select>
+                                    </div>
+                                    <p class="app-form__subtitle">Чи є техніка на гарантії?</p>
+                                    <div class="app-form__radios">
+                                        <div class="radio-box">
+                                            <label class="radio-box__title" for="addModalWarranty_1">Так</label>
+                                            <input class="radio-box__data" type="radio" name="addModalWarranty" id="addModalWarranty_1">
+                                        </div>
+                                        <div class="radio-box">
+                                            <label class="radio-box__title" for="addModalWarranty_2">Ні</label>
+                                            <input class="radio-box__data" type="radio" name="addModalWarranty" id="addModalWarranty_2">
+                                        </div>
+                                        <div class="radio-box">
+                                            <label class="radio-box__title" for="addModalWarranty_3">Не знаю</label>
+                                            <input class="radio-box__data" type="radio" name="addModalWarranty" id="addModalWarranty_3">
+                                        </div>
+                                    </div>
+
+                                    <p class="app-form__subtitle">Чи є у вас гарантійний талон?</p>
+                                    <div class="app-form__radios">
+                                        <div class="radio-box">
+                                            <label class="radio-box__title" for="addModalWarrantyCard_1">Так</label>
+                                            <input class="radio-box__data" type="radio" name="addModalWarrantyCard" id="addModalWarrantyCard_1">
+                                        </div>
+                                        <div class="radio-box">
+                                            <label class="radio-box__title" for="addModalWarrantyCard_2">Ні</label>
+                                            <input class="radio-box__data" type="radio" name="addModalWarrantyCard" id="addModalWarrantyCard_2">
+                                        </div>
+                                    </div>
+
+                                    <div class="app-form__reminder">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z" stroke="#072136" />
+                                            <path d="M16 21C16.2833 21 16.5208 20.9042 16.7125 20.7125C16.9042 20.5208 17 20.2833 17 20C17 19.7167 16.9042 19.4792 16.7125 19.2875C16.5208 19.0958 16.2833 19 16 19C15.7167 19 15.4792 19.0958 15.2875 19.2875C15.0958 19.4792 15 19.7167 15 20C15 20.2833 15.0958 20.5208 15.2875 20.7125C15.4792 20.9042 15.7167 21 16 21ZM15 17H17V11H15V17Z" fill="#072136" />
+                                        </svg>
+                                        <p>
+                                            УВАГА! Для безкоштовного гарантійного ремонту наявність заповненого гарантійного
+                                            талону обовязкова (дата продажу, строк гарантії, назва моделі, серійний номер)
+                                        </p>
+                                    </div>
+                                    <p class="app-form__subtitle">Фото приладу</p>
+                                    <p class="app-form__text">
+                                        Додайте декілька фото приладу в різних ракурсах
+                                    </p>
+                                    <div class="file-upload">
+                                        <input type="file" id="fileInput" class="file-upload__field" multiple>
+                                        <div class="file-upload__dropzone">
+                                            <label for="fileInput">
+                                                <div class="file-upload__head">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M12.6523 5.26367H6.51465C5.10352 5.26367 3.96094 6.40625 3.96094 7.81738V18.7891C3.96094 20.2002 5.10352 21.3428 6.51465 21.3428H17.4844C18.8955 21.3428 20.0381 20.2002 20.0381 18.7891V12.4219H21.7412V23.0459H2.25781V3.56055H12.6523V5.26367Z" fill="black" />
+                                                        <path d="M6.19531 20.9343L15.2539 12.4086L20.3135 17.4682M18.9839 9.02859L18.9839 6.01429M18.9839 6.01429L18.9839 3M18.9839 6.01429L15.9696 6.01429M18.9839 6.01429L21.9982 6.01429M9.39245 9.67858C9.39245 10.5614 8.67675 11.2771 7.79388 11.2771C6.91102 11.2771 6.19531 10.5614 6.19531 9.67858C6.19531 8.79571 6.91102 8.08001 7.79388 8.08001C8.67675 8.08001 9.39245 8.79571 9.39245 9.67858Z" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" />
+                                                    </svg>
+                                                    <p class="file-upload__title">Додати фото</p>
+                                                </div>
+                                                <p class="file-upload__info">
+                                                    Перетягніть файли сюди або натисніть для завантаження. Допустимі формати: JPG, PNG, PDF (макс. 10 МБ)
+                                                </p>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <p class="app-form__subtitle app-form__subtitle-sm">
+                                        Причини звернення
+                                    </p>
+                                    <div class="app-form__select">
+                                        <select data-placeholder="Оберіть причину звернення" name="selectReasons[]" class="form-select js-select-tags" multiple>
+                                            <option value=""></option>
+                                            <option value="Причина ">Причина </option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                            <option value="Причина звернення">Причина звернення</option>
+                                        </select>
+                                    </div>
+                                    <p class="app-form__subtitle app-form__subtitle-sm">
+                                        Побажання щодо ремонту
+                                    </p>
+                                    <div class="form-field">
+                                        <label class="form-field__title" for="addModalMessage">Вкажіть свої побажання</label>
+                                        <textarea class="form-field__data" required name="addModalMessage" id="addModalMessage" placeholder=" "></textarea>
+                                    </div>
+                                </div>
+                                <div class="app-form__submit">
+                                    <p class="app-form__tcpa">
+                                        Натискаючт кнопку ви погоджуєтесь з нашою <a href="javascript: void(0)" target="_blank">Політикою конфеденційності</a> та <a href="javascript: void(0)" target="_blank">Обробкою персональных данных</a>
+                                    </p>
+                                    <button type="submit" class="link-accent">
+                                        <span>Подати заявку </span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
