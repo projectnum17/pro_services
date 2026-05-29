@@ -61,7 +61,7 @@
 
     &__submit {
         height: 100%;
-        padding-inline: rem(100px) rem(84px);
+        padding-inline: rem(42px) rem(26px);
         padding-block: rem(72px) rem(50px);
         @include media('desktop') {
             padding-inline: rem(36px);
@@ -92,7 +92,7 @@
 
     &__head {
         padding-block: rem(24px);
-        padding-inline: rem(100px) rem(32px);
+        padding-inline: rem(42px) rem(26px);
         display: flex;
         align-items: flex-start;
         gap: rem(12px);
