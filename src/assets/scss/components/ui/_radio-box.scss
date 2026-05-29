@@ -1,0 +1,66 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.radio-box {
+    position: relative;
+
+    &:has(.radio-box__data:checked) {
+        .radio-box__title::before {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__data {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__title {
+        font: 400 #{rem(20px)} / 30px $ff;
+        position: relative;
+        display: inline-flex;
+        padding-left: rem(36px);
+        @include media('mobile') {
+            font-size: rem(18px);
+            padding-left: rem(24px);
+        }
+
+        &::after,
+        &::before {
+            content: '';
+            flex-shrink: 0;
+            position: absolute;
+            left: 0;
+            top: rem(6px);
+            width: rem(20px);
+            height: rem(20px);
+            border-radius: 50%;
+            @include media('mobile') {
+                width: rem(16px);
+                height: rem(16px);
+                top: rem(7px);
+            }
+        }
+
+        &::after {
+            border: 1px solid #de5126;
+        }
+
+        &::before {
+            border: 5px solid #de5126;
+            opacity: 0;
+            visibility: hidden;
+            @include transitions(
+                0.3s,
+                cubic-bezier(0.768, 0.304, 0.496, 0.884)
+            );
+        }
+    }
+}

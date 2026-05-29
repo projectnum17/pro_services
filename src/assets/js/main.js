@@ -387,10 +387,36 @@ const initForms = () => {
     });
 };
 
+const initSelects = () => {
+    $(document).ready(function () {
+        $('.js-select-smpl, .js-select-tags').each(function () {
+            const $this = $(this);
+            const isMultiple = $this.attr('multiple');
+
+            $this.select2({
+                placeholder: $this.data('placeholder'),
+                minimumResultsForSearch: Infinity,
+                dropdownPosition: 'below',
+                dropdownCssClass: isMultiple
+                    ? 'my-dropdown-multiple'
+                    : 'my-dropdown-single',
+            });
+
+            if (isMultiple) {
+                $this.on('select2:opening', function () {
+                    $this
+                        .next('.select2-container')
+                        .find('.select2-search__field')
+                        .prop('readonly', true);
+                });
+            }
+        });
+    });
+};
+
 const initModals = ({
     triggers,
     modalSelector,
-    boxSelector,
     closeSelector,
 }) => {
     const modalTriggers = document.querySelectorAll(triggers);
@@ -398,17 +424,16 @@ const initModals = ({
 
     if (!modalTriggers.length || !modal) return;
 
-    const modalBox = modal.querySelector(boxSelector);
     const modalClose = modal.querySelector(closeSelector);
     const form = modal.querySelector('form');
 
     const input = modal.querySelector('#questionBoxMessage');
     const defaultValue = input ? input.value : '';
 
-    if (!modalBox || !modalClose) return;
+    if (!modalClose) return;
 
     const openState = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         modal.classList.add('is-open');
         document.body.classList.add('is-locked');
 
@@ -453,22 +478,25 @@ document.addEventListener('DOMContentLoaded', () => {
     initFAQ();
     initGridBorderHelper();
     initForms();
+    initSelects();
     initModals({
         triggers: '.js-request-btn',
         modalSelector: '.js-request-modal',
-        boxSelector: '.js-request-box',
         closeSelector: '.js-request-close',
     });
     initModals({
         triggers: '.js-questions-btn',
         modalSelector: '.js-questions-modal',
-        boxSelector: '.js-questions-box',
         closeSelector: '.js-questions-close',
     });
     initModals({
         triggers: '.js-review-btn',
         modalSelector: '.js-review-modal',
-        boxSelector: '.js-review-box',
         closeSelector: '.js-review-close',
+    });
+    initModals({
+        triggers: '.js-app-trigger',
+        modalSelector: '.js-app-modal',
+        closeSelector: '.js-app-close',
     });
 });

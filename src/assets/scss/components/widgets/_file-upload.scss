@@ -1,0 +1,80 @@
+@use '../../base/var' as *;
+@use '../../base/mixins' as *;
+@use '../../base/media' as *;
+
+.file-upload {
+    position: relative;
+    margin-bottom: rem(56px);
+    @include media('mobile') {
+        margin-bottom: rem(32px);
+    }
+
+    &__head {
+        display: flex;
+        align-items: center;
+        gap: rem(8px);
+
+        svg {
+            width: rem(24px);
+            height: rem(24px);
+            color: #000000;
+            @include media('mobile') {
+                width: rem(20px);
+                height: rem(20px);
+            }
+        }
+    }
+
+    &__title {
+        font: 400 #{rem(24px)} / 130% $ff;
+        letter-spacing: -1px;
+        color: #072136;
+        @include media('mobile') {
+            font-size: rem(18px);
+        }
+    }
+
+    &__info {
+        max-width: rem(511px);
+        font: 400 #{rem(16px)} / 180% $ff;
+        color: #535862;
+        @include media('mobile') {
+            font-size: rem(14px);
+            line-height: 130%;
+        }
+    }
+
+    &__field {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__dropzone {
+        text-align: center;
+        padding: rem(16px);
+        border-radius: rem(16px);
+        border: 1px solid #e6e7ec;
+        background: #f6f6f6;
+        @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+        @include hover {
+            border-color: #ff6122;
+        }
+        @include media('mobile') {
+            padding: rem(12px);
+            border-radius: rem(12px);
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: rem(10px);
+        }
+    }
+}
