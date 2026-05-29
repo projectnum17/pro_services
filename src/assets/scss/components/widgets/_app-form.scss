@@ -3,6 +3,9 @@
 @use '../../base/media' as *;
 
 .app-form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     counter-reset: counter;
     --gap: #{rem(72px)};
 
@@ -10,8 +13,24 @@
         --gap: #{rem(24px)};
     }
 
+    &__tab {
+        flex: 1;
+        display: none;
+        flex-direction: column;
+        &.is-active {
+            display: flex;
+        }
+
+        form {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
     &__targets {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: rem(24px);
         margin-bottom: var(--gap);
@@ -22,32 +41,7 @@
                 width: 100%;
             }
         }
-    }
 
-    &__target {
-        position: relative;
-
-        .app-form__target-input:checked + .app-form__target-label {
-            background: #000000;
-            color: #fff;
-        }
-
-        &-input {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        &-label {
-            display: flex;
-            font: 600 #{rem(15px)} / 140% $ff;
-            text-transform: uppercase;
-            color: rgba(0, 0, 0, 0.6);
-        }
     }
 
     &__reminder {
@@ -59,6 +53,9 @@
         border-radius: rem(16px);
         margin-bottom: var(--gap);
         background: #f6f6f6;
+        @include media('desktop') {
+            line-height: 130%;
+        }
         @include media('mobile') {
             padding: rem(12px);
             border-radius: rem(12px);
@@ -202,11 +199,20 @@
         }
     }
 
+    &__short {
+        display: flex;
+        flex-direction: column;
+        gap: rem(32px);
+        @include media('mobile') {
+            gap: rem(12px);
+        }
+    }
+
     &__submit {
+        margin-top: auto;
         padding-top: var(--gap);
         display: flex;
         flex-direction: column;
-        text-align: center;
         gap: rem(24px);
         @include media('mobile') {
             gap: rem(12px);

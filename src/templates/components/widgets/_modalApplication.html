@@ -25,77 +25,19 @@
         <div class="app-modal__form">
             <div class="app-modal__submit">
                 <div class="app-form">
-                    <form>
-                        <div class="app-form__targets">
-                            <div class="app-form__target">
-                                <input checked class="app-form__target-input" type="radio" name="appModalTarget"
-                                    id="appModalUnRegister">
-                                <label class="btn-anchor app-form__target-label" for="appModalUnRegister">Заявка без
-                                    реєстрації</label>
-                            </div>
-                            <div class="app-form__target">
-                                <input class="app-form__target-input" type="radio" name="appModalTarget"
-                                    id="appModalUnManager">
-                                <label class="btn-anchor app-form__target-label" for="appModalUnManager">Заявка через
-                                    менеджера</label>
-                            </div>
-                        </div>
-                        <div class="app-form__reminder">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z"
-                                    stroke="#072136" />
-                                <path
-                                    d="M16 21C16.2833 21 16.5208 20.9042 16.7125 20.7125C16.9042 20.5208 17 20.2833 17 20C17 19.7167 16.9042 19.4792 16.7125 19.2875C16.5208 19.0958 16.2833 19 16 19C15.7167 19 15.4792 19.0958 15.2875 19.2875C15.0958 19.4792 15 19.7167 15 20C15 20.2833 15.0958 20.5208 15.2875 20.7125C15.4792 20.9042 15.7167 21 16 21ZM15 17H17V11H15V17Z"
-                                    fill="#072136" />
-                            </svg>
-                            <p>
-                                ТІЛЬКИ Після заповнення заявки з вами зв’яжеться сервіс- менеджер для уточнення деталей
-                                (відео-регістрації поломки за потреби) та ПІДТВЕРДЖЕННЯ ЗАЯВКИ , після цього в особистий
-                                кабінет Ви отримаєте інструкцію, щодо відправки обладнання до сервісного центру.
-                            </p>
-                        </div>
-                        <div class="app-form__detail">
-                            <p class="app-form__title">Основна інформація</p>
-                            <p class="app-form__subtitle">Контактні данні *</p>
-                            <div class="app-form__info">
-                                {{> _fieldInput
-                                labelTarget = "addModalLastName"
-                                labelText = "Прізвище*"
-                                fieldType = "text"
-                                fieldName = "addModalLastName"
-                                fieldId = "addModalLastName"
-                                }}
-                                {{> _fieldInput
-                                labelTarget = "addModalFirstName"
-                                labelText = "Ваше Імʼя*"
-                                fieldType = "text"
-                                fieldName = "addModalFirstName"
-                                fieldId = "addModalFirstName"
-                                }}
-                                {{> _fieldInput
-                                labelTarget = "addModalMiddleName"
-                                labelText = "По батькові*"
-                                fieldType = "text"
-                                fieldName = "addModalMiddleName"
-                                fieldId = "addModalMiddleName"
-                                }}
-                                {{> _fieldInput
-                                labelTarget = "addModalPhone"
-                                labelText = "Номер телефону*"
-                                fieldType = "text"
-                                fieldName = "addModalPhone"
-                                fieldId = "addModalPhone"
-                                }}
-                                {{> _fieldInput
-                                labelTarget = "addModalEmail"
-                                labelText = "Електрона пошта*"
-                                fieldType = "email"
-                                fieldName = "addModalEmail"
-                                fieldId = "addModalEmail"
-                                }}
-                            </div>
+                    <div class="app-form__targets">
+                        <button type="button" class="btn-anchor js-modal-tab is-active" data-tab-target="unregister">
+                            Заявка без реєстрації
+                        </button>
+                        <button type="button" class="btn-anchor js-modal-tab" data-tab-target="login">
+                            увійти в особистий кабінет
+                        </button>
+                        <button type="button" class="btn-anchor js-modal-tab" data-tab-target="manager">
+                            Заявка через менеджера
+                        </button>
+                    </div>
+                    <div class="app-form__tab js-modal-content" data-tab-content="unregister">
+                        <form>
                             <div class="app-form__reminder">
                                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -107,139 +49,229 @@
                                         fill="#072136" />
                                 </svg>
                                 <p>
-                                    УВАГА! Номер телефону повинен співпадати з телефоном відправника Нової пошти
+                                    ТІЛЬКИ Після заповнення заявки з вами зв’яжеться сервіс- менеджер для уточнення деталей
+                                    (відео-регістрації поломки за потреби) та ПІДТВЕРДЖЕННЯ ЗАЯВКИ , після цього в особистий
+                                    кабінет Ви отримаєте інструкцію, щодо відправки обладнання до сервісного центру.
                                 </p>
                             </div>
-                            <p class="app-form__subtitle">
-                                Який канал звязку для Вас зручний (комунікація з сервіс-менеджером)
-                            </p>
-                            <div class="app-form__radios">
-                                {{> _radioBox
-                                labelTarget = "addModalContact_1"
-                                labelText = "Viber"
-                                fieldType = "radio"
-                                fieldName = "addModalConnect"
-                                fieldId = "addModalContact_1"
-                                }}
-                                {{> _radioBox
-                                labelTarget = "addModalContact_2"
-                                labelText = "WhatsApp"
-                                fieldType = "radio"
-                                fieldName = "addModalConnect"
-                                fieldId = "addModalContact_2"
-                                }}
-                                {{> _radioBox
-                                labelTarget = "addModalContact_3"
-                                labelText = "Telegram"
-                                fieldType = "radio"
-                                fieldName = "addModalConnect"
-                                fieldId = "addModalContact_3"
-                                }}
-                                {{> _radioBox
-                                labelTarget = "addModalContact_4"
-                                labelText = "Телефон"
-                                fieldType = "radio"
-                                fieldName = "addModalConnect"
-                                fieldId = "addModalContact_4"
-                                }}
+                            <div class="app-form__detail">
+                                <p class="app-form__title">Основна інформація</p>
+                                <p class="app-form__subtitle">Контактні данні *</p>
+                                <div class="app-form__info">
+                                    {{> _fieldInput
+                                    labelTarget = "addModalLastName"
+                                    labelText = "Прізвище*"
+                                    fieldType = "text"
+                                    fieldName = "addModalLastName"
+                                    fieldId = "addModalLastName"
+                                    }}
+                                    {{> _fieldInput
+                                    labelTarget = "addModalFirstName"
+                                    labelText = "Ваше Імʼя*"
+                                    fieldType = "text"
+                                    fieldName = "addModalFirstName"
+                                    fieldId = "addModalFirstName"
+                                    }}
+                                    {{> _fieldInput
+                                    labelTarget = "addModalMiddleName"
+                                    labelText = "По батькові*"
+                                    fieldType = "text"
+                                    fieldName = "addModalMiddleName"
+                                    fieldId = "addModalMiddleName"
+                                    }}
+                                    {{> _fieldInput
+                                    labelTarget = "addModalPhone"
+                                    labelText = "Номер телефону*"
+                                    fieldType = "text"
+                                    fieldName = "addModalPhone"
+                                    fieldId = "addModalPhone"
+                                    }}
+                                    {{> _fieldInput
+                                    labelTarget = "addModalEmail"
+                                    labelText = "Електрона пошта*"
+                                    fieldType = "email"
+                                    fieldName = "addModalEmail"
+                                    fieldId = "addModalEmail"
+                                    }}
+                                </div>
+                                <div class="app-form__reminder">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z"
+                                            stroke="#072136" />
+                                        <path
+                                            d="M16 21C16.2833 21 16.5208 20.9042 16.7125 20.7125C16.9042 20.5208 17 20.2833 17 20C17 19.7167 16.9042 19.4792 16.7125 19.2875C16.5208 19.0958 16.2833 19 16 19C15.7167 19 15.4792 19.0958 15.2875 19.2875C15.0958 19.4792 15 19.7167 15 20C15 20.2833 15.0958 20.5208 15.2875 20.7125C15.4792 20.9042 15.7167 21 16 21ZM15 17H17V11H15V17Z"
+                                            fill="#072136" />
+                                    </svg>
+                                    <p>
+                                        УВАГА! Номер телефону повинен співпадати з телефоном відправника Нової пошти
+                                    </p>
+                                </div>
+                                <p class="app-form__subtitle">
+                                    Який канал звязку для Вас зручний (комунікація з сервіс-менеджером)
+                                </p>
+                                <div class="app-form__radios">
+                                    {{> _radioBox
+                                    labelTarget = "addModalContact_1"
+                                    labelText = "Viber"
+                                    fieldType = "radio"
+                                    fieldName = "addModalConnect"
+                                    fieldId = "addModalContact_1"
+                                    }}
+                                    {{> _radioBox
+                                    labelTarget = "addModalContact_2"
+                                    labelText = "WhatsApp"
+                                    fieldType = "radio"
+                                    fieldName = "addModalConnect"
+                                    fieldId = "addModalContact_2"
+                                    }}
+                                    {{> _radioBox
+                                    labelTarget = "addModalContact_3"
+                                    labelText = "Telegram"
+                                    fieldType = "radio"
+                                    fieldName = "addModalConnect"
+                                    fieldId = "addModalContact_3"
+                                    }}
+                                    {{> _radioBox
+                                    labelTarget = "addModalContact_4"
+                                    labelText = "Телефон"
+                                    fieldType = "radio"
+                                    fieldName = "addModalConnect"
+                                    fieldId = "addModalContact_4"
+                                    }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="app-form__detail">
-                            <p class="app-form__title">Інформація про обладнання</p>
-                            <p class="app-form__subtitle">Оберіть прилад</p>
-                            <div class="app-form__select">
-                                {{> _simpleSelect}}
-                            </div>
-                            <p class="app-form__subtitle">Чи є техніка на гарантії?</p>
-                            <div class="app-form__radios">
-                                {{> _radioBox
-                                    labelTarget = "addModalWarranty_1"
+                            <div class="app-form__detail">
+                                <p class="app-form__title">Інформація про обладнання</p>
+                                <p class="app-form__subtitle">Оберіть прилад</p>
+                                <div class="app-form__select">
+                                    {{> _simpleSelect}}
+                                </div>
+                                <p class="app-form__subtitle">Чи є техніка на гарантії?</p>
+                                <div class="app-form__radios">
+                                    {{> _radioBox
+                                        labelTarget = "addModalWarranty_1"
+                                        labelText = "Так"
+                                        fieldType = "radio"
+                                        fieldName = "addModalWarranty"
+                                        fieldId = "addModalWarranty_1"
+                                    }}
+                                    {{> _radioBox
+                                        labelTarget = "addModalWarranty_2"
+                                        labelText = "Ні"
+                                        fieldType = "radio"
+                                        fieldName = "addModalWarranty"
+                                        fieldId = "addModalWarranty_2"
+                                    }}
+                                    {{> _radioBox
+                                        labelTarget = "addModalWarranty_3"
+                                        labelText = "Не знаю"
+                                        fieldType = "radio"
+                                        fieldName = "addModalWarranty"
+                                        fieldId = "addModalWarranty_3"
+                                    }}
+                                </div>
+
+                                <p class="app-form__subtitle">Чи є у вас гарантійний талон?</p>
+                                <div class="app-form__radios">
+                                    {{> _radioBox
+                                    labelTarget = "addModalWarrantyCard_1"
                                     labelText = "Так"
                                     fieldType = "radio"
-                                    fieldName = "addModalWarranty"
-                                    fieldId = "addModalWarranty_1"
-                                }}
-                                {{> _radioBox
-                                    labelTarget = "addModalWarranty_2"
+                                    fieldName = "addModalWarrantyCard"
+                                    fieldId = "addModalWarrantyCard_1"
+                                    }}
+                                    {{> _radioBox
+                                    labelTarget = "addModalWarrantyCard_2"
                                     labelText = "Ні"
                                     fieldType = "radio"
-                                    fieldName = "addModalWarranty"
-                                    fieldId = "addModalWarranty_2"
-                                }}
-                                {{> _radioBox
-                                    labelTarget = "addModalWarranty_3"
-                                    labelText = "Не знаю"
-                                    fieldType = "radio"
-                                    fieldName = "addModalWarranty"
-                                    fieldId = "addModalWarranty_3"
-                                }}
-                            </div>
+                                    fieldName = "addModalWarrantyCard"
+                                    fieldId = "addModalWarrantyCard_2"
+                                    }}
+                                </div>
 
-                            <p class="app-form__subtitle">Чи є у вас гарантійний талон?</p>
-                            <div class="app-form__radios">
-                                {{> _radioBox
-                                labelTarget = "addModalWarrantyCard_1"
-                                labelText = "Так"
-                                fieldType = "radio"
-                                fieldName = "addModalWarrantyCard"
-                                fieldId = "addModalWarrantyCard_1"
-                                }}
-                                {{> _radioBox
-                                labelTarget = "addModalWarrantyCard_2"
-                                labelText = "Ні"
-                                fieldType = "radio"
-                                fieldName = "addModalWarrantyCard"
-                                fieldId = "addModalWarrantyCard_2"
-                                }}
-                            </div>
-
-                            <div class="app-form__reminder">
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z"
-                                        stroke="#072136" />
-                                    <path
-                                        d="M16 21C16.2833 21 16.5208 20.9042 16.7125 20.7125C16.9042 20.5208 17 20.2833 17 20C17 19.7167 16.9042 19.4792 16.7125 19.2875C16.5208 19.0958 16.2833 19 16 19C15.7167 19 15.4792 19.0958 15.2875 19.2875C15.0958 19.4792 15 19.7167 15 20C15 20.2833 15.0958 20.5208 15.2875 20.7125C15.4792 20.9042 15.7167 21 16 21ZM15 17H17V11H15V17Z"
-                                        fill="#072136" />
-                                </svg>
-                                <p>
-                                    УВАГА! Для безкоштовного гарантійного ремонту наявність заповненого гарантійного
-                                    талону обовязкова (дата продажу, строк гарантії, назва моделі, серійний номер)
+                                <div class="app-form__reminder">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z"
+                                            stroke="#072136" />
+                                        <path
+                                            d="M16 21C16.2833 21 16.5208 20.9042 16.7125 20.7125C16.9042 20.5208 17 20.2833 17 20C17 19.7167 16.9042 19.4792 16.7125 19.2875C16.5208 19.0958 16.2833 19 16 19C15.7167 19 15.4792 19.0958 15.2875 19.2875C15.0958 19.4792 15 19.7167 15 20C15 20.2833 15.0958 20.5208 15.2875 20.7125C15.4792 20.9042 15.7167 21 16 21ZM15 17H17V11H15V17Z"
+                                            fill="#072136" />
+                                    </svg>
+                                    <p>
+                                        УВАГА! Для безкоштовного гарантійного ремонту наявність заповненого гарантійного
+                                        талону обовязкова (дата продажу, строк гарантії, назва моделі, серійний номер)
+                                    </p>
+                                </div>
+                                <p class="app-form__subtitle">Фото приладу</p>
+                                <p class="app-form__text">
+                                    Додайте декілька фото приладу в різних ракурсах
                                 </p>
+                                {{> _fileUpload}}
+                                <p class="app-form__subtitle app-form__subtitle-sm">
+                                    Причини звернення
+                                </p>
+                                <div class="app-form__select">
+                                    {{> _tagsSelect}}
+                                </div>
+                                <p class="app-form__subtitle app-form__subtitle-sm">
+                                    Побажання щодо ремонту
+                                </p>
+                                {{> _fieldTextArea
+                                labelTarget = "addModalMessage"
+                                labelText = "Вкажіть свої побажання"
+                                fieldName = "addModalMessage"
+                                fieldId = "addModalMessage"
+                                }}
                             </div>
-                            <p class="app-form__subtitle">Фото приладу</p>
-                            <p class="app-form__text">
-                                Додайте декілька фото приладу в різних ракурсах
-                            </p>
-                            {{> _fileUpload}}
-                            <p class="app-form__subtitle app-form__subtitle-sm">
-                                Причини звернення
-                            </p>
-                            <div class="app-form__select">
-                                {{> _tagsSelect}}
+                            <div class="app-form__submit">
+                                <p class="app-form__tcpa">
+                                    Натискаючт кнопку ви погоджуєтесь з нашою <a href="javascript: void(0)"
+                                        target="_blank">Політикою конфеденційності</a> та <a href="javascript: void(0)"
+                                        target="_blank">Обробкою персональных данных</a>
+                                </p>
+                                <button type="submit" class="link-accent">
+                                    <span>Подати заявку </span>
+                                </button>
                             </div>
-                            <p class="app-form__subtitle app-form__subtitle-sm">
-                                Побажання щодо ремонту
-                            </p>
-                            {{> _fieldTextArea
-                            labelTarget = "addModalMessage"
-                            labelText = "Вкажіть свої побажання"
-                            fieldName = "addModalMessage"
-                            fieldId = "addModalMessage"
-                            }}
-                        </div>
-                        <div class="app-form__submit">
-                            <p class="app-form__tcpa">
-                                Натискаючт кнопку ви погоджуєтесь з нашою <a href="javascript: void(0)"
-                                    target="_blank">Політикою конфеденційності</a> та <a href="javascript: void(0)"
-                                    target="_blank">Обробкою персональных данных</a>
-                            </p>
-                            <button type="submit" class="link-accent">
-                                <span>Подати заявку </span>
-                            </button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    <div class="app-form__tab js-modal-content" data-tab-content="login">
+                        login
+                    </div>
+                    <div class="app-form__tab js-modal-content" data-tab-content="manager">
+                        <form>
+                            <div class="app-form__short">
+                                {{> _fieldInput
+                                    labelTarget = "requestFirstName"
+                                    labelText = "Ваше Імʼя *"
+                                    fieldType = "text"
+                                    fieldName = "contactBoxName"
+                                    fieldId = "requestFirstName"
+                                }}
+                                {{> _fieldInput
+                                    labelTarget = "requestLastName"
+                                    labelText = "Номер телефону *"
+                                    fieldType = "text"
+                                    fieldName = "contactBoxPhone"
+                                    fieldId = "requestLastName"
+                                }}
+                            </div>
+                            <div class="app-form__submit">
+                                <p class="app-form__tcpa">
+                                    Натискаючт кнопку ви погоджуєтесь з нашою <a href="javascript: void(0)"
+                                        target="_blank">Політикою конфеденційності</a> та <a href="javascript: void(0)"
+                                        target="_blank">Обробкою персональных данных</a>
+                                </p>
+                                <button type="submit" class="link-accent">
+                                    <span>Подати заявку </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

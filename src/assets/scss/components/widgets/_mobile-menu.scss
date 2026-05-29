@@ -57,7 +57,10 @@
         max-width: 100%;
         height: rem(42px);
         @include hover {
-            height: rem(38px);
+            height: rem(40px);
+            span {
+                height: rem(40px);
+            }
         }
 
         span {
@@ -74,6 +77,10 @@
         }
         @include hover {
             height: rem(48px);
+
+            span {
+                height: rem(48px);
+            }
         }
     }
 

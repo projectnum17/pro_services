@@ -35,12 +35,13 @@
     }
 
     &__info {
-        max-width: rem(511px);
+        max-width: 80%;
         font: 400 #{rem(16px)} / 180% $ff;
         color: #535862;
         @include media('mobile') {
             font-size: rem(14px);
             line-height: 130%;
+            max-width: 100%;
         }
     }
 

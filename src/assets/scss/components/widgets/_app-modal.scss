@@ -24,6 +24,7 @@
     }
 
     &__form {
+        flex: 1;
         margin-right: rem(16px);
         overflow-y: auto;
         overflow-x: hidden;
@@ -59,9 +60,12 @@
     }
 
     &__submit {
+        height: 100%;
         padding-inline: rem(100px) rem(84px);
         padding-block: rem(72px) rem(50px);
-
+        @include media('desktop') {
+            padding-inline: rem(36px);
+        }
         @include media('laptop') {
             padding-inline: rem(24px) rem(12px);
         }
@@ -75,7 +79,7 @@
         transform: translateX(100%);
         display: flex;
         flex-direction: column;
-        width: 50%;
+        width: 60%;
         background: $bg_content;
         @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
         @media (max-width: 1390.98px) {
@@ -93,6 +97,9 @@
         align-items: flex-start;
         gap: rem(12px);
         justify-content: space-between;
+        @include media('desktop') {
+            padding-inline: rem(36px);
+        }
         @include media('laptop') {
             padding-inline: rem(24px);
         }
@@ -148,7 +155,7 @@
     &__show {
         transform: translateX(-100%);
         position: relative;
-        width: 50%;
+        width: 40%;
         padding: var(--container_pdd);
         @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
         @media (max-width: 1390.98px) {

@@ -92,7 +92,7 @@
         gap: rem(32px);
         margin-bottom: rem(32px);
         @include media('mobile') {
-            margin-bottom: rme(24px);
+            margin-bottom: rem(24px);
             gap: rem(12px);
         }
     }
@@ -107,12 +107,10 @@
     }
 
     &__tcpa {
-        text-align: center;
         font: 400 #{rem(16px)} / 180% $ff;
         color: #535862;
         @include media('mobile') {
             font-size: rem(12px);
-            text-align: left;
         }
 
         a {
