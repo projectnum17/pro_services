@@ -414,11 +414,7 @@ const initSelects = () => {
     });
 };
 
-const initModals = ({
-    triggers,
-    modalSelector,
-    closeSelector,
-}) => {
+const initModals = ({ triggers, modalSelector, closeSelector }) => {
     const modalTriggers = document.querySelectorAll(triggers);
     const modal = document.querySelector(modalSelector);
 
@@ -469,6 +465,92 @@ const initModals = ({
     });
 };
 
+const initMemoryModal = () => {
+    const modal = document.querySelector('.js-memory-modal');
+    if (!modal) return;
+
+    const timerSpan = modal.querySelector('.js-memory-timer');
+    const video = modal.querySelector('.js-memory-video');
+
+    let timerInterval = null;
+    let checkTimeInterval = null;
+
+    const formatTime = (seconds) => {
+        const mins = Math.floor(seconds / 60)
+            .toString()
+            .padStart(2, '0');
+        const secs = (seconds % 60).toString().padStart(2, '0');
+        return `${mins}:${secs}`;
+    };
+
+    const destroyModal = () => {
+        modal.classList.remove('is-open');
+
+        setTimeout(() => {
+            modal.remove();
+            clearInterval(checkTimeInterval);
+        }, 600);
+    };
+
+    const startTimer = (initialSeconds) => {
+        let timeLeft = initialSeconds;
+        timerSpan.textContent = formatTime(timeLeft);
+
+        const videoSource = video.querySelector('source');
+        const videoContainer = modal.querySelector('.tribute-content__show');
+
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            timerSpan.textContent = formatTime(timeLeft);
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                destroyModal();
+            }
+        }, 1000);
+
+        setTimeout(() => {
+            if (videoSource && videoSource.dataset.src) {
+                videoSource.src = videoSource.dataset.src;
+
+                video.addEventListener(
+                    'playing',
+                    () => {
+                        if (videoContainer) {
+                            videoContainer.classList.add('is-playing');
+                        }
+                    },
+                    { once: true },
+                );
+
+                video.load();
+
+                video
+                    .play()
+                    .catch((err) => console.log('Error', err));
+            }
+        }, 500);
+    };
+
+    const checkTime = () => {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+
+        if (hours === 9 && minutes === 0) {
+            if (!modal.classList.contains('is-open')) {
+                modal.classList.add('is-open');
+
+                const secondsLeft = 60 - now.getSeconds();
+                startTimer(secondsLeft);
+            }
+        }
+    };
+
+    checkTime();
+    checkTimeInterval = setInterval(checkTime, 1000);
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     headerHandlers();
     initVideoAutoplay();
@@ -499,4 +581,5 @@ document.addEventListener('DOMContentLoaded', () => {
         modalSelector: '.js-app-modal',
         closeSelector: '.js-app-close',
     });
+    initMemoryModal();
 });
