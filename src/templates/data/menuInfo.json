@@ -2,6 +2,8 @@
     "menuHeader": [
         { "title": "Про нас", "url": "about.html", "id": "about" },
         { "title": "Сервіси", "url": "services.html", "id": "services" },
+        { "title": "Сервіси", "url": "services.html", "id": "services" },
+        { "title": "Сервіси", "url": "services.html", "id": "services" },
         {
             "title": "Прайс",
             "id": "price",

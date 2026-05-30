@@ -38,9 +38,8 @@
         }
     }
 
-    &__tcpa {
-        font: 400 #{rem(16px)} / 180% $ff;
-        max-width: rem(456px);
+     &__tcpa {
+        font: 400 #{rem(14px)} / 180% $ff;
         color: #535862;
         @include media('mobile') {
             font-size: rem(12px);

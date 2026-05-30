@@ -227,9 +227,26 @@
             background: #e6e7ec !important;
         }
     }
-
 }
 
 .select2-search__field {
     outline: none !important;
+}
+
+.select2-selection--single {
+    .select2-selection__clear {
+        position: absolute !important;
+        margin: 0 !important;
+        width: rem(24px) !important;
+        height: rem(24px) !important;
+        align-items: center !important;
+        justify-content: center !important;
+        left: rem(3px) !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .select2-selection__rendered {
+        padding-inline: rem(30px) rem(45px) !important;
+    }
 }

@@ -106,8 +106,8 @@
         }
     }
 
-    &__tcpa {
-        font: 400 #{rem(16px)} / 180% $ff;
+     &__tcpa {
+        font: 400 #{rem(14px)} / 180% $ff;
         color: #535862;
         @include media('mobile') {
             font-size: rem(12px);
@@ -169,6 +169,7 @@
             letter-spacing: -2px;
             @include media('mobile') {
                 font-size: rem(24px);
+                letter-spacing: 0px;
             }
         }
 

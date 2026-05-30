@@ -25,53 +25,26 @@
 
     &__form {
         flex: 1;
-        margin-right: rem(16px);
-        overflow-y: auto;
-        overflow-x: hidden;
         margin-bottom: rem(22px);
-
-        @include media('laptop') {
-            margin-right: rem(12px);
-        }
 
         @include media('mobile') {
             margin-bottom: rem(12px);
-            margin-right: calc(var(--container_pdd) / 2);
-        }
-
-        &::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        &::-webkit-scrollbar-track {
-            background: #e6e7ec;
-
-            border-radius: 20px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: #16181d;
-            border-radius: 20px;
-        }
-
-        &::-webkit-scrollbar-thumb:hover {
-            background: #16181d37;
         }
     }
 
     &__submit {
         height: 100%;
-        padding-inline: rem(42px) rem(26px);
+        padding-inline: rem(42px);
         padding-block: rem(72px) rem(50px);
         @include media('desktop') {
             padding-inline: rem(36px);
         }
         @include media('laptop') {
-            padding-inline: rem(24px) rem(12px);
+            padding-inline: rem(24px);
         }
         @include media('mobile') {
             padding-block: rem(24px) rem(12px);
-            padding-inline: var(--container_pdd) calc(var(--container_pdd) / 2);
+            padding-inline: var(--container_pdd);
         }
     }
 
@@ -81,6 +54,13 @@
         flex-direction: column;
         width: 60%;
         background: $bg_content;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
         @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
         @media (max-width: 1390.98px) {
             width: 70%;
@@ -91,10 +71,12 @@
     }
 
     &__head {
-        padding-block: rem(24px);
+        position: relative;
+        padding-block: rem(72px) rem(24px);
         padding-inline: rem(42px) rem(26px);
         display: flex;
         align-items: flex-start;
+        flex-direction: column-reverse;
         gap: rem(12px);
         justify-content: space-between;
         @include media('desktop') {
@@ -104,12 +86,15 @@
             padding-inline: rem(24px);
         }
         @include media('mobile') {
-            padding-block: rem(12px);
+            padding-block: rem(42px) rem(12px);
             padding-inline: var(--container_pdd);
         }
     }
 
     &__close {
+        position: absolute;
+        top: rem(24px);
+        left: rem(24px);
         width: rem(24px);
         height: rem(24px);
         color: #537896;
@@ -117,6 +102,9 @@
         @include media('mobile') {
             width: rem(20px);
             height: rem(20px);
+            top: rem(12px);
+            right: rem(12px);
+            left: auto;
         }
 
         svg {

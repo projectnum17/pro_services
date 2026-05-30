@@ -191,5 +191,8 @@
 
     .faq-list {
         max-width: rem(852px);
+        @include media('laptop') {
+            max-width: 100%;
+        }
     }
 }

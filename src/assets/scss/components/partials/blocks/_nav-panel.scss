@@ -16,8 +16,7 @@
                 flex-direction: row;
                 align-items: center;
                 gap: rem(2px);
-                @media(min-width: 1025.99px) {
-
+                @media (min-width: 1025.99px) {
                     @include hover {
                         &::after {
                             transform: rotate(180deg);
@@ -178,6 +177,12 @@
         }
 
         > li {
+            @media (min-width: 1024.98px) {
+                &:nth-child(n + 6) {
+                    display: none;
+                }
+            }
+
             > a {
                 overflow: hidden;
                 width: 100%;

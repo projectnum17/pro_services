@@ -40,6 +40,10 @@
     &.is-active {
         background: #000000;
         color: #fff;
+        @include hover {
+            background: #000000;
+            color: #fff;
+        }
     }
 
     &::before {
