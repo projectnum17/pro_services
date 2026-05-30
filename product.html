@@ -52,6 +52,18 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="services.html" class="">
+                                    <span>Сервіси</span>
+                                    <span>Сервіси</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="services.html" class="">
+                                    <span>Сервіси</span>
+                                    <span>Сервіси</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="#!" class="">
                                     <span>Прайс</span>
                                     <span>Прайс</span>
@@ -519,6 +531,18 @@
                             </a>
                         </li>
                         <li>
+                            <a href="services.html" class="">
+                                <span>Сервіси</span>
+                                <span>Сервіси</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html" class="">
+                                <span>Сервіси</span>
+                                <span>Сервіси</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="#!" class="">
                                 <span>Прайс</span>
                                 <span>Прайс</span>
@@ -571,6 +595,41 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="modal modal--request js-request-modal">
+            <div class="modal__box js-request-box">
+                <button type="button" class="modal__close js-request-close">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.784524 23.1376L12 11.9221M12 11.9221L0.784525 0.706686M12 11.9221L23.2154 0.706649M12 11.9221L23.2154 23.1375" stroke="#537896" stroke-width="2" />
+                    </svg>
+                </button>
+                <p class="section-title">
+                    Замовити дзвінок
+                </p>
+                <p class="modal__subtitle">
+                    Залишіть свої дані і наші менеджери найближчим часом зв'яжуться з вами
+                </p>
+                <form>
+                    <div class="modal__fields">
+                        <div class="form-field">
+                            <label class="form-field__title" for="contactBoxName">Ваше Імʼя *</label>
+                            <input class="form-field__data" required type="text" name="contactBoxName" id="contactBoxName" placeholder=" ">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-field__title" for="contactBoxPhone">Номер телефону *</label>
+                            <input class="form-field__data" required type="text" name="contactBoxPhone" id="contactBoxPhone" placeholder=" ">
+                        </div>
+                    </div>
+                    <div class="modal__foot">
+                        <p class="modal__tcpa">
+                            Натискаючт кнопку ви погоджуєтесь з нашою <a target="_blank" href="javascript: void(0)">Політикою конфеденційності</a> та <a target="_blank" href="javascript: void(0)">Обробкою персональных данных</a>
+                        </p>
+                        <button type="submit" class="link-accent">
+                            <span>Надіслати</span>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="app-modal js-app-modal">
@@ -835,7 +894,23 @@
                 </div>
             </div>
         </div>
-
+        <div class="modal modal--memory js-memory-modal">
+            <div class="modal__box">
+                <div class="tribute-content">
+                    <div class="tribute-content__show">
+                        <video muted autoplay loop playsinline class="js-memory-video" poster="./assets/video/memory-poster.png">
+                            <source src="./assets/video/memory.mp4" data-src="./assets/video/memory.mp4" type="video/mp4">
+                            <p>Your browser does not support the video tag.</p>
+                        </video>
+                    </div>
+                    <p class="tribute-content__title">Зупинись на хвилину о 9:00</p>
+                    <p class="tribute-content__subtitle">
+                        Усією країною вшановуємо памʼять загиблих на війні.
+                    </p>
+                    <span class="tribute-content__timer js-memory-timer">01:00</span>
+                </div>
+            </div>
+        </div>
     </body>
 
 </html>

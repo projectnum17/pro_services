@@ -389,7 +389,7 @@ const initForms = () => {
 
 const initSelects = () => {
     $(document).ready(function () {
-        $('.js-select-smpl, .js-select-tags').each(function () {
+        $('.js-select-tags').each(function () {
             const $this = $(this);
             const isMultiple = $this.attr('multiple');
 
@@ -518,8 +518,19 @@ const initMemoryModal = () => {
         return `${mins}:${secs}`;
     };
 
+    const lockBody = () => {
+        if (window.innerWidth <= 767) {
+            document.body.classList.add('is-locked');
+        }
+    };
+
+    const unlockBody = () => {
+        document.body.classList.remove('is-locked');
+    };
+
     const destroyModal = () => {
         modal.classList.remove('is-open');
+        unlockBody();
 
         setTimeout(() => {
             modal.remove();
@@ -559,7 +570,6 @@ const initMemoryModal = () => {
                 );
 
                 video.load();
-
                 video.play().catch((err) => console.log('Error', err));
             }
         }, 500);
@@ -573,6 +583,7 @@ const initMemoryModal = () => {
         if (hours === 9 && minutes === 0) {
             if (!modal.classList.contains('is-open')) {
                 modal.classList.add('is-open');
+                lockBody();
 
                 const secondsLeft = 60 - now.getSeconds();
                 startTimer(secondsLeft);
