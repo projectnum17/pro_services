@@ -449,22 +449,29 @@ const initFormsTabs = () => {
     });
 };
 
-const initModals = ({ triggers, modalSelector, closeSelector }) => {
+const initModals = ({
+    triggers,
+    modalSelector,
+    closeSelector,
+    onOpen,
+    onClose,
+}) => {
     const modalTriggers = document.querySelectorAll(triggers);
     const modal = document.querySelector(modalSelector);
 
     if (!modalTriggers.length || !modal) return;
 
-    const modalClose = modal.querySelector(closeSelector);
-    const form = modal.querySelector('form');
+    const modalCloses = modal.querySelectorAll(closeSelector);
+    const forms = modal.querySelectorAll('form');
 
     const input = modal.querySelector('#questionBoxMessage');
     const defaultValue = input ? input.value : '';
 
-    if (!modalClose) return;
+    if (!modalCloses.length) return;
 
     const openState = (e) => {
         e.preventDefault();
+
         modal.classList.add('is-open');
         document.body.classList.add('is-locked');
 
@@ -474,24 +481,32 @@ const initModals = ({ triggers, modalSelector, closeSelector }) => {
 
             input.value = productName || defaultValue;
         }
+
+        onOpen?.({
+            modal,
+            trigger: e.currentTarget,
+            event: e,
+        });
     };
 
     const closeState = () => {
         modal.classList.remove('is-open');
         document.body.classList.remove('is-locked');
+
+        onClose?.({ modal });
     };
 
     modalTriggers.forEach((trigger) => {
         trigger.addEventListener('click', openState);
     });
 
-    modalClose.addEventListener('click', closeState);
+    modalCloses.forEach((closeBtn) => {
+        closeBtn.addEventListener('click', closeState);
+    });
 
-    if (form) {
-        form.addEventListener('submit', () => {
-            closeState();
-        });
-    }
+    forms.forEach((form) => {
+        form.addEventListener('submit', closeState);
+    });
 
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
@@ -624,6 +639,67 @@ document.addEventListener('DOMContentLoaded', () => {
         triggers: '.js-app-trigger',
         modalSelector: '.js-app-modal',
         closeSelector: '.js-app-close',
+    });
+    initModals({
+        triggers: '.js-search-trigger',
+        modalSelector: '.js-search-modal',
+        closeSelector: '.js-search-close',
+        onOpen: ({ modal }) => {
+            setTimeout(() => {
+                modal.querySelector('.js-search-panel input')?.focus();
+            }, 300);
+        },
+        onClose: ({ modal }) => {
+            setTimeout(() => {
+                const input = modal.querySelector('.js-search-panel input');
+                if (input) {
+                    input.value = '';
+                    input.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            }, 300);
+        },
+    });
+    initModals({
+        triggers: '.js-basket-trigger',
+        modalSelector: '.js-basket-modal',
+        closeSelector: '.js-basket-close',
+    });
+    initModals({
+        triggers: '.js-account-trigger',
+        modalSelector: '.js-account-modal',
+        closeSelector: '.js-account-close',
+    });
+    initModals({
+        triggers: '.js-signup-trigger',
+        modalSelector: '.js-signup-modal',
+        closeSelector: '.js-signup-close',
+    });
+    initModals({
+        triggers: '.js-del-trigger',
+        modalSelector: '.js-del-modal',
+        closeSelector: '.js-del-close',
+    });
+    initModals({
+        triggers: '.js-edit-trigger',
+        modalSelector: '.js-edit-modal',
+        closeSelector: '.js-edit-close',
+        onOpen: ({ modal, trigger }) => {
+            modal.querySelectorAll('.js-edit-section').forEach((el) => {
+                el.style.display = 'none';
+            });
+
+            const type = trigger.dataset.edit;
+
+            const head = modal.querySelector(`.js-${type}-editing-head`);
+            const form = modal.querySelector(`.js-${type}-editing-form`);
+            const reminder = modal.querySelector(
+                `.js-${type}-editing-reminder`,
+            );
+
+            if (head) head.style.display = '';
+            if (form) form.style.display = '';
+            if (reminder) reminder.style.display = '';
+        },
     });
     initMemoryModal();
     initFormsTabs();

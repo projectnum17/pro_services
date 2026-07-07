@@ -12,9 +12,11 @@
         <link rel="preload" href="./assets/fonts/ff_600.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="./assets/css/libs.min.css">
         <link rel="stylesheet" href="./assets/css/style.min.css">
+        <link rel="stylesheet" href="./assets/css/mvp2.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="./assets/js/libs.js"></script>
         <script defer src="./assets/js/main.js"></script>
+        <script defer src="./assets/js/mvp2.js"></script>
     </head>
 
     <body>
@@ -99,20 +101,24 @@
                     </nav>
                 </div>
                 <div class="header__panel">
-                    <a href="javascript: void(0)" class="link-secondary js-app-trigger">
-                        <span class="border-gradient">
-                            Зареєструвати пристрій
-                        </span>
-                    </a>
-                    <div class="link-account">
-                        <a href="#!" target="_blank">
+                    <div class="site-controls">
+                        <button type="button" class="site-controls__btn js-search-trigger">
+                            <img src="./assets/images/mvp2/search.svg" alt="Search">
+                        </button>
+                        <button type="button" class="site-controls__btn js-basket-trigger">
+                            <img src="./assets/images/mvp2/basket.svg" alt="Search">
+                            <span class="basket-count">12</span>
+                        </button>
+                    </div>
+                    <a href="#!" class="link-account js-account-trigger">
+                        <div>
                             <p>Особистий кабінет</p>
                             <span>
                                 <img src="./assets/images/icons/ico-acc_1.svg" alt="Icon">
                                 <img src="./assets/images/icons/ico-acc_2.svg" alt="Icon">
                             </span>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                     <a class="header__call  border-gradient" href="tel:+0000000000">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6.10736 7.27676L7.76107 5.62305L13.0944 10.9564L10.7901 13.2607C10.5737 13.4771 10.52 13.8077 10.6569 14.0814C12.2391 17.2458 14.805 19.8117 17.9694 21.3939C18.2431 21.5307 18.5737 21.4771 18.7901 21.2607L21.0944 18.9564L26.4277 24.2897L24.774 25.9434C22.6627 28.0548 19.3201 28.2923 16.9314 26.5008L16.7135 26.3373C12.5441 23.2104 8.84043 19.5066 5.71345 15.3373L5.55 15.1194C3.75846 12.7307 3.99601 9.38811 6.10736 7.27676Z" stroke="black" stroke-width="1.6" />
@@ -128,6 +134,7 @@
                     <span></span>
                 </button>
             </div>
+            <div class="js-signup-trigger" style="position: absolute; top: 0;">signup</div>
         </header>
         <main class="main">
             <div class="video-attachment" data-parallax>
@@ -767,15 +774,15 @@
                             Зареєструвати пристрій
                         </span>
                     </a>
-                    <div class="link-account">
-                        <a href="#!" target="_blank">
+                    <a href="#!" class="link-account js-account-trigger">
+                        <div>
                             <p>Особистий кабінет</p>
                             <span>
                                 <img src="./assets/images/icons/ico-acc_1.svg" alt="Icon">
                                 <img src="./assets/images/icons/ico-acc_2.svg" alt="Icon">
                             </span>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1090,6 +1097,508 @@
                         Усією країною вшановуємо памʼять загиблих на війні.
                     </p>
                     <span class="tribute-content__timer js-memory-timer">01:00</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal--search js-search-modal">
+            <div class="modal__box js-search-box">
+                <button type="button" class="modal__close js-search-close">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.784524 23.1376L12 11.9221M12 11.9221L0.784525 0.706686M12 11.9221L23.2154 0.706649M12 11.9221L23.2154 23.1375" stroke="#537896" stroke-width="2" />
+                    </svg>
+                </button>
+                <p class="section-title">
+                    Пошук
+                </p>
+                <div class="site-search">
+                    <div class="site-search__field js-search-panel">
+                        <form>
+                            <input type="search" name="siteSearch" id="siteSearch">
+                            <button class="site-search__clear js-search-clear" type="button">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_2095_14294)">
+                                        <path d="M14.4 27L13 25.6L18.6 20L13 14.4L14.4 13L20 18.6L25.6 13L27 14.4L21.4 20L27 25.6L25.6 27L20 21.4L14.4 27Z" fill="#B0BEC9" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_2095_14294">
+                                            <rect width="40" height="40" rx="20" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="site-search__results">
+                        <a href="javascript: void(0)" class="site-search__result">
+                            <div class="site-search__preview">
+                                <img src="./assets/images/sp_1.png" alt="Акумулятор">
+                            </div>
+                            <div class="site-search__details">
+                                <p class="site-search__name">Акумулятор</p>
+                                <p class="site-search__articul">Код товару: ЕТ48859</p>
+                                <span class="site-search__price">від 850 ₴</span>
+                            </div>
+                        </a>
+                        <a href="javascript: void(0)" class="site-search__result">
+                            <div class="site-search__preview">
+                                <img src="./assets/images/sp_1.png" alt="Акумулятор">
+                            </div>
+                            <div class="site-search__details">
+                                <p class="site-search__name">Акумулятор</p>
+                                <p class="site-search__articul">Код товару: ЕТ48859</p>
+                                <span class="site-search__price">від 850 ₴</span>
+                            </div>
+                        </a>
+                        <p class="site-search__empty" style="display: none;">Нічого не знайдено</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="support-box">
+            <p class="support-box__message js-support-mess">є питання ?</p>
+            <button type="button" class="support-box__trigger js-support-btn">
+                <img src="./assets/images/mvp2/support-chat.svg" alt="Support">
+                <img src="./assets/images/mvp2/support-close.svg" alt="Support">
+            </button>
+            <div class="support-box__soc">
+                <div class="support-box__connect">
+                    <a target="_blank" href="javascript: void(0)">
+                        <img src="./assets/images/mvp2/telegram.svg" alt="Telegram">
+                    </a>
+                    <a target="_blank" href="javascript: void(0)">
+                        <img src="./assets/images/mvp2/whatsup.svg" alt="Whatup">
+                    </a>
+                    <a target="_blank" href="javascript: void(0)">
+                        <img src="./assets/images/mvp2/viber.svg" alt="Viber">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal--basket js-basket-modal">
+            <div class="modal__box js-basket-box">
+                <button type="button" class="modal__close js-basket-close">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.784524 23.1376L12 11.9221M12 11.9221L0.784525 0.706686M12 11.9221L23.2154 0.706649M12 11.9221L23.2154 23.1375" stroke="#537896" stroke-width="2" />
+                    </svg>
+                </button>
+                <div class="modal__head">
+                    <p class="section-title">
+                        Кошик
+                    </p>
+                    <button type="button" class="basket-clear js-basket-clear">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.76074 18.8242C7.82941 19.6098 8.48514 20.2197 9.27832 20.2197H14.7158C15.509 20.2197 16.1726 19.6098 16.2412 18.8242L17.1797 7.57422H18.7129L17.5225 21.7451H6.47168L5.28906 7.57422H6.81445L7.76074 18.8242ZM15.0381 10.8896L13.6191 12.3086C13.3207 12.6061 13.3207 13.0883 13.6191 13.3867L15.0381 14.8066L13.96 15.8848L12.54 14.4658C12.2426 14.1674 11.7603 14.1674 11.4619 14.4658L10.043 15.8848L8.96484 14.8066L10.3838 13.3867C10.6821 13.0892 10.6822 12.607 10.3838 12.3086L8.96484 10.8896L10.043 9.81152L11.4619 11.2305C11.7593 11.5288 12.2416 11.5288 12.54 11.2305L13.96 9.81152L15.0381 10.8896ZM13.3047 2.25488C14.3419 2.25488 15.2346 2.9562 15.4863 3.96289L15.7148 4.87793H19.9863V6.40332H4.01562V4.87793H8.28613L8.50781 3.96289C8.75954 2.9563 9.65919 2.25499 10.6963 2.25488H13.3047ZM10.6963 3.78027C10.3609 3.78044 10.0714 4.0089 9.99512 4.3291L9.85742 4.87793H14.1445L14.0068 4.3291C13.9229 4.00877 13.6403 3.78027 13.3047 3.78027H10.6963Z" fill="#072136" />
+                        </svg>
+                        Очистити
+                    </button>
+                </div>
+                <div class="site-basket">
+                    <div class="site-basket__products">
+                        <div class="basket-product">
+                            <div class="basket-product__preview">
+                                <img src="./assets/images/sp_1.png" alt="Акумулятор">
+                            </div>
+                            <div class="basket-product__info">
+                                <div class="basket-product__head">
+                                    <div>
+                                        <p class="basket-product__name">Акумулятор</p>
+                                        <p class="basket-product__code">Код товару: ЕТ48859</p>
+                                    </div>
+                                    <button type="button" class="basket-product__del">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.76074 18.8242C7.82941 19.6098 8.48514 20.2197 9.27832 20.2197H14.7158C15.509 20.2197 16.1726 19.6098 16.2412 18.8242L17.1797 7.57422H18.7129L17.5225 21.7451H6.47168L5.28906 7.57422H6.81445L7.76074 18.8242ZM15.0381 10.8896L13.6191 12.3086C13.3207 12.6061 13.3207 13.0883 13.6191 13.3867L15.0381 14.8066L13.96 15.8848L12.54 14.4658C12.2426 14.1674 11.7603 14.1674 11.4619 14.4658L10.043 15.8848L8.96484 14.8066L10.3838 13.3867C10.6821 13.0892 10.6822 12.607 10.3838 12.3086L8.96484 10.8896L10.043 9.81152L11.4619 11.2305C11.7593 11.5288 12.2416 11.5288 12.54 11.2305L13.96 9.81152L15.0381 10.8896ZM13.3047 2.25488C14.3419 2.25488 15.2346 2.9562 15.4863 3.96289L15.7148 4.87793H19.9863V6.40332H4.01562V4.87793H8.28613L8.50781 3.96289C8.75954 2.9563 9.65919 2.25499 10.6963 2.25488H13.3047ZM10.6963 3.78027C10.3609 3.78044 10.0714 4.0089 9.99512 4.3291L9.85742 4.87793H14.1445L14.0068 4.3291C13.9229 4.00877 13.6403 3.78027 13.3047 3.78027H10.6963Z" fill="#072136" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="basket-product__foot">
+                                    <span class="basket-product__price">850 ₴</span>
+                                    <div class="basket-product__counter">
+                                        <button type="button" class="basket-product__handler">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 10.8337V9.16699H15V10.8337H5Z" fill="#072136" />
+                                            </svg>
+                                        </button>
+                                        <input value="1" min="0" type="number" name="basketProductValue_1" id="basketProductValue_1" class="basket-product__field">
+                                        <button type="button" class="basket-product__handler">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.16797 10.8337H4.16797V9.16699H9.16797V4.16699H10.8346V9.16699H15.8346V10.8337H10.8346V15.8337H9.16797V10.8337Z" fill="#072136" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="basket-product">
+                            <div class="basket-product__preview">
+                                <img src="./assets/images/sp_1.png" alt="Акумулятор">
+                            </div>
+                            <div class="basket-product__info">
+                                <div class="basket-product__head">
+                                    <div>
+                                        <p class="basket-product__name">Акумулятор</p>
+                                        <p class="basket-product__code">Код товару: ЕТ48859</p>
+                                    </div>
+                                    <button type="button" class="basket-product__del">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.76074 18.8242C7.82941 19.6098 8.48514 20.2197 9.27832 20.2197H14.7158C15.509 20.2197 16.1726 19.6098 16.2412 18.8242L17.1797 7.57422H18.7129L17.5225 21.7451H6.47168L5.28906 7.57422H6.81445L7.76074 18.8242ZM15.0381 10.8896L13.6191 12.3086C13.3207 12.6061 13.3207 13.0883 13.6191 13.3867L15.0381 14.8066L13.96 15.8848L12.54 14.4658C12.2426 14.1674 11.7603 14.1674 11.4619 14.4658L10.043 15.8848L8.96484 14.8066L10.3838 13.3867C10.6821 13.0892 10.6822 12.607 10.3838 12.3086L8.96484 10.8896L10.043 9.81152L11.4619 11.2305C11.7593 11.5288 12.2416 11.5288 12.54 11.2305L13.96 9.81152L15.0381 10.8896ZM13.3047 2.25488C14.3419 2.25488 15.2346 2.9562 15.4863 3.96289L15.7148 4.87793H19.9863V6.40332H4.01562V4.87793H8.28613L8.50781 3.96289C8.75954 2.9563 9.65919 2.25499 10.6963 2.25488H13.3047ZM10.6963 3.78027C10.3609 3.78044 10.0714 4.0089 9.99512 4.3291L9.85742 4.87793H14.1445L14.0068 4.3291C13.9229 4.00877 13.6403 3.78027 13.3047 3.78027H10.6963Z" fill="#072136" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="basket-product__foot">
+                                    <span class="basket-product__price">850 ₴</span>
+                                    <div class="basket-product__counter">
+                                        <button type="button" class="basket-product__handler">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 10.8337V9.16699H15V10.8337H5Z" fill="#072136" />
+                                            </svg>
+                                        </button>
+                                        <input value="1" min="0" type="number" name="basketProductValue_2" id="basketProductValue_2" class="basket-product__field">
+                                        <button type="button" class="basket-product__handler">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.16797 10.8337H4.16797V9.16699H9.16797V4.16699H10.8346V9.16699H15.8346V10.8337H10.8346V15.8337H9.16797V10.8337Z" fill="#072136" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="basket-product">
+                            <div class="basket-product__preview">
+                                <img src="./assets/images/sp_1.png" alt="Акумулятор">
+                            </div>
+                            <div class="basket-product__info">
+                                <div class="basket-product__head">
+                                    <div>
+                                        <p class="basket-product__name">Акумулятор</p>
+                                        <p class="basket-product__code">Код товару: ЕТ48859</p>
+                                    </div>
+                                    <button type="button" class="basket-product__del">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.76074 18.8242C7.82941 19.6098 8.48514 20.2197 9.27832 20.2197H14.7158C15.509 20.2197 16.1726 19.6098 16.2412 18.8242L17.1797 7.57422H18.7129L17.5225 21.7451H6.47168L5.28906 7.57422H6.81445L7.76074 18.8242ZM15.0381 10.8896L13.6191 12.3086C13.3207 12.6061 13.3207 13.0883 13.6191 13.3867L15.0381 14.8066L13.96 15.8848L12.54 14.4658C12.2426 14.1674 11.7603 14.1674 11.4619 14.4658L10.043 15.8848L8.96484 14.8066L10.3838 13.3867C10.6821 13.0892 10.6822 12.607 10.3838 12.3086L8.96484 10.8896L10.043 9.81152L11.4619 11.2305C11.7593 11.5288 12.2416 11.5288 12.54 11.2305L13.96 9.81152L15.0381 10.8896ZM13.3047 2.25488C14.3419 2.25488 15.2346 2.9562 15.4863 3.96289L15.7148 4.87793H19.9863V6.40332H4.01562V4.87793H8.28613L8.50781 3.96289C8.75954 2.9563 9.65919 2.25499 10.6963 2.25488H13.3047ZM10.6963 3.78027C10.3609 3.78044 10.0714 4.0089 9.99512 4.3291L9.85742 4.87793H14.1445L14.0068 4.3291C13.9229 4.00877 13.6403 3.78027 13.3047 3.78027H10.6963Z" fill="#072136" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="basket-product__foot">
+                                    <span class="basket-product__price">850 ₴</span>
+                                    <div class="basket-product__counter">
+                                        <button type="button" class="basket-product__handler">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 10.8337V9.16699H15V10.8337H5Z" fill="#072136" />
+                                            </svg>
+                                        </button>
+                                        <input value="1" min="0" type="number" name="basketProductValue_3" id="basketProductValue_3" class="basket-product__field">
+                                        <button type="button" class="basket-product__handler">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.16797 10.8337H4.16797V9.16699H9.16797V4.16699H10.8346V9.16699H15.8346V10.8337H10.8346V15.8337H9.16797V10.8337Z" fill="#072136" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="site-basket__form">
+                        <form>
+                            <p class="site-basket__title">Оформлення замовлення</p>
+                            <div class="site-basket__fields">
+                                <div class="form-field">
+                                    <label class="form-field__title" for="basketModalName">Ваше Імʼя *</label>
+                                    <input class="form-field__data" required type="text" name="basketModalName" id="basketModalName" placeholder=" ">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-field__title" for="basketModalPhone">Номер телефону *</label>
+                                    <input class="form-field__data" required type="text" name="basketModalPhone" id="basketModalPhone" placeholder=" ">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-field__title" for="basketModalMail">Email *</label>
+                                    <input class="form-field__data" required type="email" name="basketModalMail" id="basketModalMail" placeholder=" ">
+                                </div>
+                            </div>
+                            <div class="site-basket__total">
+                                <p>Сума замовлення:</p>
+                                <p>1280 ₴</p>
+                            </div>
+                            <div class="modal__foot">
+                                <button type="submit" class="link-accent">
+                                    <span>Замовити</span>
+                                </button>
+                                <p class="modal__tcpa">
+                                    Натискаючт кнопку ви погоджуєтесь з нашою <a target="_blank" href="javascript: void(0)">Політикою конфеденційності</a> та <a target="_blank" href="javascript: void(0)">Обробкою персональных данных</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal--login js-account-modal">
+            <div class="modal__box js-account-box">
+                <button type="button" class="modal__close js-account-close">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.784524 23.1376L12 11.9221M12 11.9221L0.784525 0.706686M12 11.9221L23.2154 0.706649M12 11.9221L23.2154 23.1375" stroke="#537896" stroke-width="2" />
+                    </svg>
+                </button>
+                <div class="modal__back">
+                    <button type="button" class="js-btn-back">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_1926_16091)">
+                                <path d="M15.5186 21.0009C14.2144 21.0009 13.4585 22.4779 14.2213 23.5358L22.7065 32.0211L21.2923 33.4353L10.3936 22.5366L10.3916 17.466L21.2923 6.56526L22.7065 7.97947L14.2206 16.4654C13.4579 17.5239 14.2142 19.0011 15.5188 19.0011H34.7267V21.0009H15.5186Z" fill="#072136" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1926_16091">
+                                    <rect width="40" height="40" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                    <p class="section-title">Авторизація</p>
+                </div>
+                <div class="modal__txts">
+                    <p class="modal__subtitle">
+                        Введіть код безпеки, який ми надіслали на номер телефону +38 (097) 015-61-72
+                    </p>
+                    <p class="modal__subtitle">
+                        Увійдіть у свій обліковий запис або зареєструйтесь та користуйся усіма можливостями нашої платформи.
+                    </p>
+                </div>
+                <div class="login-box">
+                    <form>
+                        <div class="login-box__verif js-verification-block">
+                            <div class="form-field">
+                                <label class="form-field__title" for="loginField">Вкажіть номер телефону або e-mail</label>
+                                <input class="form-field__data" required type="text" name="loginField" id="loginField" placeholder=" ">
+                            </div>
+                            <p class="modal__tcpa">
+                                Натискаючт кнопку ви погоджуєтесь з нашою <a target="_blank" href="javascript: void(0)">Політикою конфеденційності</a> та <a target="_blank" href="javascript: void(0)">Обробкою персональных данных</a>
+                            </p>
+                            <button type="button" class="link-accent js-btn-next">
+                                <span>Продовжити</span>
+                            </button>
+                            <p class="login-box__choice">або</p>
+                            <a href="javascript: void(0)" class="login-box__google">
+                                <img src="./assets/images/mvp2/google.svg" alt="Google">
+                                Авторизуватись через Gmail
+                            </a>
+                        </div>
+                        <div class="login-box__code js-code-block">
+                            <div class="verification-code">
+                                <input class="verification-code__field js-code-field" maxlength="1">
+                                <input class="verification-code__field js-code-field" maxlength="1">
+                                <input class="verification-code__field js-code-field" maxlength="1">
+                                <input class="verification-code__field js-code-field" maxlength="1">
+                                <input class="verification-code__field js-code-field" maxlength="1">
+                                <input class="verification-code__field js-code-field" maxlength="1">
+                            </div>
+                            <button type="button" class="login-box__refresh js-code-refresh">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.4375 2.01908C15.166 0.362317 9.78825 1.81378 6.08195 5.21489C5.33834 5.89828 4.14538 5.39865 4.14538 4.38937V3.55812H1.84846V11.463H9.36507V9.16594H8.13477C7.11983 9.16594 6.58433 7.92551 7.30788 7.21199C10.3771 4.18558 14.9539 2.8174 19.4657 4.12387C24.4774 5.57533 28.108 10.1797 28.359 15.3909C28.7007 22.4862 23.0258 28.3693 16.0046 28.3693C9.18547 28.3693 3.63429 22.8188 3.63429 15.9981H1.33594C1.33594 24.0868 7.91504 30.6663 16.0031 30.6663C24.6381 30.6663 31.5545 23.165 30.577 14.3354C29.9453 8.63276 25.91 3.73869 20.436 2.01864L20.4375 2.01908Z" fill="#B0BEC9" />
+                                </svg>
+                                Надіслати новий код
+                                <span class="login-box__timer">
+                                    за <span class="js-code-timer">00:25</span>
+                                </span>
+                            </button>
+                            <button type="submit" class="link-accent">
+                                <span>Увійти</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal__reminder">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z" stroke="#537896" />
+                        <path d="M16 11C15.7167 11 15.4792 11.0958 15.2875 11.2875C15.0958 11.4792 15 11.7167 15 12C15 12.2833 15.0958 12.5208 15.2875 12.7125C15.4792 12.9042 15.7167 13 16 13C16.2833 13 16.5208 12.9042 16.7125 12.7125C16.9042 12.5208 17 12.2833 17 12C17 11.7167 16.9042 11.4792 16.7125 11.2875C16.5208 11.0958 16.2833 11 16 11ZM17 15L15 15L15 21L17 21L17 15Z" fill="#537896" />
+                    </svg>
+                    <p>
+                        Якщо ви не можете увійти до акаунта або завершити реєстрацію, зверніться до служби підтримки через чат.
+                        Наші спеціалісти допоможуть вирішити проблему.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="app-modal modal--signup js-signup-modal">
+            <div class="app-modal__show">
+                <video muted autoplay loop playsinline class="js-video-bg" poster="./assets/video/poster.png">
+                    <source data-src="./assets/video/present.mp4" type="video/mp4">
+                    <p>Your browser does not support the video tag.</p>
+                </video>
+                <div class="logo-blur">
+                    <svg viewBox="0 0 674 497" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <clipPath id="adaptive_logo_clip" clipPathUnits="objectBoundingBox">
+                                <path transform="scale(0.00148368, 0.00201207)" d="M534.526 96.0399C534.529 96.0328 534.537 96.0301 534.543 96.0345C559.866 114.51 582.125 135.05 601.025 156.768C673.46 239.989 696.318 340.508 649.804 408.9C588.881 498.433 432.117 499.032 299.631 410.245C287.899 402.37 276.737 394.062 266.2 385.389C261.719 381.701 261.501 374.966 265.62 370.877L265.897 370.603C269.154 367.369 274.264 366.91 278.064 369.483C400.356 451.45 526.955 477.55 560.833 427.756C592.41 381.341 532.247 285.363 424.855 206.163C415.553 199.302 402.661 200.468 394.457 208.611L107.542 493.418C101.112 499.801 90.217 497.216 87.3386 488.626C85.8601 484.214 87.015 479.345 90.3176 476.067L175.307 391.702C175.634 391.377 175.634 390.849 175.307 390.524C175.08 390.298 174.758 390.229 174.49 390.405C170.97 392.715 152.181 408.951 139.469 400.817C114.151 382.33 91.8779 361.797 72.9752 340.075C0.53974 256.854 -22.318 156.335 24.1959 87.9432C85.119 -1.59029 241.874 -2.18934 374.36 86.6069C386.091 94.4824 397.254 102.791 407.791 111.463C412.272 115.151 412.489 121.886 408.371 125.975L408.099 126.244C404.839 129.48 399.726 129.938 395.918 127.369C273.635 45.4021 147.035 19.3024 113.157 69.1057C81.5809 115.521 141.744 211.498 249.135 290.698C258.438 297.559 271.33 296.394 279.533 288.251L341.679 226.561C341.69 226.551 341.706 226.551 341.716 226.561C341.727 226.571 341.743 226.571 341.754 226.561L566.423 3.54223C569.681 0.308181 574.479 -0.823574 578.839 0.613381C587.489 3.46444 590.079 14.4448 583.615 20.8615L498.684 105.169C498.357 105.493 498.357 106.022 498.684 106.347C498.911 106.572 499.233 106.642 499.5 106.466C503.019 104.155 521.798 87.9215 534.51 96.0455C534.516 96.0494 534.524 96.0467 534.526 96.0399Z" />
+                            </clipPath>
+                        </defs>
+
+                        <path d="M534.526 96.0399C534.529 96.0328 534.537 96.0301 534.543 96.0345C559.866 114.51 582.125 135.05 601.025 156.768C673.46 239.989 696.318 340.508 649.804 408.9C588.881 498.433 432.117 499.032 299.631 410.245C287.899 402.37 276.737 394.062 266.2 385.389C261.719 381.701 261.501 374.966 265.62 370.877L265.897 370.603C269.154 367.369 274.264 366.91 278.064 369.483C400.356 451.45 526.955 477.55 560.833 427.756C592.41 381.341 532.247 285.363 424.855 206.163C415.553 199.302 402.661 200.468 394.457 208.611L107.542 493.418C101.112 499.801 90.217 497.216 87.3386 488.626C85.8601 484.214 87.015 479.345 90.3176 476.067L175.307 391.702C175.634 391.377 175.634 390.849 175.307 390.524C175.08 390.298 174.758 390.229 174.49 390.405C170.97 392.715 152.181 408.951 139.469 400.817C114.151 382.33 91.8779 361.797 72.9752 340.075C0.53974 256.854 -22.318 156.335 24.1959 87.9432C85.119 -1.59029 241.874 -2.18934 374.36 86.6069C386.091 94.4824 397.254 102.791 407.791 111.463C412.272 115.151 412.489 121.886 408.371 125.975L408.099 126.244C404.839 129.48 399.726 129.938 395.918 127.369C273.635 45.4021 147.035 19.3024 113.157 69.1057C81.5809 115.521 141.744 211.498 249.135 290.698C258.438 297.559 271.33 296.394 279.533 288.251L341.679 226.561C341.69 226.551 341.706 226.551 341.716 226.561C341.727 226.571 341.743 226.571 341.754 226.561L566.423 3.54223C569.681 0.308181 574.479 -0.823574 578.839 0.613381C587.489 3.46444 590.079 14.4448 583.615 20.8615L498.684 105.169C498.357 105.493 498.357 106.022 498.684 106.347C498.911 106.572 499.233 106.642 499.5 106.466C503.019 104.155 521.798 87.9215 534.51 96.0455C534.516 96.0494 534.524 96.0467 534.526 96.0399Z" fill="#537896" fill-opacity="0.1" />
+                    </svg>
+                </div>
+            </div>
+            <div class="app-modal__flow">
+                <div class="app-modal__head">
+                    <div class="app-modal__titles">
+                        <p class="app-modal__heading">Реєстрація нового користувача</p>
+                        <p class="app-modal__subheading">
+                            Зареєструйтеся, щоб зручно керувати своїми заявками та відстежувати статус ремонту. Отримайте
+                            додаткову можливість — отримувати сповіщення про хід ремонту прямо на електронну пошту.
+                        </p>
+                    </div>
+                    <button class="app-modal__close js-signup-close" type="button">
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.784524 23.1385L12 11.9231M12 11.9231L0.784525 0.707662M12 11.9231L23.2154 0.707626M12 11.9231L23.2154 23.1385" stroke="#537896" stroke-width="2"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="signup-form">
+                    <p class="signup-form__title">Контактні данні *</p>
+                    <form>
+                        <div class="signup-form__fields">
+                            <div class="form-field">
+                                <label class="form-field__title" for="signupLastName">Прізвище *</label>
+                                <input class="form-field__data" required type="text" name="signupLastName" id="signupLastName" placeholder=" ">
+                            </div>
+                            <div class="form-field">
+                                <label class="form-field__title" for="signuoFirstName">Ваше Імʼя *</label>
+                                <input class="form-field__data" required type="text" name="signuoFirstName" id="signuoFirstName" placeholder=" ">
+                            </div>
+                            <div class="form-field">
+                                <label class="form-field__title" for="signupMiddleName">По батькові</label>
+                                <input class="form-field__data" required type="text" name="signupMiddleName" id="signupMiddleName" placeholder=" ">
+                            </div>
+                            <div class="form-field">
+                                <label class="form-field__title" for="signupPhone">Контактний номер телефону *</label>
+                                <input class="form-field__data" required type="text" name="signupPhone" id="signupPhone" placeholder=" ">
+                            </div>
+                            <div class="form-field">
+                                <label class="form-field__title" for="signupEmail">Електрона пошта *</label>
+                                <input class="form-field__data" required type="email" name="signupEmail" id="signupEmail" placeholder=" ">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="app-form__submit">
+                        <p class="app-form__tcpa">
+                            Натискаючт кнопку ви погоджуєтесь з нашою <a href="javascript: void(0)" target="_blank">Політикою конфеденційності</a> та <a href="javascript: void(0)" target="_blank">Обробкою персональных данных</a>
+                        </p>
+                        <button type="submit" class="link-accent">
+                            <span>Зареєструватися</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal--edit js-edit-modal">
+            <div class="modal__box js-edit-box">
+                <button type="button" class="modal__close js-edit-close">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.784524 23.1376L12 11.9221M12 11.9221L0.784525 0.706686M12 11.9221L23.2154 0.706649M12 11.9221L23.2154 23.1375" stroke="#537896" stroke-width="2" />
+                    </svg>
+                </button>
+                <div class="modal__edit js-edit-section js-phone-editing-head">
+                    <p class="section-title">Редагувати Номер телефону</p>
+                    <p class="modal__subtitle">
+                        Змініть номер телефону за потреби. Після збереження змін ми надішлемо код підтвердження
+                    </p>
+                </div>
+                <div class="modal__edit js-edit-section js-mail-editing-head">
+                    <p class="section-title">Редагувати поштову адресу</p>
+                    <p class="modal__subtitle">
+                        Змініть електронну адресу за потреби. Після збереження змін ми надішлемо код підтвердження на новий email.
+                    </p>
+                </div>
+                <div class="modal__edit js-edit-section js-personal-editing-head">
+                    <p class="section-title">Редагувати особисті дані</p>
+                </div>
+                <div class="edit-form js-edit-section js-phone-editing-form">
+                    <div class="reserved-info">
+                        <p>Ваша поточний номер телефону</p>
+                        <p>+38 067 502 13 73</p>
+                    </div>
+                    <form>
+                        <div class="form-field">
+                            <label class="form-field__title" for="changePhone">Вкажіть номер телефону</label>
+                            <input class="form-field__data" required type="text" name="changePhone" id="changePhone" placeholder=" ">
+                        </div>
+                        <button type="submit" class="link-accent">
+                            <span>Змінити</span>
+                        </button>
+                    </form>
+                </div>
+                <div class="edit-form js-edit-section js-mail-editing-form">
+                    <div class="reserved-info">
+                        <p>Ваша поточна електрона адреса</p>
+                        <p>zdzhh@gmail.com</p>
+                    </div>
+                    <form>
+                        <div class="form-field">
+                            <label class="form-field__title" for="changeMail">Вкажіть електрону адресу</label>
+                            <input class="form-field__data" required type="text" name="changeMail" id="changeMail" placeholder=" ">
+                        </div>
+                        <button type="submit" class="link-accent">
+                            <span>Змінити</span>
+                        </button>
+                    </form>
+                </div>
+                <div class="edit-form js-edit-section js-personal-editing-form">
+                    <form>
+                        <div class="form-field">
+                            <label class="form-field__title" for="editLastName">Прізвище*</label>
+                            <input class="form-field__data" required type="text" name="editLastName" id="editLastName" value="Оксана" placeholder=" ">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-field__title" for="editFirstName">Імʼя*</label>
+                            <input class="form-field__data" required type="text" name="editFirstName" id="editFirstName" value="Оксана" placeholder=" ">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-field__title" for="editMidleName">По батькові</label>
+                            <input class="form-field__data" required type="text" name="editMidleName" id="editMidleName" placeholder=" ">
+                        </div>
+                        <button type="submit" class="link-accent">
+                            <span>Змінити</span>
+                        </button>
+                    </form>
+                </div>
+                <div class="modal__reminder js-edit-section js-phone-editing-reminder">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z" stroke="#537896" />
+                        <path d="M16 11C15.7167 11 15.4792 11.0958 15.2875 11.2875C15.0958 11.4792 15 11.7167 15 12C15 12.2833 15.0958 12.5208 15.2875 12.7125C15.4792 12.9042 15.7167 13 16 13C16.2833 13 16.5208 12.9042 16.7125 12.7125C16.9042 12.5208 17 12.2833 17 12C17 11.7167 16.9042 11.4792 16.7125 11.2875C16.5208 11.0958 16.2833 11 16 11ZM17 15L15 15L15 21L17 21L17 15Z" fill="#537896" />
+                    </svg>
+                    <p>
+                        <span>Зверніть увагу:</span> номер телефону використовується для входу до вашого особистого кабінету. Після зміни номера ви автоматично вийдете з облікового запису. Для повторного входу потрібно буде підтвердити новий номер, ввівши код, який буде надіслано в SMS.
+                    </p>
+                </div>
+                <div class="modal__reminder js-edit-section js-mail-editing-reminder">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z" stroke="#537896" />
+                        <path d="M16 11C15.7167 11 15.4792 11.0958 15.2875 11.2875C15.0958 11.4792 15 11.7167 15 12C15 12.2833 15.0958 12.5208 15.2875 12.7125C15.4792 12.9042 15.7167 13 16 13C16.2833 13 16.5208 12.9042 16.7125 12.7125C16.9042 12.5208 17 12.2833 17 12C17 11.7167 16.9042 11.4792 16.7125 11.2875C16.5208 11.0958 16.2833 11 16 11ZM17 15L15 15L15 21L17 21L17 15Z" fill="#537896" />
+                    </svg>
+                    <p>
+                        <span>Зверніть увагу:</span> електронна пошта використовується для входу до вашого особистого кабінету. Після зміни електронної пошти ви автоматично вийдете з облікового запису. Для повторного входу потрібно буде підтвердити нову адресу, перейшовши за посиланням або ввівши код підтвердження, надісланий на нову електронну пошту.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal--del js-del-modal">
+            <div class="modal__box js-del-box">
+                <button type="button" class="modal__close js-del-close">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.784524 23.1376L12 11.9221M12 11.9221L0.784525 0.706686M12 11.9221L23.2154 0.706649M12 11.9221L23.2154 23.1375" stroke="#537896" stroke-width="2" />
+                    </svg>
+                </button>
+                <p class="section-title">
+                    Видалити акаунт
+                </p>
+                <p class="modal__subtitle">
+                    Ви впевнені, що хочете видалити свій аккаунт?
+                </p>
+                <div class="del-controls">
+                    <button type="button" class="link-accent js-del-close">
+                        <span>Видалити</span>
+                    </button>
+                    <button type="button" class="link-secondary js-del-close">
+                        <span class="border-gradient">
+                            Скасувати
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>
