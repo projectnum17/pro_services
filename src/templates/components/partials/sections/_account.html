@@ -1,0 +1,20 @@
+<section class="account">
+    <div class="container">
+        {{> _accountNav active = activeLink}}
+        {{#if accountServices}}
+            {{> _accountServices}}
+        {{/if}}
+
+        {{#if accountService}}
+            {{> _accountService}}
+        {{/if}}
+
+        {{#if accountDevices}}
+            {{> _accountDevices}}
+        {{/if}}
+
+        {{#if accountUser}}
+            {{> _accountUser}}
+        {{/if}}
+    </div>
+</section>

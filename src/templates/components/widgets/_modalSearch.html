@@ -1,0 +1,60 @@
+<div class="modal modal--search js-search-modal">
+    <div class="modal__box js-search-box">
+        <button type="button" class="modal__close js-search-close">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0.784524 23.1376L12 11.9221M12 11.9221L0.784525 0.706686M12 11.9221L23.2154 0.706649M12 11.9221L23.2154 23.1375"
+                    stroke="#537896" stroke-width="2" />
+            </svg>
+        </button>
+        {{> _titleBuilder
+            className = 'section-title'
+            tagWrapper = 'p'
+            label = 'Пошук'
+        }}
+        <div class="site-search">
+            <div class="site-search__field js-search-panel">
+                <form>
+                    <input type="search" name="siteSearch" id="siteSearch">
+                    <button class="site-search__clear js-search-clear" type="button">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_2095_14294)">
+                                <path
+                                    d="M14.4 27L13 25.6L18.6 20L13 14.4L14.4 13L20 18.6L25.6 13L27 14.4L21.4 20L27 25.6L25.6 27L20 21.4L14.4 27Z"
+                                    fill="#B0BEC9" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_2095_14294">
+                                    <rect width="40" height="40" rx="20" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            <div class="site-search__results">
+                <a href="javascript: void(0)" class="site-search__result">
+                    <div class="site-search__preview">
+                        <img src="./assets/images/sp_1.png" alt="Акумулятор">
+                    </div>
+                    <div class="site-search__details">
+                        <p class="site-search__name">Акумулятор</p>
+                        <p class="site-search__articul">Код товару: ЕТ48859</p>
+                        <span class="site-search__price">від 850 ₴</span>
+                    </div>
+                </a>
+                <a href="javascript: void(0)" class="site-search__result">
+                    <div class="site-search__preview">
+                        <img src="./assets/images/sp_1.png" alt="Акумулятор">
+                    </div>
+                    <div class="site-search__details">
+                        <p class="site-search__name">Акумулятор</p>
+                        <p class="site-search__articul">Код товару: ЕТ48859</p>
+                        <span class="site-search__price">від 850 ₴</span>
+                    </div>
+                </a>
+                <p class="site-search__empty" style="display: none;">Нічого не знайдено</p>
+            </div>
+        </div>
+    </div>
+</div>

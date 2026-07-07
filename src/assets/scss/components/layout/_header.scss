@@ -110,8 +110,8 @@ body {
         }
 
         @include media('desktop-lg') {
-            order: 4;
-            margin-left: auto;
+            // order: 4;
+            // margin-left: auto;
             font-size: rem(12px);
             height: rem(35px);
         }
@@ -147,7 +147,7 @@ body {
 
     .nav-panel {
         @include media('desktop-lg') {
-            order: 3;
+            // order: 3;
         }
         @include media('laptop') {
             display: none;
@@ -234,7 +234,7 @@ body {
             max-width: rem(320px);
         }
         @include media('desktop-lg') {
-            order: 1;
+            // order: 1;
             max-width: rem(110px);
             gap: rem(6px);
             flex-direction: column;
@@ -251,7 +251,7 @@ body {
     }
 
     &__details {
-        max-width: rem(1269px);
+        max-width: rem(1200px);
         width: 100%;
         display: flex;
         align-items: center;

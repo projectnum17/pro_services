@@ -1,0 +1,196 @@
+<div class="modal modal--basket js-basket-modal">
+    <div class="modal__box js-basket-box">
+        <button type="button" class="modal__close js-basket-close">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0.784524 23.1376L12 11.9221M12 11.9221L0.784525 0.706686M12 11.9221L23.2154 0.706649M12 11.9221L23.2154 23.1375"
+                    stroke="#537896" stroke-width="2" />
+            </svg>
+        </button>
+        <div class="modal__head">
+            {{> _titleBuilder
+            className = 'section-title'
+            tagWrapper = 'p'
+            label = 'Кошик'
+            }}
+            <button type="button" class="basket-clear js-basket-clear">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M7.76074 18.8242C7.82941 19.6098 8.48514 20.2197 9.27832 20.2197H14.7158C15.509 20.2197 16.1726 19.6098 16.2412 18.8242L17.1797 7.57422H18.7129L17.5225 21.7451H6.47168L5.28906 7.57422H6.81445L7.76074 18.8242ZM15.0381 10.8896L13.6191 12.3086C13.3207 12.6061 13.3207 13.0883 13.6191 13.3867L15.0381 14.8066L13.96 15.8848L12.54 14.4658C12.2426 14.1674 11.7603 14.1674 11.4619 14.4658L10.043 15.8848L8.96484 14.8066L10.3838 13.3867C10.6821 13.0892 10.6822 12.607 10.3838 12.3086L8.96484 10.8896L10.043 9.81152L11.4619 11.2305C11.7593 11.5288 12.2416 11.5288 12.54 11.2305L13.96 9.81152L15.0381 10.8896ZM13.3047 2.25488C14.3419 2.25488 15.2346 2.9562 15.4863 3.96289L15.7148 4.87793H19.9863V6.40332H4.01562V4.87793H8.28613L8.50781 3.96289C8.75954 2.9563 9.65919 2.25499 10.6963 2.25488H13.3047ZM10.6963 3.78027C10.3609 3.78044 10.0714 4.0089 9.99512 4.3291L9.85742 4.87793H14.1445L14.0068 4.3291C13.9229 4.00877 13.6403 3.78027 13.3047 3.78027H10.6963Z"
+                        fill="#072136" />
+                </svg>
+                Очистити
+            </button>
+        </div>
+        <div class="site-basket">
+            <div class="site-basket__products">
+                <div class="basket-product">
+                    <div class="basket-product__preview">
+                        <img src="./assets/images/sp_1.png" alt="Акумулятор">
+                    </div>
+                    <div class="basket-product__info">
+                        <div class="basket-product__head">
+                            <div>
+                                <p class="basket-product__name">Акумулятор</p>
+                                <p class="basket-product__code">Код товару: ЕТ48859</p>
+                            </div>
+                            <button type="button" class="basket-product__del">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.76074 18.8242C7.82941 19.6098 8.48514 20.2197 9.27832 20.2197H14.7158C15.509 20.2197 16.1726 19.6098 16.2412 18.8242L17.1797 7.57422H18.7129L17.5225 21.7451H6.47168L5.28906 7.57422H6.81445L7.76074 18.8242ZM15.0381 10.8896L13.6191 12.3086C13.3207 12.6061 13.3207 13.0883 13.6191 13.3867L15.0381 14.8066L13.96 15.8848L12.54 14.4658C12.2426 14.1674 11.7603 14.1674 11.4619 14.4658L10.043 15.8848L8.96484 14.8066L10.3838 13.3867C10.6821 13.0892 10.6822 12.607 10.3838 12.3086L8.96484 10.8896L10.043 9.81152L11.4619 11.2305C11.7593 11.5288 12.2416 11.5288 12.54 11.2305L13.96 9.81152L15.0381 10.8896ZM13.3047 2.25488C14.3419 2.25488 15.2346 2.9562 15.4863 3.96289L15.7148 4.87793H19.9863V6.40332H4.01562V4.87793H8.28613L8.50781 3.96289C8.75954 2.9563 9.65919 2.25499 10.6963 2.25488H13.3047ZM10.6963 3.78027C10.3609 3.78044 10.0714 4.0089 9.99512 4.3291L9.85742 4.87793H14.1445L14.0068 4.3291C13.9229 4.00877 13.6403 3.78027 13.3047 3.78027H10.6963Z"
+                                        fill="#072136" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="basket-product__foot">
+                            <span class="basket-product__price">850 ₴</span>
+                            <div class="basket-product__counter">
+                                <button type="button" class="basket-product__handler">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 10.8337V9.16699H15V10.8337H5Z" fill="#072136" />
+                                    </svg>
+                                </button>
+                                <input value="1" min="0" type="number" name="basketProductValue_1" id="basketProductValue_1"
+                                    class="basket-product__field">
+                                <button type="button" class="basket-product__handler">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.16797 10.8337H4.16797V9.16699H9.16797V4.16699H10.8346V9.16699H15.8346V10.8337H10.8346V15.8337H9.16797V10.8337Z"
+                                            fill="#072136" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="basket-product">
+                    <div class="basket-product__preview">
+                        <img src="./assets/images/sp_1.png" alt="Акумулятор">
+                    </div>
+                    <div class="basket-product__info">
+                        <div class="basket-product__head">
+                            <div>
+                                <p class="basket-product__name">Акумулятор</p>
+                                <p class="basket-product__code">Код товару: ЕТ48859</p>
+                            </div>
+                            <button type="button" class="basket-product__del">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.76074 18.8242C7.82941 19.6098 8.48514 20.2197 9.27832 20.2197H14.7158C15.509 20.2197 16.1726 19.6098 16.2412 18.8242L17.1797 7.57422H18.7129L17.5225 21.7451H6.47168L5.28906 7.57422H6.81445L7.76074 18.8242ZM15.0381 10.8896L13.6191 12.3086C13.3207 12.6061 13.3207 13.0883 13.6191 13.3867L15.0381 14.8066L13.96 15.8848L12.54 14.4658C12.2426 14.1674 11.7603 14.1674 11.4619 14.4658L10.043 15.8848L8.96484 14.8066L10.3838 13.3867C10.6821 13.0892 10.6822 12.607 10.3838 12.3086L8.96484 10.8896L10.043 9.81152L11.4619 11.2305C11.7593 11.5288 12.2416 11.5288 12.54 11.2305L13.96 9.81152L15.0381 10.8896ZM13.3047 2.25488C14.3419 2.25488 15.2346 2.9562 15.4863 3.96289L15.7148 4.87793H19.9863V6.40332H4.01562V4.87793H8.28613L8.50781 3.96289C8.75954 2.9563 9.65919 2.25499 10.6963 2.25488H13.3047ZM10.6963 3.78027C10.3609 3.78044 10.0714 4.0089 9.99512 4.3291L9.85742 4.87793H14.1445L14.0068 4.3291C13.9229 4.00877 13.6403 3.78027 13.3047 3.78027H10.6963Z"
+                                        fill="#072136" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="basket-product__foot">
+                            <span class="basket-product__price">850 ₴</span>
+                            <div class="basket-product__counter">
+                                <button type="button" class="basket-product__handler">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 10.8337V9.16699H15V10.8337H5Z" fill="#072136" />
+                                    </svg>
+                                </button>
+                                <input value="1" min="0" type="number" name="basketProductValue_2" id="basketProductValue_2"
+                                    class="basket-product__field">
+                                <button type="button" class="basket-product__handler">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.16797 10.8337H4.16797V9.16699H9.16797V4.16699H10.8346V9.16699H15.8346V10.8337H10.8346V15.8337H9.16797V10.8337Z"
+                                            fill="#072136" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="basket-product">
+                    <div class="basket-product__preview">
+                        <img src="./assets/images/sp_1.png" alt="Акумулятор">
+                    </div>
+                    <div class="basket-product__info">
+                        <div class="basket-product__head">
+                            <div>
+                                <p class="basket-product__name">Акумулятор</p>
+                                <p class="basket-product__code">Код товару: ЕТ48859</p>
+                            </div>
+                            <button type="button" class="basket-product__del">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.76074 18.8242C7.82941 19.6098 8.48514 20.2197 9.27832 20.2197H14.7158C15.509 20.2197 16.1726 19.6098 16.2412 18.8242L17.1797 7.57422H18.7129L17.5225 21.7451H6.47168L5.28906 7.57422H6.81445L7.76074 18.8242ZM15.0381 10.8896L13.6191 12.3086C13.3207 12.6061 13.3207 13.0883 13.6191 13.3867L15.0381 14.8066L13.96 15.8848L12.54 14.4658C12.2426 14.1674 11.7603 14.1674 11.4619 14.4658L10.043 15.8848L8.96484 14.8066L10.3838 13.3867C10.6821 13.0892 10.6822 12.607 10.3838 12.3086L8.96484 10.8896L10.043 9.81152L11.4619 11.2305C11.7593 11.5288 12.2416 11.5288 12.54 11.2305L13.96 9.81152L15.0381 10.8896ZM13.3047 2.25488C14.3419 2.25488 15.2346 2.9562 15.4863 3.96289L15.7148 4.87793H19.9863V6.40332H4.01562V4.87793H8.28613L8.50781 3.96289C8.75954 2.9563 9.65919 2.25499 10.6963 2.25488H13.3047ZM10.6963 3.78027C10.3609 3.78044 10.0714 4.0089 9.99512 4.3291L9.85742 4.87793H14.1445L14.0068 4.3291C13.9229 4.00877 13.6403 3.78027 13.3047 3.78027H10.6963Z"
+                                        fill="#072136" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="basket-product__foot">
+                            <span class="basket-product__price">850 ₴</span>
+                            <div class="basket-product__counter">
+                                <button type="button" class="basket-product__handler">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 10.8337V9.16699H15V10.8337H5Z" fill="#072136" />
+                                    </svg>
+                                </button>
+                                <input value="1" min="0" type="number" name="basketProductValue_3" id="basketProductValue_3"
+                                    class="basket-product__field">
+                                <button type="button" class="basket-product__handler">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.16797 10.8337H4.16797V9.16699H9.16797V4.16699H10.8346V9.16699H15.8346V10.8337H10.8346V15.8337H9.16797V10.8337Z"
+                                            fill="#072136" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="site-basket__form">
+                <form>
+                    <p class="site-basket__title">Оформлення замовлення</p>
+                    <div class="site-basket__fields">
+                        {{> _fieldInput
+                            labelTarget = "basketModalName"
+                            labelText = "Ваше Імʼя *"
+                            fieldType = "text"
+                            fieldName = "basketModalName"
+                            fieldId = "basketModalName"
+                        }}
+                        {{> _fieldInput
+                            labelTarget = "basketModalPhone"
+                            labelText = "Номер телефону *"
+                            fieldType = "text"
+                            fieldName = "basketModalPhone"
+                            fieldId = "basketModalPhone"
+                        }}
+                        {{> _fieldInput
+                            labelTarget = "basketModalMail"
+                            labelText = "Email *"
+                            fieldType = "email"
+                            fieldName = "basketModalMail"
+                            fieldId = "basketModalMail"
+                        }}
+                    </div>
+                    <div class="site-basket__total">
+                        <p>Сума замовлення:</p>
+                        <p>1280 ₴</p>
+                    </div>
+                    <div class="modal__foot">
+                        <button type="submit" class="link-accent"><span>Замовити</span></button>
+                        <p class="modal__tcpa">
+                            Натискаючт кнопку ви погоджуєтесь з нашою <a target="_blank"
+                                href="javascript: void(0)">Політикою конфеденційності</a> та <a target="_blank"
+                                href="javascript: void(0)">Обробкою персональных данных</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

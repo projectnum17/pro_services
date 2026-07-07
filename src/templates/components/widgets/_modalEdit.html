@@ -1,0 +1,118 @@
+<div class="modal modal--edit js-edit-modal">
+    <div class="modal__box js-edit-box">
+        <button type="button" class="modal__close js-edit-close">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0.784524 23.1376L12 11.9221M12 11.9221L0.784525 0.706686M12 11.9221L23.2154 0.706649M12 11.9221L23.2154 23.1375"
+                    stroke="#537896" stroke-width="2" />
+            </svg>
+        </button>
+        <div class="modal__edit js-edit-section js-phone-editing-head">
+            <p class="section-title">Редагувати Номер телефону</p>
+            <p class="modal__subtitle">
+                Змініть номер телефону за потреби. Після збереження змін ми надішлемо код підтвердження
+            </p>
+        </div>
+        <div class="modal__edit js-edit-section js-mail-editing-head">
+            <p class="section-title">Редагувати поштову адресу</p>
+            <p class="modal__subtitle">
+                Змініть електронну адресу за потреби. Після збереження змін ми надішлемо код підтвердження на новий email.
+            </p>
+        </div>
+        <div class="modal__edit js-edit-section js-personal-editing-head">
+            <p class="section-title">Редагувати особисті дані</p>
+        </div>
+        <div class="edit-form js-edit-section js-phone-editing-form">
+            <div class="reserved-info">
+                <p>Ваша поточний номер телефону</p>
+                <p>+38 067 502 13 73</p>
+            </div>
+            <form>
+                {{> _fieldInput
+                    labelTarget = "changePhone"
+                    labelText = "Вкажіть номер телефону"
+                    fieldType = "text"
+                    fieldName = "changePhone"
+                    fieldId = "changePhone"
+                }}
+                <button type="submit" class="link-accent"><span>Змінити</span></button>
+            </form>
+        </div>
+        <div class="edit-form js-edit-section js-mail-editing-form">
+            <div class="reserved-info">
+                <p>Ваша поточна електрона адреса</p>
+                <p>zdzhh@gmail.com</p>
+            </div>
+            <form>
+                {{> _fieldInput
+                    labelTarget = "changeMail"
+                    labelText = "Вкажіть електрону адресу"
+                    fieldType = "text"
+                    fieldName = "changeMail"
+                    fieldId = "changeMail"
+                }}
+                <button type="submit" class="link-accent"><span>Змінити</span></button>
+            </form>
+        </div>
+        <div class="edit-form js-edit-section js-personal-editing-form">
+            <form>
+                <div class="form-field">
+                    <label class="form-field__title" for="editLastName">Прізвище*</label>
+                    <input class="form-field__data"
+                        required
+                        type="text"
+                        name="editLastName"
+                        id="editLastName"
+                        value="Оксана"
+                        placeholder=" ">
+                </div>
+                <div class="form-field">
+                    <label class="form-field__title" for="editFirstName">Імʼя*</label>
+                    <input class="form-field__data"
+                        required
+                        type="text"
+                        name="editFirstName"
+                        id="editFirstName"
+                        value="Оксана"
+                        placeholder=" ">
+                </div>
+                <div class="form-field">
+                    <label class="form-field__title" for="editMidleName">По батькові</label>
+                    <input class="form-field__data"
+                        required
+                        type="text"
+                        name="editMidleName"
+                        id="editMidleName"
+                        placeholder=" ">
+                </div>
+                <button type="submit" class="link-accent"><span>Змінити</span></button>
+            </form>
+        </div>
+        <div class="modal__reminder js-edit-section js-phone-editing-reminder">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z"
+                    stroke="#537896" />
+                <path
+                    d="M16 11C15.7167 11 15.4792 11.0958 15.2875 11.2875C15.0958 11.4792 15 11.7167 15 12C15 12.2833 15.0958 12.5208 15.2875 12.7125C15.4792 12.9042 15.7167 13 16 13C16.2833 13 16.5208 12.9042 16.7125 12.7125C16.9042 12.5208 17 12.2833 17 12C17 11.7167 16.9042 11.4792 16.7125 11.2875C16.5208 11.0958 16.2833 11 16 11ZM17 15L15 15L15 21L17 21L17 15Z"
+                    fill="#537896" />
+            </svg>
+            <p>
+                <span>Зверніть увагу:</span> номер телефону використовується для входу до вашого особистого кабінету. Після зміни номера ви автоматично вийдете з облікового запису. Для повторного входу потрібно буде підтвердити новий номер, ввівши код, який буде надіслано в SMS.
+            </p>
+        </div>
+        <div class="modal__reminder js-edit-section js-mail-editing-reminder">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z"
+                    stroke="#537896" />
+                <path
+                    d="M16 11C15.7167 11 15.4792 11.0958 15.2875 11.2875C15.0958 11.4792 15 11.7167 15 12C15 12.2833 15.0958 12.5208 15.2875 12.7125C15.4792 12.9042 15.7167 13 16 13C16.2833 13 16.5208 12.9042 16.7125 12.7125C16.9042 12.5208 17 12.2833 17 12C17 11.7167 16.9042 11.4792 16.7125 11.2875C16.5208 11.0958 16.2833 11 16 11ZM17 15L15 15L15 21L17 21L17 15Z"
+                    fill="#537896" />
+            </svg>
+            <p>
+                <span>Зверніть увагу:</span> електронна пошта використовується для входу до вашого особистого кабінету. Після зміни електронної пошти ви автоматично вийдете з облікового запису. Для повторного входу потрібно буде підтвердити нову адресу, перейшовши за посиланням або ввівши код підтвердження, надісланий на нову електронну пошту.
+            </p>
+        </div>
+    </div>
+</div>

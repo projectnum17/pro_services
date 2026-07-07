@@ -1,0 +1,179 @@
+<div class="modal modal--login js-account-modal">
+    <div class="modal__box js-account-box">
+        <button type="button" class="modal__close js-account-close">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0.784524 23.1376L12 11.9221M12 11.9221L0.784525 0.706686M12 11.9221L23.2154 0.706649M12 11.9221L23.2154 23.1375"
+                    stroke="#537896" stroke-width="2" />
+            </svg>
+        </button>
+        <div class="modal__back">
+            <button type="button" class="js-btn-back">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1926_16091)">
+                        <path
+                            d="M15.5186 21.0009C14.2144 21.0009 13.4585 22.4779 14.2213 23.5358L22.7065 32.0211L21.2923 33.4353L10.3936 22.5366L10.3916 17.466L21.2923 6.56526L22.7065 7.97947L14.2206 16.4654C13.4579 17.5239 14.2142 19.0011 15.5188 19.0011H34.7267V21.0009H15.5186Z"
+                            fill="#072136" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_1926_16091">
+                            <rect width="40" height="40" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            </button>
+            <p class="section-title">Авторизація</p>
+        </div>
+        <div class="modal__txts">
+            <p class="modal__subtitle">
+                Введіть код безпеки, який ми надіслали на номер телефону +38 (097) 015-61-72
+            </p>
+            <p class="modal__subtitle">
+                Увійдіть у свій обліковий запис або зареєструйтесь та користуйся усіма можливостями нашої платформи.
+            </p>
+        </div>
+        <div class="login-box">
+            <form>
+                <div class="login-box__verif js-verification-block">
+                    {{> _fieldInput
+                    labelTarget = "loginField"
+                    labelText = "Вкажіть номер телефону або e-mail"
+                    fieldType = "text"
+                    fieldName = "loginField"
+                    fieldId = "loginField"
+                    }}
+                    <p class="modal__tcpa">
+                        Натискаючт кнопку ви погоджуєтесь з нашою <a target="_blank"
+                            href="javascript: void(0)">Політикою конфеденційності</a> та <a target="_blank"
+                            href="javascript: void(0)">Обробкою персональных данных</a>
+                    </p>
+                    <button type="button" class="link-accent js-btn-next">
+                        <span>Продовжити</span>
+                    </button>
+                    <p class="login-box__choice">або</p>
+                    <a href="javascript: void(0)" class="login-box__google">
+                        <img src="./assets/images/mvp2/google.svg" alt="Google">
+                        Авторизуватись через Gmail
+                    </a>
+                </div>
+                <div class="login-box__code js-code-block">
+                    <div class="verification-code">
+                        <input class="verification-code__field js-code-field" maxlength="1">
+                        <input class="verification-code__field js-code-field" maxlength="1">
+                        <input class="verification-code__field js-code-field" maxlength="1">
+                        <input class="verification-code__field js-code-field" maxlength="1">
+                        <input class="verification-code__field js-code-field" maxlength="1">
+                        <input class="verification-code__field js-code-field" maxlength="1">
+                    </div>
+                    <button type="button" class="login-box__refresh js-code-refresh">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M20.4375 2.01908C15.166 0.362317 9.78825 1.81378 6.08195 5.21489C5.33834 5.89828 4.14538 5.39865 4.14538 4.38937V3.55812H1.84846V11.463H9.36507V9.16594H8.13477C7.11983 9.16594 6.58433 7.92551 7.30788 7.21199C10.3771 4.18558 14.9539 2.8174 19.4657 4.12387C24.4774 5.57533 28.108 10.1797 28.359 15.3909C28.7007 22.4862 23.0258 28.3693 16.0046 28.3693C9.18547 28.3693 3.63429 22.8188 3.63429 15.9981H1.33594C1.33594 24.0868 7.91504 30.6663 16.0031 30.6663C24.6381 30.6663 31.5545 23.165 30.577 14.3354C29.9453 8.63276 25.91 3.73869 20.436 2.01864L20.4375 2.01908Z"
+                                fill="#B0BEC9" />
+                        </svg>
+                        Надіслати новий код
+                        <span class="login-box__timer">
+                            за <span class="js-code-timer">00:25</span>
+                        </span>
+                    </button>
+                    <button type="submit" class="link-accent">
+                        <span>Увійти</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="modal__reminder">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M16 2.5C17.8715 2.5 19.6237 2.85475 21.2617 3.56152C22.9095 4.27253 24.3383 5.23476 25.5518 6.44824C26.7652 7.66173 27.7275 9.09054 28.4385 10.7383C29.1452 12.3763 29.5 14.1285 29.5 16C29.5 17.8715 29.1452 19.6237 28.4385 21.2617C27.7275 22.9095 26.7652 24.3383 25.5518 25.5518C24.3383 26.7652 22.9095 27.7275 21.2617 28.4385C19.6237 29.1452 17.8715 29.5 16 29.5C14.1285 29.5 12.3763 29.1452 10.7383 28.4385C9.09054 27.7275 7.66173 26.7652 6.44824 25.5518C5.23476 24.3383 4.27253 22.9095 3.56152 21.2617C2.85475 19.6237 2.5 17.8715 2.5 16C2.5 14.1285 2.85475 12.3763 3.56152 10.7383C4.27253 9.09054 5.23476 7.66173 6.44824 6.44824C7.66173 5.23476 9.09054 4.27253 10.7383 3.56152C12.3763 2.85475 14.1285 2.5 16 2.5Z"
+                    stroke="#537896" />
+                <path
+                    d="M16 11C15.7167 11 15.4792 11.0958 15.2875 11.2875C15.0958 11.4792 15 11.7167 15 12C15 12.2833 15.0958 12.5208 15.2875 12.7125C15.4792 12.9042 15.7167 13 16 13C16.2833 13 16.5208 12.9042 16.7125 12.7125C16.9042 12.5208 17 12.2833 17 12C17 11.7167 16.9042 11.4792 16.7125 11.2875C16.5208 11.0958 16.2833 11 16 11ZM17 15L15 15L15 21L17 21L17 15Z"
+                    fill="#537896" />
+            </svg>
+            <p>
+                Якщо ви не можете увійти до акаунта або завершити реєстрацію, зверніться до служби підтримки через чат.
+                Наші спеціалісти допоможуть вирішити проблему.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="app-modal modal--signup js-signup-modal">
+    <div class="app-modal__show">
+        <video muted autoplay loop playsinline class="js-video-bg" poster="./assets/video/poster.png">
+            <source data-src="./assets/video/present.mp4" type="video/mp4">
+            <p>Your browser does not support the video tag.</p>
+        </video>
+        {{> _logoBlur}}
+    </div>
+    <div class="app-modal__flow">
+        <div class="app-modal__head">
+            <div class="app-modal__titles">
+                <p class="app-modal__heading">Реєстрація нового користувача</p>
+                <p class="app-modal__subheading">
+                    Зареєструйтеся, щоб зручно керувати своїми заявками та відстежувати статус ремонту. Отримайте
+                    додаткову можливість — отримувати сповіщення про хід ремонту прямо на електронну пошту.
+                </p>
+            </div>
+            <button class="app-modal__close js-signup-close" type="button">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0.784524 23.1385L12 11.9231M12 11.9231L0.784525 0.707662M12 11.9231L23.2154 0.707626M12 11.9231L23.2154 23.1385"
+                        stroke="#537896" stroke-width="2"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="signup-form">
+            <p class="signup-form__title">Контактні данні *</p>
+            <form>
+                <div class="signup-form__fields">
+                    {{> _fieldInput
+                        labelTarget = "signupLastName"
+                        labelText = "Прізвище *"
+                        fieldType = "text"
+                        fieldName = "signupLastName"
+                        fieldId = "signupLastName"
+                    }}
+                    {{> _fieldInput
+                        labelTarget = "signuoFirstName"
+                        labelText = "Ваше Імʼя *"
+                        fieldType = "text"
+                        fieldName = "signuoFirstName"
+                        fieldId = "signuoFirstName"
+                    }}
+                    {{> _fieldInput
+                        labelTarget = "signupMiddleName"
+                        labelText = "По батькові"
+                        fieldType = "text"
+                        fieldName = "signupMiddleName"
+                        fieldId = "signupMiddleName"
+                    }}
+                    {{> _fieldInput
+                        labelTarget = "signupPhone"
+                        labelText = "Контактний номер телефону *"
+                        fieldType = "text"
+                        fieldName = "signupPhone"
+                        fieldId = "signupPhone"
+                    }}
+                    {{> _fieldInput
+                        labelTarget = "signupEmail"
+                        labelText = "Електрона пошта *"
+                        fieldType = "email"
+                        fieldName = "signupEmail"
+                        fieldId = "signupEmail"
+                    }}
+                </div>
+            </form>
+            <div class="app-form__submit">
+                <p class="app-form__tcpa">
+                    Натискаючт кнопку ви погоджуєтесь з нашою <a href="javascript: void(0)"
+                        target="_blank">Політикою конфеденційності</a> та <a href="javascript: void(0)"
+                        target="_blank">Обробкою персональных данных</a>
+                </p>
+                <button type="submit" class="link-accent">
+                    <span>Зареєструватися</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

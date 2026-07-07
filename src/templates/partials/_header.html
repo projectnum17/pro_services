@@ -16,10 +16,15 @@
             {{> _navPanel}}
         </div>
         <div class="header__panel">
-            {{> _linkSecondary
-                label = "Зареєструвати пристрій"
-                additClass = 'js-app-trigger'
-            }}
+            <div class="site-controls">
+                <button type="button" class="site-controls__btn js-search-trigger">
+                    <img src="./assets/images/mvp2/search.svg" alt="Search">
+                </button>
+                <button type="button" class="site-controls__btn js-basket-trigger">
+                    <img src="./assets/images/mvp2/basket.svg" alt="Search">
+                    <span class="basket-count">12</span>
+                </button>
+            </div>
             {{> _linkAccount}}
             <a class="header__call  border-gradient" href="tel:+0000000000">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,4 +45,5 @@
             <span></span><span></span><span></span>
         </button>
     </div>
+    <div class="js-signup-trigger" style="position: absolute; top: 0;">signup</div>
 </header>

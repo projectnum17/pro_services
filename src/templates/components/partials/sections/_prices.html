@@ -22,7 +22,7 @@
             <div class="prices__cards js-prices-cards">
                 <p class="blog__empty" style="display: none;">Публікації відсутні</p>
                 {{#each prices.pricesServices}}
-                    {{> _priceBox this}}
+                    {{> _priceBox this service = 1}}
                 {{/each}}
             </div>
             {{> _btnMore additClasses = "js-prices-more"}}
@@ -30,7 +30,7 @@
         <div class="prices__content js-prices-content">
             <div class="prices__cards js-prices-cards">
                 {{#each prices.pricesSpare}}
-                    {{> _priceBox this }}
+                    {{> _priceBox this product = 1}}
                 {{/each}}
             </div>
             <button type="button" class="btn-more js-prices-more">

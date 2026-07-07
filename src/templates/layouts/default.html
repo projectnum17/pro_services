@@ -7,20 +7,24 @@
 
 <body>
     {{> _loader}}
-    <!-- added header -->
     {{> _header}}
     <main class="main">
         {{> _videoAttachement}}
         {{> body}}
     </main>
 
-    <!-- added footer -->
     {{> _footer}}
     {{> _mobileMenu}}
     {{> _modalRequestCall}}
     {{> _modalApplication}}
     {{> _modalMemory}}
     {{#if modalReview}} {{> _modalReview}} {{/if}}
+    {{> _modalSearch}}
+    {{> _supportBox}}
+    {{> _modalBasket}}
+    {{> _modalUser}}
+    {{> _modalEdit}}
+    {{> _modalDel}}
 </body>
 
 </html>
